@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import LandingPage from './Landing_Page/LandingPage'
+import LandingAbout from './Landing_Page/LandingAboutUs'
+import Footer from './Landing_Page/Footer'
+import Using from './Landing_Page/Using'
+
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LandingPage />
+      <LandingAbout />
+      <Using />
+      <Footer />
+    </>
   );
 }
 
