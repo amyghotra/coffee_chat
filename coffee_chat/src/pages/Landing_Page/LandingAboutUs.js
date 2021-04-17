@@ -1,13 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './LandingTop.css';
 
-import coffee from '../images/coffee.jpeg'
+// import coffee from '../images/coffee.jpeg'
 
-import Zoom from 'react-reveal/Zoom';
+// import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import Bounce from 'react-reveal/Bounce';
-
+// import Bounce from 'react-reveal/Bounce';
 
 export default function LandingAbout()
 {

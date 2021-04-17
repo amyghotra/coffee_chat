@@ -1,21 +1,13 @@
-import './App.css';
-import LandingPage from './Landing_Page/LandingPage'
-import LandingAbout from './Landing_Page/LandingAboutUs'
-import Footer from './Landing_Page/Footer'
-import Using from './Landing_Page/Using'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-import Zoom from 'react-reveal/Zoom';
-import Fade from 'react-reveal/Fade';
+import AppRouter from './router';
 
-
-function App() {
+const App = () => {
   return (
-    <>
-      <LandingPage />
-      <LandingAbout />
-      <Using />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 }
 
