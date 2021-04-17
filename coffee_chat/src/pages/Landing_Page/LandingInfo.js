@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './LandingTop.css';
-import new_york from '../images/coffee.jpeg'
+// import ReactDOM from 'react-dom';
+// import './LandingTop.css';
+import new_york from '../../images/coffee.jpeg'
 
-import Zoom from 'react-reveal/Zoom';
+// import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import Bounce from 'react-reveal/Bounce';
+// import Bounce from 'react-reveal/Bounce';
 
-export default function LandingPage()
+export default function LandingInfo()
 {
     return(
         <>
@@ -24,7 +24,7 @@ export default function LandingPage()
                 </div>
                 </Fade>
                 <Fade>
-                    <img id="new_york" src={new_york}/> 
+                    <img id="new_york" src={new_york} alt="New York City" /> 
                 </Fade>
             </div>
         </>
