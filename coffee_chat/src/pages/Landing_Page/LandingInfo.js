@@ -1,4 +1,6 @@
 import React from 'react';
+
+// import { Link } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 // import './LandingTop.css';
 import new_york from '../../images/coffee.jpeg'
@@ -14,6 +16,7 @@ export default function LandingInfo()
             <div>
                 <p className ="landing_seeker" id="seeker_landing">CoffeeChat</p>
                 <div id="buttons">
+                    {/* <Link to="/error404" className="btn btn-primary">test</Link> */}
                     <button id ="login_button">Login</button>
                     <button id ="sign_up">Sign Up</button>
                 </div>
