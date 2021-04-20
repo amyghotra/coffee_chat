@@ -12,7 +12,7 @@ export default function LandingInfo()
     return(
         <>
             <div>
-                <p className ="landing_seeker" id="seeker_landing">CoffeeChat</p>
+                <p className ="landing_coffee_chat" id="coffee_chat_landing">CoffeeChat</p>
                 <div id="buttons">
                     <button id ="login_button">Login</button>
                     <button id ="sign_up">Sign Up</button>

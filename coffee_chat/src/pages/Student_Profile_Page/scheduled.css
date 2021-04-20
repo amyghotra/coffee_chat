@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
+
+#student-scheduled-meeting {
+    margin-top: 0;
+    font-family: 'Raleway', sans-serif;
+    width:100vw;
+    height: 75vh;
+    background-color: #AB998F;
+    /* C1A9A3 */
+}
+
+.student-scheduled-container{
+    padding-left: 250px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+#meetings {
+    padding-top: 30px;
+    overflow: scroll;
+    line-height: 1vh;
+    /* padding-top: 50px; */
+    background-color: #283044;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height: 60vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.prof_info{
+    color:white;
+    font-size: 17px;
+    margin-left:-200px;
+    font-weight: 200;
+    line-height: 0px;
+}
+
+#cancel_meeting{
+    color:white;
+    height: 35px;
+    width: 80px;
+    background-color: #AB998F;
+    border: none;
+    /* margin-top: 20px;
+    margin-left: -140px; */
+    border-radius: 7px;
+}
