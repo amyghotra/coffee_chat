@@ -15,7 +15,7 @@ class StudentInfo extends React.Component{
             <div style={{display:"flex", flexDirection:"row"}}>
                     <div style={{backgroundColor:"#AB998F"}}>
                         <Fade left>
-                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"font-family: 'Raleway', sans-serif;"}} id="student_name" className="student-profile-top-item">John Smithstudent</h3>
+                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif"}} id="student_name" className="student-profile-top-item">John Smithstudent</h3>
                         </Fade>
                     </div>
                     <div className="student-profile-top-container">

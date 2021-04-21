@@ -13,7 +13,7 @@
     padding-left: 250px;
     padding-top: 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
@@ -21,9 +21,25 @@
 }
 
 
+#professional_information{
+    /* background-color: red; */
+    width: 350px;
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+}
+
+#klkl{
+    height: 55vw;
+    width:70vw;
+    display: flex;
+    flex-flow: row;
+    overflow: scroll;
+}
+
 #meetings {
     padding-top: 30px;
-    overflow: scroll;
+    /* overflow: scroll; */
     line-height: 1vh;
     /* padding-top: 50px; */
     background-color: #283044;
@@ -38,7 +54,7 @@
 .prof_info{
     color:white;
     font-size: 17px;
-    margin-left:-200px;
+    /* margin-left:-200px; */
     font-weight: 200;
     line-height: 0px;
 }
