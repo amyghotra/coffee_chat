@@ -1,6 +1,9 @@
 import React from 'react'
 import './proinfo.css'
 import Fade from 'react-reveal/Fade';
+import ProEditInfo  from './ProEditInfo'
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 class ProfessionalInfo extends React.Component{
     constructor(){
@@ -29,10 +32,10 @@ class ProfessionalInfo extends React.Component{
                             </div>
                             <div>
                                 <div>
-                                    <button className="pro-profile-top-item" id="edit_profile_button">set profile</button>
+                                    <Link to='./pro-edit'><button className="pro-profile-top-item" id="edit_profile_button">edit profile</button></Link>
                                 </div>
                                 <div>
-                                    <button className="pro-profile-top-item" id="edit_profile_button">edit schedule</button>
+                                    <Link to='./schedit'><button className="pro-profile-top-item" id="edit_profile_button">set schedule</button></Link>
                                 </div>
                             </div>
                             

@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
 
+/* 
+.pro-profile-top-item::-webkit-scrollbar {
+    width: 0.4em;
+    background-color: transparent;
+    height:0.4em;
+}
+
+.pro-profile-top-item::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+    border-radius: 12px;
+    width: 0em;
+    height: 0em;
+}
+
+.pro-profile-top-item::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    width: 0em;
+    height: 0em;
+    outline: 0px solid #555B6E;
+    border-radius: 12px;
+} */
+
 #pro_profile {
     margin-top: 0;
     font-family: 'Raleway', sans-serif;
