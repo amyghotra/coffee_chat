@@ -19,7 +19,7 @@ img {
   position: fixed;
 }
 
-.landing_seeker
+.landing_coffee_chat
 {
   position: absolute;
   /* font: weight 200px; */
@@ -35,7 +35,7 @@ img {
   z-index: 0;
 }
 
-#seeker_landing
+#coffee_chat_landing
 {
   margin-top: 20px;
   margin-left: 25px;
@@ -146,7 +146,7 @@ img {
 }
 
 
-.about_us h3
+.about_us  h3
 {
   z-index: 2;
   font-size: 25px;

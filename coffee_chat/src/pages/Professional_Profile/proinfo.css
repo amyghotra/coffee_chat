@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
+
+/* 
+.pro-profile-top-item::-webkit-scrollbar {
+    width: 0.4em;
+    background-color: transparent;
+    height:0.4em;
+}
+
+.pro-profile-top-item::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+    border-radius: 12px;
+    width: 0em;
+    height: 0em;
+}
+
+.pro-profile-top-item::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    width: 0em;
+    height: 0em;
+    outline: 0px solid #555B6E;
+    border-radius: 12px;
+} */
+
+#pro_profile {
+    margin-top: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.pro-profile-top-container {
+    background-color: #283044;
+    /* EEDACD */
+    /* // 6f5e53 */
+    display: flex;
+    color:white;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: left;
+    height: 25vh;
+    width: 100vw;
+    line-height: 0.2em;
+}
+
+.pro-profile-top-item {
+    color:white;
+    /* flex-grow: 1; */
+    margin: auto;
+    /* font-size: 15px; */
+    font-size: 15px;
+}
+
+#pro_name{
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+#linkedin {
+    text-decoration: underline;
+}
+
+#edit_profile_button {
+    font-family: 'Raleway', sans-serif;
+    margin-left: 55px;
+    margin-top: 20px;
+    background-color: transparent;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    text-decoration: underline;
+}

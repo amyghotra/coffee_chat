@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
+
+#new_meeting {
+    background-color: #AB998F;
+    margin-top: 0;
+    font-family: 'Raleway', sans-serif;
+    width:100vw;
+    height: 75vh;
+}
+
+#search_form {
+    display: flex;
+    flex-flow: column;
+}
+
+.search_input_field {
+    width: 250px; 
+    height: 20px; 
+    border: 1px solid #999999; 
+    padding: 5px;
+    border-radius: 5px;
+    text-align: right;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+}
+
+.new-meeting-container {
+    padding-left: 250px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#searches{
+    line-height: 7vh;
+    background-color: #283044;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 64vh;
+    width: 75vw;
+    border-radius: 10px;
+}
+
+.search_title{
+    color:white;
+    font-size: 20px;
+    margin-left:-240px
+}
+
+.search_button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color:black;
+    height: 35px;
+    width: 80px;
+    background-color: #8b786d;
+    border: none;
+    margin-top: 70px;
+    border-radius: 7px;
+    /* margin-left: 230px; */
+}
