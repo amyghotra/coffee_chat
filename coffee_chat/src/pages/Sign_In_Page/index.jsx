@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core';
 
-// import { COLOR_PALETTE } from '../../utils/theme.js';
 import coffee_img from '../../images/coffee.jpeg';
 
 import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
@@ -49,10 +48,22 @@ const useStyle = makeStyles({
     boxShadow: "rgb(0, 0, 0, 0.4)",
     textAlign: "center",
     margin: ".5em .5em 2em",
+  },
+  submitButton: {
+    textAlign: "center",
+    width: "15em",
+    margin: "2em auto 0",
+    display: "flex",
+    justifyContent: "center",
+  },
+  center: {
+    textAlign: "center",
+    margin: "auto",
   }
 })
 
 const LoginForm = () => {
+  const styleClasses = useStyle();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -86,7 +97,7 @@ const LoginForm = () => {
           placeholder="Password" onChange={handlePassUpdate} />
         </FormGroup>
         <FormGroup>
-          <Button onClick={handleLogin}> Login </Button>
+          <Button className={styleClasses.submitButton} onClick={handleLogin}> Login </Button>
         </FormGroup>
       </Form>
     </div>
@@ -94,6 +105,8 @@ const LoginForm = () => {
 }
 
 const SignUpForm = () => {
+ const styleClasses = useStyle();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [errorMessage, setErrorMessage] = useState();
@@ -125,7 +138,9 @@ const SignUpForm = () => {
           <Input type='password' name="password" id="password" 
           placeholder="Password" onChange={handlePassUpdate} />
         </FormGroup>
-        <Button onClick={handleLogin}> Login </Button>
+        <FormGroup>
+          <Button className={styleClasses.submitButton} onClick={handleLogin} >Create</Button>
+        </FormGroup>
       </Form>
     </div>
   )
@@ -134,8 +149,7 @@ const SignUpForm = () => {
 const SignInPage = () => {
   const styleClasses = useStyle();
 
-  // method here is a boolean, 1 for login; 0 for signup
-  const [method, toggleMethod] = useState(true);
+  const [method, toggleMethod] = useState(true); // method is referring to sign up or login
 
   const handleSwitch = () => {
     toggleMethod((method) => !method);
@@ -152,8 +166,6 @@ const SignInPage = () => {
             <h5>Register</h5>
           </Col>
         </Row>
-        
-        <h4>Login</h4>
         <LoginForm />
       </div>
     </>
@@ -170,8 +182,6 @@ const SignInPage = () => {
             <h5>Register</h5>
           </Col>
         </Row>
-        
-        <h4>Register</h4>
         <SignUpForm />
       </div>
     </>
