@@ -1,7 +1,17 @@
+#pro_edit_info_page{
+    margin-top: -25px;
+    height: 100vh;
+    width: 100vw;
+    background-color: #8b786d;
+}
+
 #pro_edit_page_title{
     color:black;
     margin-left: 30px;
+    /* margin-top: 60px; */
+    padding-top: 30px;
     font-size: 30px;
+    /* background-color: red; */
 }
 
 #pro_edit_info_form {
@@ -17,5 +27,18 @@
     background-color: #283044;
 }
 
-#pro_edit_info_page {
+#update_info_button{
+    width:100px;
+    height:25px; 
+    background-color:#c5b0a2; 
+    border-radius:5px;
+    border:1px solid black;
+    font-family: 'Raleway', sans-serif;
+}
+
+#update_info_button:hover{
+    transition: 1s;
+    background-color: #ab998f;
+    border: 1px solid #ab998f;
+    /* color: white; */
 }
