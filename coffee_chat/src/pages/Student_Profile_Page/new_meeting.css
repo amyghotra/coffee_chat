@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
 
 #new_meeting {
-    background-color: #AB998F;
+    background-color: white;
     margin-top: 0;
     font-family: 'Raleway', sans-serif;
     width:100vw;
@@ -11,11 +11,13 @@
 #search_form {
     display: flex;
     flex-flow: column;
+    margin-top: 30px;
+    /* background-color: red; */
 }
 
 .search_input_field {
     width: 250px; 
-    height: 20px; 
+    height: 30px; 
     border: 1px solid #999999; 
     padding: 5px;
     border-radius: 5px;
@@ -32,27 +34,31 @@
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
 }
 
 #searches{
     line-height: 7vh;
-    background-color: #283044;
+    background-color: white;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: rebeccapurple; */
+    padding: 40px;
     height: 64vh;
     width: 75vw;
     border-radius: 10px;
 }
 
 .search_title{
-    color:white;
+    color:black;
     font-size: 20px;
     margin-left:-240px
 }
 
-.search_button {
+#search_button {
+    padding-bottom: 0px;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     color:black;

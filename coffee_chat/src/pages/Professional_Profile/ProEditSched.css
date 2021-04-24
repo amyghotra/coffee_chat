@@ -1,6 +1,12 @@
+#sched_info {
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    height:max-content;
+}
+
 #sched_form{
     justify-content: center;
-    /* background-color: aquamarine; */
     width: 50vw;
     height: 50vh;
     margin-top: 20px;
@@ -9,30 +15,28 @@
 }
 
 #pro_edit_sched_container {
+    padding-top: 30px;
     display: flex;
     flex-flow: column;
     width: 50vw;
-    height: 100vh;
-    /* align-items: center; */
-    background-color: #283044;
-    color:white;
+    background-color: white;
+    color:black;
 }
 
 #schedule_selection {
-    /* width:; */
+    font-family: 'Raleway', sans-serif;
     width: 20vw;
-    /* background-color: blue; */
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    /* margin-left: 45vw;
-    margin-top: 20vh; */
 }
 
 #edit_sched_title {
     margin-left: 2vw;
     font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
 
 #date_picker, #time_picker{
@@ -44,8 +48,6 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    /* margin-left: 45vw; */
-    /* background-color: purple; */
 }
 
 #text_input {
@@ -55,15 +57,70 @@
     border-radius: 7px;
 }
 
-#sched_info {
-    width: 100vw;
-    display: flex;
-    flex-flow: row;
+#submit_time_button{
+    width:70px; 
+    height:30px; 
+    border-radius:5px; 
+    background-color:#283044; 
+    color: white; 
+    border:1px solid #283044;
+}
+
+#submit_time_button:hover{
+    transition: 1s;
+    background-color: #ab998f;
+    border: 1px solid #ab998f;
 }
 
 #current_sched{
+    font-family: 'Raleway', sans-serif;
+    padding-top: 30px;
     background-color: #ab998f;
     width: 50vw;
     display: flex;
     flex-flow: column;
+    align-items: center;
+}
+
+#current_sched_title {
+    margin-left: -25vw;
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+#current_sched_list{
+    height: 83vh;
+    width: 40vw;
+    display: flex;
+    flex-flow: column;
+    overflow: scroll;
+}
+
+#current_sched_item{
+    height: 23vh;
+    width: 40vw;
+}
+
+#current_date, #current_time{
+    font-size: 18px;
+    color:black;
+    font-weight: 300;
+}
+
+#cancel_date_button{
+    height: 30px;
+    width:75px; 
+    font-size: 15px;
+    margin-left: 350px;
+    color: white;
+    background-color: #283044;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+#cancel_date_button:hover{
+    transition: 1s;
+    background-color: #8b786d;
+    border: 1px solid #8b786d;
+    border-radius: 5px;
 }

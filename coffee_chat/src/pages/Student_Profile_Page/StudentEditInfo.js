@@ -1,8 +1,7 @@
 import React from 'react'
-import './proeditinfo.css'
-import NavBar from '../../components/navbar/index'
+import './studenteditinfo.css'
 
-class ProEditInfo extends React.Component {
+class StudentEditInfo extends React.Component {
     constructor() {
         super();
         this.state={
@@ -30,7 +29,6 @@ class ProEditInfo extends React.Component {
     render(){
         return(
             <>
-            <NavBar />
                 <div id="pro_edit_info_page">
                 <h2 id="pro_edit_page_title">Edit your information</h2>
                     <div id="pro_edit_info_form">
@@ -74,4 +72,4 @@ class ProEditInfo extends React.Component {
     }
 }
 
-export default ProEditInfo
+export default StudentEditInfo

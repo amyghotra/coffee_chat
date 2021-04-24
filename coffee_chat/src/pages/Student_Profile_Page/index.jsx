@@ -2,7 +2,7 @@ import React from 'react';
 import StudentInfo from './StudentInfo'
 import NewMeetings from './NewMeeting'
 import ScheduledMeetings from './ScheduledMeetings'
-// import Fade from 'react-reveal/Fade';
+import NavBar from '../../components/navbar/index'
 
 class Student_Profile extends React.Component{
     constructor()
@@ -14,7 +14,8 @@ class Student_Profile extends React.Component{
     render(){
         return(
             <>
-                    <StudentInfo />
+            <NavBar />
+                <StudentInfo />
                 <div id="make-row" style={{display:"flex", flexDirection:"column"}}>
                     <div id="new_meets">
                         <ScheduledMeetings />

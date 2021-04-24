@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProEditSched.css'
+import NavBar from '../../components/navbar/index'
 
 class ProEditSched extends React.Component{
     constructor() {
@@ -24,6 +25,7 @@ class ProEditSched extends React.Component{
     render(){
         return(
             <>
+            <NavBar />
                 <div id="sched_info">
                     <div id="pro_edit_sched_container">
                         <h2 id="edit_sched_title">Edit your availability</h2>
@@ -42,14 +44,20 @@ class ProEditSched extends React.Component{
                                 </div>
 
                                 <br />
-                                <button style={{width:"70px", height:"30px"}} type="submit">submit</button>
+                                <button id="submit_time_button" type="submit">submit</button>
                             </form>
                         </div>
                     </div>
                     
                     <div id="current_sched">
-                    <h2 id="edit_sched_title">Current availability</h2>
-                        <div className="current_times"></div>
+                        <h2 id="current_sched_title">Currently selected</h2>
+                        <div id="current_sched_list">
+                            <div id="current_sched_item">
+                                <p id="current_date">Date</p>
+                                <p id="current_time">Time</p>
+                                <button id="cancel_date_button">Remove</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </>
