@@ -1,5 +1,6 @@
 import React from 'react'
 import './new_meeting.css'
+import Fade from 'react-reveal/Fade';
 
 class NewMeetings extends React.Component {
     constructor(){
@@ -27,20 +28,22 @@ class NewMeetings extends React.Component {
         return (
             <>
                 <div id="new_meeting">
-                    <div className="new-meeting-container">
-                        <div id="searches"> 
-                            <h3 style={{color:"white", fontSize:"23px"}}>Schedule a new meeting</h3>
-                            <form  id="search_form" onSubmit={this.searchSubmitted}>
-                                <label className="search_title">Search by profession:</label>
-                                <input className="search_input_field" name="profession" value={this.state.profession} type="text" onChange={this.onChange} />
+                    <Fade bottom> 
+                        <div className="new-meeting-container">
+                            <div id="searches"> 
+                                <h3 style={{color:"black", fontSize:"25px"}}>Schedule a new meeting</h3>
+                                <form  id="search_form" onSubmit={this.searchSubmitted}>
+                                    <label className="search_title">Search by profession:</label>
+                                    <input className="search_input_field" name="profession" value={this.state.profession} type="text" onChange={this.onChange} />
 
-                                <label className="search_title">Search by company: </label>
-                                <input className="search_input_field" name="company_name" value={this.state.company_name} type="text" onChange={this.onChange} />
+                                    <label className="search_title">Search by company: </label>
+                                    <input className="search_input_field" name="company_name" value={this.state.company_name} type="text" onChange={this.onChange} />
                             
-                                <button type="submit" className="search_button" value="submit">Search</button> 
-                            </form>
+                                    <button id="search_button" value="submit">Search</button> 
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    </Fade>
                 </div>
             </>
         )

@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProEditSched.css'
+import NavBar from '../../components/navbar/index'
 
 class ProEditSched extends React.Component{
     constructor() {
@@ -24,6 +25,7 @@ class ProEditSched extends React.Component{
     render(){
         return(
             <>
+            <NavBar />
                 <div id="sched_info">
                     <div id="pro_edit_sched_container">
                         <h2 id="edit_sched_title">Edit your availability</h2>

@@ -28,11 +28,11 @@
 }
 
 .pro-profile-top-container {
-    background-color: #283044;
+    background-color: white;
     /* EEDACD */
     /* // 6f5e53 */
     display: flex;
-    color:white;
+    color:#283044;
     flex-direction: column;
     flex-wrap:wrap;
     justify-content: center;
@@ -43,11 +43,11 @@
 }
 
 .pro-profile-top-item {
-    color:white;
+    color:#283044;
     /* flex-grow: 1; */
     margin: auto;
     /* font-size: 15px; */
-    font-size: 15px;
+    font-size: 20px;
 }
 
 #pro_name{
@@ -66,6 +66,6 @@
     background-color: transparent;
     border-radius: 7px;
     border: none;
-    color: white;
+    color: #283044;
     text-decoration: underline;
 }

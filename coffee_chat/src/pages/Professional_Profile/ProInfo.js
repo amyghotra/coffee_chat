@@ -1,7 +1,6 @@
 import React from 'react'
 import './proinfo.css'
 import Fade from 'react-reveal/Fade';
-// import ProEditInfo  from './ProEditInfo'
 import { Link } from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 
@@ -16,9 +15,9 @@ class ProfessionalInfo extends React.Component{
             <div id="pro">
             {/* <Fade left cascade> */}
             <div style={{display:"flex", flexDirection:"row"}}>
-                    <div style={{backgroundColor:"#283044"}}>
+                    <div style={{backgroundColor:"white"}}>
                         <Fade left>
-                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif"}} id="pro_name" className="pro-profile-top-item">Katy Johnsonpro</h3>
+                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif", backgroundColor:"white"}} id="pro_name" className="pro-profile-top-item">Katy Johnsonpro</h3>
                         </Fade>
                     </div>
                     <div className="pro-profile-top-container">

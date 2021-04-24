@@ -1,36 +1,41 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
-
+import React, { useState } from 'react';
 import {
-  makeStyles,
-  Appbar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  MenuIcon,
-} from "@material-ui/core";
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap';
+import './nav.css'
+import logo from  '../../images/logo.png'
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-  },
-  title: {
-    marginLeft: 0,
-    paddingLeft: 0,
-    flexGrow: 1,
-  },
-  navlink: {
-    textDecoration: "none",
-  },
-});
 
-const Navbar = () => {
-  const classes = useStyles();
+const NavBar = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <h1>navbar</h1>
+    <div id="universal_navbar">
+      <Navbar style={{backgroundColor:"#283044", color:"white"}} light expand="md">
+      <img id="nav_img" src={logo} />
+        <NavbarBrand style={{color:"white"}} className="nav_text" href="/landing">CoffeeChat</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+          <NavItem>
+              <NavLink style={{color:"white"}} className="nav_text" href="/landing">About Us</NavLink>
+          </NavItem>
+          <NavItem>
+              <NavLink style={{color:"white"}} className="nav_text" href="/">Logout</NavLink>
+          </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
   );
 }
 
-export default Navbar;
+export default NavBar;

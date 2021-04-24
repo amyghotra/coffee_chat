@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
 
-#student_profile {
+#public_pro_profile {
     margin-top: 0;
     font-family: 'Raleway', sans-serif;
 }
 
-.student-profile-top-container {
-    background-color: white;
+.public_pro-profile-top-container {
+    background-color: #283044;
     /* EEDACD */
     /* // 6f5e53 */
     display: flex;
-    color:#283044;
+    color:white;
     flex-direction: column;
     flex-wrap:wrap;
     justify-content: center;
@@ -20,30 +20,19 @@
     line-height: 0.2em;
 }
 
-.student-profile-top-item {
-    color:#283044;
+.public_pro-profile-top-item {
+    color:white;
     /* flex-grow: 1; */
     margin: auto;
     /* font-size: 15px; */
     font-size: 20px;
 }
 
-#student_name{
+#public_pro_name{
     padding-top: 10px;
     font-size: 20px;
 }
 
-#linkedin {
-    text-decoration: underline;
-}
-
-#edit_profile_button {
-    font-family: 'Raleway', sans-serif;
-    margin-left: 55px;
-    margin-top: 20px;
-    background-color: transparent;
-    border-radius: 7px;
-    border: none;
-    color: #58423a;
+#public_linkedin {
     text-decoration: underline;
 }
