@@ -1,8 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-// import ReactDOM from 'react-dom';
 import './LandingTop.css';
-import new_york from '../../images/coffee.jpeg'
+import coffee from '../../images/coffee.jpeg'
 
 import Fade from 'react-reveal/Fade';
 
@@ -39,7 +38,7 @@ class LandingInfo extends React.Component {
           </div>
           </Fade>
           <Fade>
-            <img id="new_york" src={new_york} alt="New York City" /> 
+            <img id="coffee" src={coffee} alt="New York City" /> 
           </Fade>
         </div>
       </>

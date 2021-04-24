@@ -1,5 +1,6 @@
 import React from 'react'
-import './studenteditinfo.css'
+import NavBar from '../../components/navbar/index'
+import './studenteditinfo.css' 
 
 class StudentEditInfo extends React.Component {
     constructor() {
@@ -7,9 +8,8 @@ class StudentEditInfo extends React.Component {
         this.state={
             name:"",
             email:"",
-            company:"",
-            role:"",
-            linkedin:""
+            school:"",
+            major:""
         }
         this.onSubmit = this.onSubmit.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -29,41 +29,54 @@ class StudentEditInfo extends React.Component {
     render(){
         return(
             <>
-                <div id="pro_edit_info_page">
-                <h2 id="pro_edit_page_title">Edit your information</h2>
-                    <div id="pro_edit_info_form">
+            <NavBar />
+                <div id="student_edit_info_page">
+                <h2 id="student_edit_page_title">Edit your information</h2>
+                    <div id="student_edit_info_form">
                         <form onSubmit={this.onSubmit}>
-                            <label>Name: </label>
-                            <br />
-                            <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="name" type="text" onChange={this.onChange} value={this.state.name} />
+                            <div style={{textAlign:"left"}}>
+                                <label>Name: </label>
+                                    <br />
+                                    <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="name" type="text" onChange={this.onChange} value={this.state.name} />
+
+                            </div>
+                           
+                            <br /><br />
+
+                            <div style={{textAlign:"left"}}>
+                                <label>Email: </label>
+                                <br />
+                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}}name="email" type="text" onChange={this.onChange} value={this.state.email} />
+                            </div>
+                            <br /><br />
+
+                            <div style={{textAlign:"left"}}>
+                                <label>School: </label>
+                                <br />
+                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="company" type="text" onChange={this.onChange} value={this.state.company} />
+                            </div>
 
                             <br /><br />
 
-                            <label>Email: </label>
-                            <br />
-                            <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}}name="email" type="text" onChange={this.onChange} value={this.state.email} />
+                            <div style={{textAlign:"left"}}>
+                                <label>Major: </label>
+                                <br />
+                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="role" type="text" onChange={this.onChange} value={this.state.role} />
+                            </div>
+
+                            <br /><br />
+                            
+                            <div style={{textAlign:"left"}}>
+                                <label>LinkedIn: </label>
+                                <br />
+                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="linkedin" type="text" onChange={this.onChange} value={this.state.linkedin} />
+                            </div>
 
                             <br /><br />
 
-                            <label>Company: </label>
-                            <br />
-                            <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="company" type="text" onChange={this.onChange} value={this.state.company} />
-
-                            <br /><br />
-
-                            <label>Role: </label>
-                            <br />
-                            <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="role" type="text" onChange={this.onChange} value={this.state.role} />
-
-                            <br /><br />
-
-                            <label>LinkedIn: </label>
-                            <br />
-                            <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="linkedin" type="text" onChange={this.onChange} value={this.state.linkedin} />
-
-                            <br /><br />
-                            <button id="update_info_button" type="submit" value="save">update</button>
-
+                            <div style={{textAlign:"right"}}>
+                                <button id="student_update_info_button" type="submit" value="save">update</button>
+                            </div>
                         </form>
                     </div>
                 </div>
