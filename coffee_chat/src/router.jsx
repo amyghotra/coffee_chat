@@ -8,12 +8,9 @@ import Student_Profile from './pages/Student_Profile_Page'
 import ProfessionalProfile from './pages/Professional_Profile/index'
 import ProEditInfo from './pages/Professional_Profile/ProEditInfo'
 import ProEditSched from './pages/Professional_Profile/ProEditSched'
-<<<<<<< HEAD
 import TopCompanyPage from "./pages/TopCompany_Page";
-=======
 import PublicProInfo from './pages/PublicViews/ProfessionalPublicView/index.jsx'
 import StudentEditInfo from  './pages/Student_Profile_Page/StudentEditProfile'
->>>>>>> main
 
 const AppRouter = () => (
   <Switch>
@@ -25,11 +22,8 @@ const AppRouter = () => (
     <Route exact path="/student_edit" component={StudentEditInfo} />
     <Route exact path="/pro-edit" component={ProEditInfo} />
     <Route exact path="/schedit" component={ProEditSched} />
-<<<<<<< HEAD
-    <Route exact path="/topcompany" component={TopCompanyPage} />
-=======
     <Route exact path="/propub" component={PublicProInfo} />
->>>>>>> main
+    <Route exact path="/topcompanies" component={TopCompanyPage} />
     <Redirect from="/" to="/landing" />
     <Redirect to="/error404" />
   </Switch>
