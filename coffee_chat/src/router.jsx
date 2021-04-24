@@ -10,7 +10,7 @@ import ProEditInfo from './pages/Professional_Profile/ProEditInfo'
 import ProEditSched from './pages/Professional_Profile/ProEditSched'
 import TopCompanyPage from "./pages/TopCompany_Page";
 import PublicProInfo from './pages/PublicViews/ProfessionalPublicView/index.jsx'
-import StudentEditInfo from  './pages/Student_Profile_Page/StudentEditProfile'
+import StudentEditInfo from  './pages/Student_Profile_Page/StudentEditInfo'
 
 const AppRouter = () => (
   <Switch>

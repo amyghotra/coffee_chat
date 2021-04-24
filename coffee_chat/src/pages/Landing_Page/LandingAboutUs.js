@@ -14,9 +14,9 @@ export default function LandingAbout()
     return(
         
             <div className="about_us">
-            <Fade>
-                <h2>About Us</h2>
-                <p>Paragraph here</p>
+                <Fade>
+                    <h2 className="section_title">About Us</h2>
+                    <p>Paragraph here</p>
                 </Fade>
             </div>
         

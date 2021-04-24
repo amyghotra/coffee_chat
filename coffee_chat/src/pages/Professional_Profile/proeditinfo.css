@@ -2,7 +2,7 @@
     margin-top: -25px;
     height: 100vh;
     width: 100vw;
-    background-color: #8b786d;
+    background-color: white;
 }
 
 #pro_edit_page_title{
@@ -10,28 +10,27 @@
     font-weight: 600;
     color:black;
     margin-left: 30px;
-    /* margin-top: 60px; */
+    margin-top: 30px;
     padding-top: 30px;
     font-size: 30px;
-    /* background-color: red; */
 }
 
 #pro_edit_info_form {
+    font-family: 'Raleway', sans-serif;
     color:white;
     padding: 40px;
     text-align: center;
     width: 500px;
-    height: 350px;
+    height:max-content;
     border-radius: 12px;
-    /* width:max-content; */
-    margin-left: 30vw;
-    margin-top: 10vh;
+    margin-left: 35vw;
+    margin-top: 5vh;
     background-color: #283044;
 }
 
 #update_info_button{
     width:100px;
-    height:25px; 
+    height:30px; 
     background-color:#c5b0a2; 
     border-radius:5px;
     border:1px solid black;
@@ -42,5 +41,4 @@
     transition: 1s;
     background-color: #ab998f;
     border: 1px solid #ab998f;
-    /* color: white; */
 }

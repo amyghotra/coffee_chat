@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-// import './LandingTop.css';
+import './LandingTop.css';
 
 import newyork from '../../images/newyork.jpeg';
 import presentation from '../../images/presentation.jpeg';
@@ -16,22 +16,22 @@ export default function Using()
     return(
         <>
             <div className="using">
-            <h2>Using CoffeeChat</h2>
+            <h2 className="section_title">Using CoffeeChat</h2>
                 <Fade left cascade>
                 <div id="four_imgs">
-                    <div id="eeee">
+                    <div className="using_imgs">
                         <img id="first_img" src={newyork} alt="New York" />
                         <p className="desc">here is some text</p>
                     </div>
-                    <div id="eeee">
+                    <div className="using_imgs">
                         <img id="second_img" src={presentation} alt="New York" />
                         <p className="desc">here is some text</p>
                     </div>
-                    <div id="eeee">
+                    <div className="using_imgs">
                         <img id="third_img" src={display} alt="New York" />
                         <p className="desc">here is some text</p>
                     </div>
-                    <div id="eeee">
+                    <div className="using_imgs">
                         <img id="fourth_img" src={chat} alt="New York" />
                         <p className="desc">here is some text</p>
                     </div>

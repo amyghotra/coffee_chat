@@ -1,6 +1,7 @@
 import React from 'react'
 import './info.css'
 import Fade from 'react-reveal/Fade';
+import {Link} from 'react-router-dom'
 
 class StudentInfo extends React.Component{
     constructor(){
@@ -28,7 +29,7 @@ class StudentInfo extends React.Component{
                                 <p className="student-profile-top-item" id="linkedin">https://www.linkedin.com</p> 
                             </div>
                             <div>
-                                <button className="student-profile-top-item" id="edit_profile_button">edit profile</button>
+                                <Link to='/student_edit'><button className="student-profile-top-item" id="edit_profile_button">edit profile</button></Link> 
                             </div>
                         </Fade>
                     </div>

@@ -38,8 +38,11 @@ class NewMeetings extends React.Component {
 
                                     <label className="search_title">Search by company: </label>
                                     <input className="search_input_field" name="company_name" value={this.state.company_name} type="text" onChange={this.onChange} />
-                            
-                                    <button id="search_button" value="submit">Search</button> 
+                                    
+                                    {/* <div> */}
+                                        <button type="submit" id="search_button" value="submit"><p style={{marginTop:"-40px", marginLeft:"-55px", fontSize:"18px"}}>Search</p></button> 
+                                    {/* </div> */}
+                                    
                                 </form>
                             </div>
                         </div>
