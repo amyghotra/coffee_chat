@@ -14,7 +14,7 @@ export default function LandingInfo()
     return(
         <>
             <div>
-                <p className ="landing_seeker" id="seeker_landing">CoffeeChat</p>
+                <p className ="landing_coffee_chat" id="coffee_chat_landing">CoffeeChat</p>
                 <div id="buttons">
                     {/* <Link to="/error404" className="btn btn-primary">test</Link> */}
                     <button id ="login_button">Login</button>

@@ -1,0 +1,69 @@
+#sched_form{
+    justify-content: center;
+    /* background-color: aquamarine; */
+    width: 50vw;
+    height: 50vh;
+    margin-top: 20px;
+    align-items: center;
+    display: flex;
+}
+
+#pro_edit_sched_container {
+    display: flex;
+    flex-flow: column;
+    width: 50vw;
+    height: 100vh;
+    /* align-items: center; */
+    background-color: #283044;
+    color:white;
+}
+
+#schedule_selection {
+    /* width:; */
+    width: 20vw;
+    /* background-color: blue; */
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 45vw;
+    margin-top: 20vh; */
+}
+
+#edit_sched_title {
+    margin-left: 2vw;
+    font-size: 30px;
+}
+
+#date_picker, #time_picker{
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* margin-left: 45vw; */
+    /* background-color: purple; */
+}
+
+#text_input {
+    height: 20px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 7px;
+}
+
+#sched_info {
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+}
+
+#current_sched{
+    background-color: #ab998f;
+    width: 50vw;
+    display: flex;
+    flex-flow: column;
+}

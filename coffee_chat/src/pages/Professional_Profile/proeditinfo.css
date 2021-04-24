@@ -1,0 +1,21 @@
+#pro_edit_page_title{
+    color:black;
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+#pro_edit_info_form {
+    color:white;
+    padding: 40px;
+    text-align: center;
+    width: 500px;
+    height: 350px;
+    border-radius: 12px;
+    /* width:max-content; */
+    margin-left: 30vw;
+    margin-top: 10vh;
+    background-color: #283044;
+}
+
+#pro_edit_info_page {
+}
