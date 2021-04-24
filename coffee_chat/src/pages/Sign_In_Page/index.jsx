@@ -13,7 +13,7 @@ const useStyle = makeStyles({
     border: "2px solid",
     padding: "2em",
     position: "absolute",
-    top: "25%",
+    top: "20%",
     borderRadius: '1em',
     backgroundColor: `rgb(255,255,255, 0.8)`,
   },
@@ -110,6 +110,9 @@ const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [errorMessage, setErrorMessage] = useState();
+  const [isStudent, setIsStudent] = useState(true);
+  const [company, setCompany]   = useState("");
+  const [jobTitle, setJobTitle] = useState("");
   
   const handleUserUpdate = (event) => {
     setUsername(event.target.value);
@@ -119,27 +122,79 @@ const SignUpForm = () => {
     setPassword(event.target.value);
   }
 
+  const handleStudent = (event) => {
+    setIsStudent(true);
+  }
+
+  const handlePro = (event) => {
+    setIsStudent(false);
+  }
+
+  const handleCompanyUpdate = (event) => {
+    setCompany(event.target.value);
+  }
+
+  const handleTitleUpdate = (event) => {
+    setJobTitle(event.target.value);
+  }
+
   const handleLogin = (event) => {
     console.log('try sign up');
   }
 
   return (
     <div>
-      {console.log('sign up',username, password)}
+      {console.log('sign up',username, password, isStudent, company, jobTitle)}
 
       <Form>
+        {/* Username */}
         <FormGroup>
           <Label for="username">Username</Label>
           <Input type='text' name="username" id="username" 
           placeholder="Username" onChange={handleUserUpdate} />
         </FormGroup>
+        {/* Password */}
         <FormGroup>
           <Label for="password">Password</Label>
           <Input type='password' name="password" id="password" 
           placeholder="Password" onChange={handlePassUpdate} />
         </FormGroup>
+        {/* Position */}
         <FormGroup>
-          <Button className={styleClasses.submitButton} onClick={handleLogin} >Create</Button>
+          <Label for="position">Are you a student or a professional?</Label>
+          <FormGroup check>
+            <Label check>
+              <Input type="radio" name="position" onChange={handleStudent} />
+              Student
+            </Label>
+          </FormGroup>
+          <FormGroup check>
+            <Label check>
+              <Input type="radio" name="position" onChange={handlePro}/>
+              Professional
+            </Label>
+          </FormGroup>
+        </FormGroup>
+        {/* Pros additional info */}
+        {isStudent? null: (
+          <>
+            {/* Company */}
+            <FormGroup>
+              <Label for="company">Company</Label>
+              <Input type='text' name="company" id="company" 
+              placeholder="ex: Google" onChange={handleCompanyUpdate} />
+            </FormGroup>
+            {/* Position */}
+            <FormGroup>
+              <Label for="jobTitle">Job Title</Label>
+              <Input type='jobTitle' name="jobTitle" id="jobTitle" 
+              placeholder="ex: Senior Software Engineer" onChange={handleTitleUpdate} />
+            </FormGroup>
+          </>
+        )}
+        {/* Submit */}
+        <FormGroup>
+          <Button className={styleClasses.submitButton} onClick={handleLogin} >Create Account</Button>
         </FormGroup>
       </Form>
     </div>
