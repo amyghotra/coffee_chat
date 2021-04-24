@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 import './LandingTop.css';
 import new_york from '../../images/coffee.jpeg'
