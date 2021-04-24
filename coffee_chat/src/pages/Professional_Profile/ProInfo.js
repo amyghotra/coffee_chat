@@ -1,9 +1,9 @@
 import React from 'react'
 import './proinfo.css'
 import Fade from 'react-reveal/Fade';
-import ProEditInfo  from './ProEditInfo'
+// import ProEditInfo  from './ProEditInfo'
 import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 class ProfessionalInfo extends React.Component{
     constructor(){

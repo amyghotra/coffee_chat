@@ -2,7 +2,7 @@ import React from 'react';
 import StudentInfo from './StudentInfo'
 import NewMeetings from './NewMeeting'
 import ScheduledMeetings from './ScheduledMeetings'
-import Fade from 'react-reveal/Fade';
+// import Fade from 'react-reveal/Fade';
 
 class Student_Profile extends React.Component{
     constructor()
