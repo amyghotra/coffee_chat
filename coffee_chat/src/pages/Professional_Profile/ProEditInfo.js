@@ -62,7 +62,7 @@ class ProEditInfo extends React.Component {
                             <input style={{height:"20px", width:"250px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="linkedin" type="text" onChange={this.onChange} value={this.state.linkedin} />
 
                             <br /><br />
-                            <button style={{width:"100px",height:"25px", backgroundColor:"#c5b0a2", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} id="save" type="submit" value="save">save</button>
+                            <button id="update_info_button" type="submit" value="save">update</button>
 
                         </form>
                     </div>
