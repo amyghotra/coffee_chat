@@ -10,6 +10,9 @@ const useStyle = makeStyles({
     display: "flex",
     justifyContent: "center",
   },
+  form: {
+    
+  }
 })
 
 const LoginForm = () => {
@@ -36,7 +39,7 @@ const LoginForm = () => {
     <div>
       {console.log('login', username, password)}
 
-      <Form>
+      <Form className={styleClasses.form}>
         <FormGroup>
           <Label for="username">Username</Label>
           <Input type='text' name="username" id="username" 

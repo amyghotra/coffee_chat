@@ -13,12 +13,15 @@ import SignUpForm from "../signup";
 const useStyle = makeStyles({
   formContainer: {
     width: "25em",
+    // minHeight: "25em",
+    height: "40em",
     border: "2px solid",
     padding: "2em",
-    position: "absolute",
+    position: "relative",
     top: "20%",
     borderRadius: '1em',
     backgroundColor: `rgb(255,255,255, 0.8)`,
+    // margin: "auto",
   },
   pageContainer: {
     height: "100vh",
@@ -29,6 +32,7 @@ const useStyle = makeStyles({
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
+    verticalAlign: "center",
   },
   buttonPrimary: {
     padding: "3px",
@@ -42,7 +46,7 @@ const useStyle = makeStyles({
     cursor: "pointer",
   },
   formSelector: {
-    position: "relative",
+    position: "static",
     zIndex: 10,
     boxShadow: "rgb(0, 0, 0, 0.4)",
     textAlign: "center",
