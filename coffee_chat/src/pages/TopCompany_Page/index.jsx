@@ -9,6 +9,7 @@ import {
   TableRow,
   Paper,
   Container,
+  Typography,
 } from "@material-ui/core";
 
 import Navbar from "../../components/navbar";
@@ -16,6 +17,9 @@ import Navbar from "../../components/navbar";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
+  },
+  center: {
+    textAlign: "center",
   }
 });
 
@@ -67,9 +71,10 @@ const CompanyList = () => {
               return (
                 <TableRow key={index}>
                   <TableCell>{index + 1}</TableCell>
-                  <TableCell>{name}</TableCell>
+                  <TableCell component="th" scope="row">{name}</TableCell>
                   <TableCell>{hours}</TableCell>
                 </TableRow>
+                
               ) 
             })
           }
@@ -82,9 +87,11 @@ const CompanyList = () => {
 const TopCompanyPage = () => {
   return (
     <div>
-      
+      <Navbar />
       <Container fixed >
-        
+        <Typography variant="h3" gutterBottom>
+          Rankings of Helpful Companies
+        </Typography>
         <CompanyList />
       </Container>
     </div>
