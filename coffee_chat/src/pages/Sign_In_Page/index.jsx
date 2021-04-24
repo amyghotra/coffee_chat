@@ -1,5 +1,12 @@
 import React from 'react';
+import SignInForm from "../../components/signin_form";
 
-const SignInPage = () => <h1>Sign In Page</h1>;
+const SignInPage = () => {
+  return (
+    <div>
+      <SignInForm />
+    </div>
+  )
+}
 
 export default SignInPage;
