@@ -1,6 +1,7 @@
 import React from 'react'
 import ProScheduledMeetings from './ProScheduledMeetings'
 import ProfessionalInfo from './ProInfo'
+import NavBar from '../../components/navbar/index'
 
 class ProfessionalProfile extends React.Component {
     constructor(){
@@ -11,11 +12,9 @@ class ProfessionalProfile extends React.Component {
     render(){
         return(
             <>
+                <NavBar />
                 <ProfessionalInfo />
                 <div style={{display:"flex", flexDirection:"row"}}>
-                    {/* <div style={{backgroundColor:"#0000", height:"90px"}}>
-                        <button  style={{backgroundColor:"#0000", height:"90px"}}>Edit sched</button>
-                    </div> */}
                     <ProScheduledMeetings />
                 </div>
             </>

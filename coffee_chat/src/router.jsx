@@ -8,6 +8,7 @@ import Student_Profile from './pages/Student_Profile_Page'
 import ProfessionalProfile from './pages/Professional_Profile/index'
 import ProEditInfo from './pages/Professional_Profile/ProEditInfo'
 import ProEditSched from './pages/Professional_Profile/ProEditSched'
+import PublicProInfo from './pages/PublicViews/ProfessionalPublicView/index.jsx'
 
 const AppRouter = () => (
   <Switch>
@@ -18,6 +19,7 @@ const AppRouter = () => (
     <Route exact path="/professionalprofile" component={ProfessionalProfile} />
     <Route exact path="/pro-edit" component={ProEditInfo} />
     <Route exact path="/schedit" component={ProEditSched} />
+    <Route exact path="/propub" component={PublicProInfo} />
     <Redirect from="/" to="/landing" />
     <Redirect to="/error404" />
   </Switch>

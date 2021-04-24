@@ -5,7 +5,7 @@
     font-family: 'Raleway', sans-serif;
     width:100vw;
     height: 75vh;
-    background-color: #AB998F;
+    background-color: white;
     /* C1A9A3 */
 }
 
@@ -22,6 +22,7 @@
 
 
 #professional_information{
+    margin-top: 80px;
     /* background-color: red; */
     width: 350px;
     height: 300px;
@@ -29,20 +30,13 @@
     flex-flow: column;
 }
 
-#student_meeting_container{
-    height: 60vh;
-    width:72vw;
-    display: flex;
-    flex-flow: row;
-    overflow: scroll;
-}
-
 #meetings {
     padding-top: 30px;
     /* overflow: scroll; */
     line-height: 1vh;
     /* padding-top: 50px; */
-    background-color: #283044;
+    background-color: white;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -51,8 +45,16 @@
     border-radius: 10px;
 }
 
+#student_meeting_container{
+    height: 60vh;
+    width:70vw;
+    display: flex;
+    flex-flow: row;
+    overflow: scroll;
+}
+
 .prof_info{
-    color:white;
+    color:black;
     font-size: 17px;
     /* margin-left:-200px; */
     font-weight: 200;
@@ -61,10 +63,9 @@
 
 #cancel_meeting{
     font-family: 'Raleway', sans-serif;
-    color:white;
     height: 35px;
     width: 80px;
-    background-color: #AB998F;
+    /* background-color: #AB998F; */
     border: none;
     /* margin-top: 20px;
     margin-left: -140px; */
