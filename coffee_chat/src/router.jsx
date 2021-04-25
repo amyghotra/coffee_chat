@@ -21,7 +21,7 @@ const AppRouter = () => (
     <Route exact path="/student_edit" component={StudentEditInfo} />
     <Route exact path="/pro-edit" component={ProEditInfo} />
     <Route exact path="/schedit" component={ProEditSched} />
-    <Route exact path="/propub" component={PublicProInfo} />
+    <Route exact path="/professional_public" component={PublicProInfo} />
     <Redirect from="/" to="/landing" />
     <Redirect to="/error404" />
   </Switch>

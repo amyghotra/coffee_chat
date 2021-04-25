@@ -39,7 +39,7 @@
 
 #searches{
     line-height: 7vh;
-    background-color: white;
+    background-color: #ab998f;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
     /* padding-bottom: 60px; */
     /* font-family: 'Raleway', sans-serif; */
     /* font-weight: 300; */
-    color:black;
+    color:white;
     /* margin: 0 auto; */
     /* padding-top: 0px;
     padding-bottom: 60px;
@@ -70,7 +70,7 @@
     /* vertical-align: center; */
     height:40px;
     width: 80px;
-    background-color: #8b786d;
+    background-color: #283044;
     border: none;
     margin-top: 70px;
     margin-left: 75px;
