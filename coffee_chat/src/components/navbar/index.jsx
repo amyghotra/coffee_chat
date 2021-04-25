@@ -43,15 +43,24 @@ const NavBar = () => {
   return (
     <div id="universal_navbar">
       <Navbar className={classes.navbar} light expand="md">
-      <img id="nav_img" src={logo} alt="Corgi in a Coffee cup sticker" />
-        <NavbarBrand style={{color:"white"}} className="nav_text" href="/landing">CoffeeChat</NavbarBrand>
+        <img id="nav_img" src={logo} alt="Corgi in a Coffee cup sticker" />
+        <NavbarBrand style={{color:"white"}} className="nav_text" href="/landing">
+          CoffeeChat
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
+
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
+            {/* Dropdown menu */}
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle style={{color:"white"}} nav caret className={classes.whiteText}>
+              <DropdownToggle 
+                style={{color:"white"}} 
+                nav caret 
+                className={classes.whiteText}
+              >
                 Extras
               </DropdownToggle>
+              {/* OPTIONS */}
               <DropdownMenu className={classes.dropdown}>
                 <DropdownItem>
                   <NavLink style={{color:"white"}} className="nav_text" href="/topcompanies">Company Rankings</NavLink>
@@ -61,9 +70,14 @@ const NavBar = () => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+
+            {/* Schedule Link */}
+            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Schedule</NavLink>
+            
+            {/* TODO CONDITIONAL RENDER */}
             <NavItem>
                 <NavLink style={{color:"white"}} className="nav_text" href="/">Logout</NavLink>
-          </NavItem>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
