@@ -72,7 +72,8 @@ const NavBar = () => {
             </UncontrolledDropdown>
 
             {/* Schedule Link */}
-            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Schedule</NavLink>
+            <NavLink style={{color:"white"}} className="nav_text" href="/schedule">Schedule</NavLink>
+            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Profile</NavLink>
             
             {/* TODO CONDITIONAL RENDER */}
             <NavItem>
