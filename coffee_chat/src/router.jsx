@@ -8,6 +8,7 @@ import Student_Profile from './pages/Student_Profile_Page'
 import ProfessionalProfile from './pages/Professional_Profile/index'
 import ProEditInfo from './pages/Professional_Profile/ProEditInfo'
 import ProEditSched from './pages/Professional_Profile/ProEditSched'
+import TopCompanyPage from "./pages/TopCompany_Page";
 import PublicProInfo from './pages/PublicViews/ProfessionalPublicView/index.jsx'
 import StudentPublic from './pages/PublicViews/StudentPublicView/index'
 import StudentEditInfo from  './pages/Student_Profile_Page/StudentEditInfo'
@@ -24,6 +25,7 @@ const AppRouter = () => (
     <Route exact path="/schedit" component={ProEditSched} />
     <Route exact path="/professional_public" component={PublicProInfo} />
     <Route exact path="/student_public" component={StudentPublic} />
+    <Route exact path="/topcompanies" component={TopCompanyPage} />
     <Redirect from="/" to="/landing" />
     <Redirect to="/error404" />
   </Switch>

@@ -12,7 +12,7 @@ import './nav.css'
 import logo from  '../../images/logo.png'
 
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -20,7 +20,7 @@ const NavBar = (props) => {
   return (
     <div id="universal_navbar">
       <Navbar style={{backgroundColor:"#283044", color:"white"}} light expand="md">
-      <img id="nav_img" src={logo} />
+      <img id="nav_img" src={logo} alt="Corgi in a Coffee cup sticker" />
         <NavbarBrand style={{color:"white"}} className="nav_text" href="/landing">CoffeeChat</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
