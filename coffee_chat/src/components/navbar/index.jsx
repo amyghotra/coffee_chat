@@ -25,12 +25,12 @@ const NavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-          <NavItem>
+          {/* <NavItem> 
               <NavLink style={{color:"white"}} className="nav_text" href="/landing">About Us</NavLink>
-          </NavItem>
-          <NavItem>
-              <NavLink style={{color:"white"}} className="nav_text" href="/">Logout</NavLink>
-          </NavItem>
+          </NavItem> */}
+            <NavItem> 
+              <NavLink style={{color:"white"}} className="nav_text" href="/landing">Logout</NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

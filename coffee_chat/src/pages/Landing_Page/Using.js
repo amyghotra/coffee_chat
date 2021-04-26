@@ -7,9 +7,7 @@ import presentation from '../../images/presentation.jpeg';
 import chat from '../../images/chat.jpeg';
 import display from '../../images/display.jpeg';
 
-// import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-// import Bounce from 'react-reveal/Bounce';
 
 export default function Using()
 {

@@ -8,9 +8,9 @@ const LandingPage = () => {
   return (
     <>
       <LandingInfo />
-      <LandingAbout />
+      {/* <LandingAbout />
       <Using />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

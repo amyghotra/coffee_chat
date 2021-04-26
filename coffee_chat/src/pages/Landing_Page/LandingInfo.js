@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import './LandingTop.css';
 import coffee from '../../images/coffee.jpeg'
+import {Link} from 'react-router-dom'
 
 import Fade from 'react-reveal/Fade';
 
@@ -28,7 +29,7 @@ class LandingInfo extends React.Component {
         <div>
           <p className ="landing_coffee_chat" id="coffee_chat_landing">CoffeeChat</p>
           <div id="buttons">
-            <button id="login_button" onClick={this.handleLogin}>Login/Sign-up</button>
+            <Link to='./sign-in'><button id="login_button" onClick={this.handleLogin}>Login/Sign-up</button></Link>
             {/* <button id ="sign_up">Sign Up</button> */}
           </div>
           <Fade right cascade>

@@ -3,13 +3,7 @@ import ProScheduledMeetings from './ProScheduledMeetings'
 import ProfessionalInfo from './ProInfo'
 import NavBar from '../../components/navbar/index'
 
-class ProfessionalProfile extends React.Component {
-    constructor(){
-        super();
-        this.state={}
-    }
-
-    render(){
+export default function ProfessionalProfile(){ 
         return(
             <>
                 <NavBar />
@@ -19,7 +13,4 @@ class ProfessionalProfile extends React.Component {
                 </div>
             </>
         )
-    }
 }
-
-export default ProfessionalProfile
