@@ -76,7 +76,7 @@ class ScheduledMeetings extends React.Component {
                                                     <div id="professional_modal_container">
                                                         <h4 id="modal_professional_name">Professional Name</h4>
                                                         <p className="modal_prof_info" id="modal_prof_comp_role">Company Name: Role</p>
-                                                        <p className="modal_prof_info" id="modal_prof_linkedin"><a>LinkedIn</a></p>
+                                                        <p className="modal_prof_info" id="modal_prof_linkedin"><a href="www.google.com" target="_blank">LinkedIn</a></p>
                                                     </div>
                                                 </Modal>
                                             </div> 
