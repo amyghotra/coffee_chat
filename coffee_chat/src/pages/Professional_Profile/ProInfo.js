@@ -7,7 +7,12 @@ import { Link } from 'react-router-dom';
 class ProfessionalInfo extends React.Component{
     constructor(){
         super();
-        this.state={}
+        this.state={
+            name:"",
+            company:"",
+            role:"",
+            linkedin:""
+        }
     }
 
     render(){

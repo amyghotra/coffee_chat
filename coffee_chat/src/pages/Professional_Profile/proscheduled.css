@@ -2,9 +2,9 @@
 
 
 #pro_meeting_info_container::-webkit-scrollbar {
-    width: 0.4em;
+    width: 0em;
     background-color: #AB998F;
-    height:0.4em;
+    height:0em;
 }
 
 #pro_meeting_info_container::-webkit-scrollbar-track {
@@ -39,12 +39,22 @@
     flex-wrap:wrap;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: white;
 }
 
 
 #student_information{
     /* background-color: red; */
+    /* width: 350px;
+    height: 300px;
+    display: flex;
+    flex-flow: column; */
+
+    margin-top: 60px;
+    border: 1px solid white;
+    padding-right: 15px;
+    border-radius: 7px;
+    margin-right: 20px;
     width: 350px;
     height: 300px;
     display: flex;
@@ -52,12 +62,17 @@
 }
 
 #pro_meeting_info_container{
-    margin-top: 8vh;
+    height: 60vh;
+    width:70vw;
+    display: flex;
+    flex-flow: row;
+    overflow: scroll;
+    /* margin-top: 8vh;
     height: 60vh;
     width:72vw;
     display: flex;
     flex-flow: row;
-    overflow: scroll;
+    overflow: scroll; */
 }
 
 #pro_meetings {
@@ -66,7 +81,7 @@
     line-height: 1vh;
     /* padding-top: 50px; */
     /* background-color: #283044; */
-    background-color: #AB998F;
+    background-color: #283044;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -76,9 +91,10 @@
 }
 
 .student_info{
-    color:black;
+    margin-top: 15px;
+    margin-left: 10px;
+    color:white;
     font-size: 17px;
-    /* margin-left:-200px; */
     font-weight: 200;
     line-height: 0px;
 }
@@ -88,10 +104,30 @@
     color:black;
     height: 35px;
     width: 80px;
-    /* background-color: #AB998F; */
     background-color: #8b786d;
     border: none;
-    /* margin-top: 20px;
-    margin-left: -140px; */
     border-radius: 7px;
+}
+
+#student_modal_container{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    background-color: #ab998f;
+    color:black;
+    height: 300px;
+    width: 500px;
+    border-radius: 7px;
+    padding-top: 75px;
+    text-align: center;
+}
+
+.modal_student_info{
+    font-size: 18px;
+    text-align: center;
+    line-height: 3px;
+}
+
+#modal_student_linkedin{
+    color: blue;
+    /* text-decoration: underline; */
 }
