@@ -40,7 +40,7 @@ class NewMeetings extends React.Component {
                                     <input className="search_input_field" name="company_name" value={this.state.company_name} type="text" onChange={this.onChange} />
                                     
                                     {/* <div> */}
-                                        <button type="submit" id="search_button" value="submit"><p style={{marginTop:"-40px", marginLeft:"-55px", fontSize:"18px"}}>Search</p></button> 
+                                        <button type="submit" id="search_button" value="submit"><p style={{marginTop:"-40px",color:"white", marginLeft:"-55px", fontSize:"18px"}}>Search</p></button> 
                                     {/* </div> */}
                                     
                                 </form>

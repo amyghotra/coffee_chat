@@ -5,7 +5,7 @@
     font-family: 'Raleway', sans-serif;
     width:100vw;
     height: 75vh;
-    background-color: #283044;
+    background-color: white;
     /* C1A9A3 */
 }
 
@@ -46,6 +46,10 @@
     width:72vw;
     display: flex;
     flex-flow: row;
+    /* margin-left: 40px; */
+    flex-wrap: wrap;
+    /* background-color: red; */
+    padding-left: 40px;
     overflow: scroll;
 }
 
@@ -55,6 +59,7 @@
     line-height: 1vh;
     /* padding-top: 50px; */
     /* background-color: #283044; */
+    border: 1px solid black;
     background-color: #AB998F;
     display: flex;
     flex-direction: column;
@@ -66,14 +71,21 @@
 
 #meeting_info_container{
     /* background-color: red; */
-    width: 350px;
-    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    width: 300px;
+    height: 150px;
     display: flex;
+    margin-right: 20px;
+    margin-top: 20px;
     flex-flow: column;
+    text-align: left;
 }
 
 
 .meeting_info{
+    margin-left: -30px;
     color:black;
     font-size: 17px;
     /* margin-left:-200px; */
@@ -83,11 +95,13 @@
 
 #select_availability{
     font-family: 'Raleway', sans-serif;
-    color:black;
+    color:white;
     height: 35px;
     width: 80px;
+    margin-left: -20px;
+    margin-top: 10px;
     /* background-color: #AB998F; */
-    background-color: #8b786d;
+    background-color: #283044;
     border: none;
     /* margin-top: 20px;
     margin-left: -140px; */

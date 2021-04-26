@@ -14,9 +14,9 @@ class PublicProInfo extends React.Component {
             <>
                 <div id="public_pro">
                     <div style={{display:"flex", flexDirection:"row"}}>
-                        <div style={{backgroundColor:"#283044"}}>
+                        <div style={{backgroundColor:"white"}}>
                             <Fade left>
-                                <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif"}} id="public_pro_name" className="public_pro-profile-top-item">Katy Johnsonpro</h3>
+                                <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif", color:"#283044"}} id="public_pro_name" className="public_pro-profile-top-item">Katy Johnsonpro</h3>
                             </Fade>
                         </div>
                         <div className="public_pro-profile-top-container">

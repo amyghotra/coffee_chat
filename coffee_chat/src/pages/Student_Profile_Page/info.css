@@ -38,12 +38,14 @@
 }
 
 #edit_profile_button {
+    padding: 10px;
+    font-size: 15px;
     font-family: 'Raleway', sans-serif;
-    margin-left: 55px;
+    margin-left: 30px;
     margin-top: 20px;
     background-color: transparent;
     border-radius: 7px;
     border: none;
-    color: #58423a;
+    color: #283044;
     text-decoration: underline;
 }
