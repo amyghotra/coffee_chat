@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Button,
@@ -9,8 +9,6 @@ import {
 } from "reactstrap";
 
 const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
-  // const [profession, setProfession] = useState();
-  // const [company, setCompany] = useState();
 
   const handleCompChange = (e) => {
     onCompChange(e.target.value);
@@ -20,7 +18,7 @@ const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
     onProfChange(e.target.value);
   }
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     // onSearch(profession, company);
     onSearch();
   }
