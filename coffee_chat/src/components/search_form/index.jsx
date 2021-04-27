@@ -8,20 +8,21 @@ import {
   Input, 
 } from "reactstrap";
 
-const SearchForm = ({ onSearch }) => {
-  const [profession, setProfession] = useState();
-  const [company, setCompany] = useState();
+const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
+  // const [profession, setProfession] = useState();
+  // const [company, setCompany] = useState();
 
   const handleCompChange = (e) => {
-    setCompany(e.target.value);
+    onCompChange(e.target.value);
   }
 
   const handleProfChange = (e) => {
-    setProfession(e.target.value);
+    onProfChange(e.target.value);
   }
 
   const handleSearch = () => {
-    onSearch(profession, company);
+    // onSearch(profession, company);
+    onSearch();
   }
 
   return (
