@@ -4,6 +4,7 @@ import {
   Avatar,
   Grid,
 } from "@material-ui/core";
+import SearchResultItem from "../search_result_item";
 
 const useStyles = makeStyles({
   avatar: {
@@ -27,9 +28,14 @@ const SearchResultList = ({ company, profession, searchResult }) => {
       }
       <Grid container >
         <Grid item xs={12}>
-          {searchResult.map((item) => {
+          {searchResult.map((resultItem) => {
+            console.log(resultItem);
+            return (<SearchResultItem />);
+          })}
+          {/* {searchResult.map((item) => {
             const { first, last, imgsrc, company, position } = item;
             return (
+              
               <Grid container spacing={3} key={`${first}${last}`}>
                 <Grid item xs={3}>
                   <Avatar 
@@ -46,7 +52,7 @@ const SearchResultList = ({ company, profession, searchResult }) => {
                 </Grid>
               </Grid>
             );
-          })}
+          })} */}
         </Grid>
       </Grid>
     </>
