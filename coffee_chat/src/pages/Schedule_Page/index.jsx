@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Container } from "@material-ui/core";
 // import { Spinner } from "reactstrap";
 
+import Fade from 'react-reveal/Fade';
 import NavBar from "../../components/navbar";
 import SearchResultList from "../../components/search_results_list";
 import SearchForm from "../../components/search_form";
@@ -107,15 +108,17 @@ const SchedulePage = () => {
     <div>
 
       <NavBar />
-      <Container>
-        <h1>Schedule Page</h1>
-        <SearchForm 
-          onSearch={handleSearch}
-          onCompChange={handleCompChange}
-          onProfChange={handleProfChange}
-        />
-        {content}
-      </Container>
+      <Fade>
+        <Container>
+          <h1>Schedule Page</h1>
+          <SearchForm 
+            onSearch={handleSearch}
+            onCompChange={handleCompChange}
+            onProfChange={handleProfChange}
+          />
+          {content}
+        </Container>
+      </Fade>
     </div>
   );
 }
