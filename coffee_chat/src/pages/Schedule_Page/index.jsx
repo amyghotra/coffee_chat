@@ -15,9 +15,9 @@ const DEMO_RES = [
     imgsrc: "https://cdn.shopify.com/s/files/1/0070/7235/0326/products/Doggodog_Corgi_Coffee_B_Sticker_OP-01_2048x.jpg?v=1571963696",
     company: "Amazon",
     position: "Senior Software Engineer",
-    date: Date(),
-    startTime: "4:30",
-    duration: 15,
+    availibility: {
+      "1/1/2021": [100, 200],
+    },
   },
   {
     first: "Jane",
@@ -25,9 +25,9 @@ const DEMO_RES = [
     imgsrc: "https://ih1.redbubble.net/image.834098180.7933/st,small,507x507-pad,600x600,f8f8f8.u2.jpg",
     company: "Google",
     position: "Senior Software Engineer",
-    date: Date(),
-    startTime: "5:30",
-    duration: 15,
+    availibility: {
+      "1/1/2021": [100, 200],
+    },
   },
   {
     first: "Jane",
@@ -35,9 +35,11 @@ const DEMO_RES = [
     imgsrc: "https://cdn.shopify.com/s/files/1/0070/7235/0326/products/Doggodog_Corgi_Coffee_B_Sticker_OP-01_2048x.jpg?v=1571963696",
     company: "Amazon",
     position: "Senior Software Engineer",
-    date: Date(),
-    startTime: "4:30",
-    duration: 15,
+    availibility: [
+      {
+        "1/1/2021": [100, 200],
+      }
+    ],
   },
   {
     first: "John",
@@ -45,9 +47,9 @@ const DEMO_RES = [
     imgsrc: "https://ih1.redbubble.net/image.834098180.7933/st,small,507x507-pad,600x600,f8f8f8.u2.jpg",
     company: "Google",
     position: "Senior Software Engineer",
-    date: Date(),
-    startTime: "5:30",
-    duration: 15,
+    availibility: {
+      "1/1/2021": [100, 200],
+    },
   },
 ];
 
