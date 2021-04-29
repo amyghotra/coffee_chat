@@ -17,8 +17,13 @@ const SearchResultList = ({ company, profession, searchResult }) => {
       }
       <Grid container >
         <Grid item xs={12}>
-          {searchResult.map((resultItem) => {
-            return (<SearchResultItem professionalInfo={resultItem} />);
+          {searchResult.map((resultItem, index) => {
+            return (
+              <SearchResultItem 
+                professionalInfo={resultItem}
+                key={index}
+              />
+            );
           })}
         </Grid>
       </Grid>
