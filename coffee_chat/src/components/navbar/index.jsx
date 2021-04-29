@@ -70,8 +70,9 @@ const NavBar = () => {
 
             {/* Schedule Link */}
             <NavLink style={{color:"white"}} className="nav_text" href="/schedule">Schedule</NavLink>
-            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Profile</NavLink>
-            
+            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Student Profile</NavLink>
+            <NavLink style={{color:"white"}} className="nav_text" href="/professionalprofile">Professional Profile</NavLink>
+
             {/* TODO CONDITIONAL RENDER */}
             <NavItem>
                 <NavLink style={{color:"white"}} className="nav_text" href="/">Logout</NavLink>
