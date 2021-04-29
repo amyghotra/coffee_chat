@@ -1,11 +1,13 @@
 import React from 'react'
 import './ProEditSched.css'
 import NavBar from '../../components/navbar/index'
+import SelectedTimes from './SelectedTimes'
 
 class ProEditSched extends React.Component{
     constructor() {
         super();
         this.state={
+            selected_times:[],
             date:"",
             time:""
         };
@@ -21,6 +23,11 @@ class ProEditSched extends React.Component{
         [name]: value
         });
     }
+
+    // componentDidMount(){
+    //     // fetch all of the selected times and save them to this.sate.selected_times
+    //     // then use this data to generate a list of selected times
+    // }s
 
     render(){
         return(
@@ -52,11 +59,10 @@ class ProEditSched extends React.Component{
                     <div id="current_sched">
                         <h2 id="current_sched_title">Currently selected</h2>
                         <div id="current_sched_list">
-                            <div id="current_sched_item">
-                                <p id="current_date">Date</p>
-                                <p id="current_time">Time</p>
-                                <button id="cancel_date_button">Remove</button>
-                            </div>
+
+                            <SelectedTimes />
+                            {/* map objects from this.state.selected_times */}
+
                         </div>
                     </div>
                 </div>
