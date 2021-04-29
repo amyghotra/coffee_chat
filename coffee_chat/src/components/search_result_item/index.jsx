@@ -36,9 +36,13 @@ const SearchResultItem = ({ professionalInfo }) => {
         <Typography variant="subtitle2">
           {`${company} ${position}`}
         </Typography>
+        {/* onclick should bring to a new page */}
+        <Button color="primary">View Available Time Slots</Button>
       </Grid>
       <Grid item xs={5}>
-
+        <Typography variant="h5">
+          Summary
+        </Typography>
       </Grid>
     </Grid>
   );
