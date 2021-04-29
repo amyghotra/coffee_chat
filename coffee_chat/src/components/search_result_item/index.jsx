@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Grid,
@@ -37,7 +38,9 @@ const SearchResultItem = ({ professionalInfo }) => {
           {`${company} ${position}`}
         </Typography>
         {/* onclick should bring to a new page */}
-        <Button color="primary">View Available Time Slots</Button>
+        <Button color="primary">
+          <Link to="/professional_public"> View Available Time Slots</Link>
+        </Button>
       </Grid>
       <Grid item xs={5}>
         <Typography variant="h5">
