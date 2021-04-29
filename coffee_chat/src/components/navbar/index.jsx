@@ -65,9 +65,6 @@ const NavBar = () => {
                 <DropdownItem>
                   <NavLink style={{color:"white"}} className="nav_text" href="/topcompanies">Company Rankings</NavLink>
                 </DropdownItem>
-                <DropdownItem>
-                  <NavLink style={{color:"white"}} className="nav_text" href="/landing">About Us</NavLink>
-                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
 
