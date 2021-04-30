@@ -65,7 +65,7 @@ export default class ProScheduledItems extends React.Component{
                             <div id="student_modal_container">
                                 <h4 id="modal_student_name">Student Name</h4>
                                 <p className="modal_student_info" id="modal_student_school_major">School name: Major</p>
-                                <p className="modal_student_info" id="modal_student_linkedin"><a>LinkedIn</a></p>
+                                <p className="modal_student_info" id="modal_student_linkedin"><a href="www.linkedin.com">LinkedIn</a></p>
                             </div>
                         </Modal>
                     </div>

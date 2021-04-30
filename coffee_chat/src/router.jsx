@@ -11,6 +11,7 @@ import ProEditSched from './pages/Professional_Profile/ProEditSched'
 import TopCompanyPage from "./pages/TopCompany_Page";
 import PublicProInfo from './pages/PublicViews/ProfessionalPublicView/index.jsx'
 import StudentEditInfo from  './pages/Student_Profile_Page/StudentEditInfo'
+import SchedulePage from "./pages/Schedule_Page";
 
 const AppRouter = () => (
   <Switch>
@@ -24,6 +25,7 @@ const AppRouter = () => (
     <Route exact path="/schedit" component={ProEditSched} />
     <Route exact path="/professional_public" component={PublicProInfo} />
     <Route exact path="/topcompanies" component={TopCompanyPage} />
+    <Route exact path="/schedule" component={SchedulePage} />
     <Redirect from="/" to="/landing" />
     <Redirect to="/error404" />
   </Switch>
