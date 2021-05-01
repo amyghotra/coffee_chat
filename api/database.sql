@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS students;
 DROP TABLE IF EXISTS professionals;
 
 CREATE TABLE students(
-    -- student_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(), -- function that runs to create uuid
+    student_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(), -- function that runs to create uuid
     studentName VARCHAR(64),
     studentMajor VARCHAR(64),
     studentSchool VARCHAR(64),
@@ -16,11 +16,11 @@ CREATE TABLE students(
     studentSocial VARCHAR(128),
     studentPhone VARCHAR(12),
     studentPassword VARCHAR(64),
-    PRIMARY KEY (studentEmail)
+    PRIMARY KEY (student_id)
 );
 
 CREATE TABLE professionals(
-    -- professional_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(), -- function that runs to create uuid
+    professional_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(), -- function that runs to create uuid
     professionalName VARCHAR(64),
     professionalEmail VARCHAR(64) UNIQUE,
     professionalSocial VARCHAR(128),
