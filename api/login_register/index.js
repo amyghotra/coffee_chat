@@ -11,6 +11,9 @@ app.use(cors())
 // login register route
 app.use('/auth', require('./routes/jwtauth'))
 
+// dashboard route
+app.use("/dashboard", require("./routes/dashboard"))
+
 
 app.listen(5000, () => {
     console.log("listening on port 5000")
