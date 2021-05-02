@@ -1,6 +1,9 @@
+const dotenv = require("dotenv");
+const cors = require("cors");
 const express = require("express");
 const app = express();
-const cors = require("cors");
+
+dotenv.config(); // Allows us to access our .env content
 
 const apiRouter = require("./routes");
 
