@@ -1,4 +1,5 @@
 const express = require("express")
+// const bcrypt = requre("bcrypt")
 const app = express()
 const cors = require("cors") // middleware; allow backend to interact with frontend
 
