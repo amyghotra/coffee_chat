@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {useHistory} from 'react-router-dom'
+import {useHistory, Redirect} from 'react-router-dom'
 
 
 const useStyle = makeStyles({
@@ -14,10 +14,12 @@ const useStyle = makeStyles({
   },
 })
 
-const SignUpForm = () => {
+const SignUpForm = ({setAuth}) => {
   const styleClasses = useStyle();
 
   const history = useHistory()
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   const [inputs, setInputs] = useState({
     name:"",
@@ -32,20 +34,7 @@ const SignUpForm = () => {
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
 
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [errorMessage, setErrorMessage] = useState();
   const [isStudent, setIsStudent] = useState(true);
-  // const [company, setCompany]   = useState("");
-  // const [jobTitle, setJobTitle] = useState("");
-  
-  // const handleUserUpdate = (event) => {
-  //   setUsername(event.target.value);
-  // }
-
-  // const handlePassUpdate = (event) => {
-  //   setPassword(event.target.value);
-  // }
 
   const handleStudent = (event) => {
     setIsStudent(true);
@@ -55,16 +44,20 @@ const SignUpForm = () => {
     setIsStudent(false);
   }
 
-  // const handleCompanyUpdate = (event) => {
-  //   setCompany(event.target.value);
-  // }
+  const handleAuthSuccess = () => {
+    history.push({
+      pathname:'/dash',
+      state:{ isAuth: true,
+        is_student: isStudent
+      }
+    })
+  }
 
-  // const handleTitleUpdate = (event) => {
-  //   setJobTitle(event.target.value);
-  // }
+  const handleAuthFailure = () => {
+    // 
+  }
 
   async function handleLogin(event) {
-    // console.log('try sign up');
     event.preventDefault();
 
     try {
@@ -80,23 +73,26 @@ const SignUpForm = () => {
         }
       )
         .then(res => res.text())
-        .then(text => console.log(text))
-      // console.log(response)
+        // .then(res => console.log(res.json()))
+        // .then(text => console.log(text))
 
-      // const parseRes = await response.json();
+      const parse = await response
+      console.log(parse.split('"')[3]) // token value
 
-      // if (parseRes.jwtToken) {
-      //   localStorage.setItem("token", parseRes.jwtToken);
-      //   setAuth(true);
-      //   toast.success("Register Successfully");
-      // } else {
-      //   setAuth(false);
-      //   toast.error(parseRes);
-      // }
+      const token_value = parse.split('"')[3]
+
+      if (parse.split('"')[1] === 'token') {
+        localStorage.setItem("token", token_value);
+        setIsAuthenticated(true);
+        handleAuthSuccess()
+        // toast.success("Register Successfully");
+      } else {
+        setIsAuthenticated(false)
+        // toast.error(parse);
+      }
     } catch (err) {
       console.log(err.message)
     }
-
     // history.push("./landing")
   }
 
