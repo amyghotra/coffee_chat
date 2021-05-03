@@ -8,6 +8,11 @@ export default function Dashboard(props){
     useEffect(() => {
         if(props.location.state.isAuth !== 'undefined') {
             setIsAuthenticated(props.location.state.isAuth)
+            if(props.location.state.is_student) {
+                history.push("/studentprofile")
+            } else {
+                history.push("/professionalprofile")
+            }
         } else {
             // setIsAuthenticated(false)
             history.push('/landing')
