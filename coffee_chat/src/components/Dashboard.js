@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {Redirect, location,useHistory} from 'react-router-dom'
+import {Redirect, location, useHistory} from 'react-router-dom'
 
 export default function Dashboard(props){
     const history = useHistory()
@@ -9,9 +9,15 @@ export default function Dashboard(props){
         if(props.location.state.isAuth !== 'undefined') {
             setIsAuthenticated(props.location.state.isAuth)
             if(props.location.state.is_student) {
-                history.push("/studentprofile")
+                history.push({
+                    pathname:'/studentprofile',
+                    state:{ isAuth: true}
+                })
             } else {
-                history.push("/professionalprofile")
+                history.push({
+                    pathname:'/professionalprofile',
+                    state:{ isAuth: true}
+                })
             }
         } else {
             // setIsAuthenticated(false)
