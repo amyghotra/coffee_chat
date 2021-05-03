@@ -6,8 +6,8 @@ CREATE TABLE users(
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(64) NOT NULL,
     email VARCHAR(64) NOT NULL,
-    social VARCHAR(64)
-    password VARCHAR(64) NOT NULL,
+    social VARCHAR(64),
+    password VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE students(
@@ -54,6 +54,3 @@ CREATE TABLE worksAt(
 );
 
 
-
-
-INSERT INTO cc_users(username, user_email, user_password, is_student) VALUES ('John S','john@gmail.com','mypass', 'true');
