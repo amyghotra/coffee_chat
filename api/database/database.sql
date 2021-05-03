@@ -32,6 +32,37 @@ CREATE TABLE professionals(
     pro_password VARCHAR(64) NOT NULL
 );
 
-CREATE TABLE meetings();
+CREATE TABLE meetings(
+    student_id VARCHAR(128),
+    pro_id VARCHAR(128),
+    date DATE,
+    time TIME,
+    FOREIGN KEY (student_id) references students(student_id),
+    FOREIGN KEY (pro_id) references professionals(pro_id)
+);
 
-INSERT INTO cc_users(username, user_email, user_password, isStudent) VALUES ('John S','john@gmail.com','mypass', 'true')
+CREATE TABLE proAvailability(
+    pro_id VARCHAR(128),
+    date DATE,
+    time TIME,
+    FOREIGN KEY (pro_id) references professionals(pro_id)
+);
+
+CREATE TABLE companies(
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(64),
+    totalHours FLOAT
+);
+
+CREATE TABLE worksAt(
+    pro_id VARCHAR(128),
+    company_id uuid,
+    position VARCHAR(64),
+    FOREIGN KEY (pro_id) references professionals(pro_id),
+    FOREIGN KEY (company_id) references companies(id)
+);
+
+
+
+
+INSERT INTO cc_users(username, user_email, user_password, is_student) VALUES ('John S','john@gmail.com','mypass', 'true');
