@@ -34,4 +34,4 @@ CREATE TABLE professionals(
 
 CREATE TABLE meetings();
 
-INSERT INTO cc_users(username, user_email, user_password, isStudent) VALUES ('John S','john@gmail.com','mypass', 'true')
+INSERT INTO cc_users(username, user_email, user_password, is_student) VALUES ('John S','john@gmail.com','mypass', 'true');
