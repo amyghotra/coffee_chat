@@ -1,35 +1,49 @@
 const router = require("express").Router();
 const pool = require("../db");
-const auth = require("../middleware/authorization");
 
-router.get("/", auth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const { company, profession } = req.body;
+    const results = {};
+    const searchId = req.params.id;
 
-    if (!company && !profession) {
-      const allPros = await pool.query("SELECT * FROM professionals");
-      return res.json(allPros.rows);
-    } else if (!company) {
-      const specificProfession = await pool.query(
-        "SELECT * FROM professionals WHERE pro_id in (SELECT pro_id FROM worksAt where position = $1);",
-        [profession]
-      );
-      return res.json(specificProfession.rows);
-    } else if (!profession) {
-      const specificCompany = await pool.query(
-        "SELECT * FROM professionals WHERE pro_id in (SELECT pro_id FROM worksAt WHERE company_id in (SELECT id FROM companies WHERE name = $1));",
-        [company]
-      );
-
-      return res.json(specificCompany.rows);
-    } else {
-      return res.json("error");
-    }
-
-    return res.json("hello");
+    const specificPro = await pool.query(
+      `
+        SELECT u.id userid, name, social, position, company FROM users u 
+        JOIN worksat w on u.id = w.pro_id 
+        JOIN companies c on w.company_id = c.id
+        WHERE 
+          u.id = (SELECT id FROM PROFESSIONALS WHERE id = $1); 
+      `,
+      [searchId]
+    );
+    return res.json(specificPro.rows);
   } catch (err) {
     console.error(err.message);
-    return res.status(401).json("Professionals| Error");
+    return res.status(401).json("proid Server Error");
+  }
+});
+
+router.get("/all", async (_, res) => {
+  try {
+    const results = {};
+
+    const allPros = await pool.query(
+      `
+        SELECT u.id userid, name, social, position, company FROM users u 
+        JOIN worksat w on u.id = w.pro_id 
+        JOIN companies c on w.company_id = c.id
+        WHERE 
+          u.id = (SELECT id FROM PROFESSIONALS);
+      `
+    );
+
+    results.data = allPros.rows;
+
+    console.log(allPros.rows);
+    return res.json(results);
+  } catch (err) {
+    console.log(err.message);
+    return res.status(401).json("professional error");
   }
 });
 
