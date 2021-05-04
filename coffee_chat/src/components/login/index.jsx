@@ -35,7 +35,7 @@ const LoginForm = () => {
   }
 
   const handleSuccess = () => {
-    alert("works")
+    history.push('/dash')
   }
 
   const handleFailure = () => {
@@ -60,16 +60,17 @@ const LoginForm = () => {
         // .then(text => console.log(text))
 
       const parseRes = await response;
-      console.log(parseRes.split('"')[3]) // token value
 
       const token_value = parseRes.split('"')[3]
 
       if (parseRes.length) {
         localStorage.setItem("token", token_value);
         setIsAuth(true);
+        handleSuccess()
         // toast.success("Logged in Successfully");
       } else {
         setIsAuth(false);
+        handleFailure()
         // toast.error(parseRes);
       }
     } catch (err) {

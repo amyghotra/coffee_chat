@@ -10,7 +10,18 @@ router.get("/", authorization, async (req, res) => {
       req.user,
     ]);
 
-    res.json(user.rows[0]);
+    if(user.rows[0].is_student) {
+      const student = await pool.query("SELECT * FROM students where student_id = $1", [
+        req.user,
+      ]);
+      res.json(student.rows[0]);
+    } else {
+      const professional = await pool.query("SELECT * FROM professionals where pro_id = $1", [
+        req.user,
+      ]);
+      res.json(professional.rows[0]);
+    }
+
   } catch (err) {
     console.log(err.message);
     res.status(500).send("server error");

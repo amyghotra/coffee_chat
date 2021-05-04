@@ -13,9 +13,9 @@ router.post("/register", validInput, async (req, res) => {
       name,
       email,
       password,
-      is_student,
-      pro_company,
-      pro_role,
+      isStudent,
+      company,
+      jobTitle,
     } = req.body;
 
     // check if user exists; if yes, throw error
@@ -37,7 +37,7 @@ router.post("/register", validInput, async (req, res) => {
 
     const newUser = await pool.query(
       "INSERT INTO cc_users (username,user_email,user_password, is_student) VALUES ($1,$2,$3,$4) RETURNING *",
-      [name, email, bcryptpassword, is_student]
+      [name, email, bcryptpassword, isStudent]
     );
 
     // res.json(newUser.rows[0])
@@ -45,17 +45,17 @@ router.post("/register", validInput, async (req, res) => {
     let user_id = newUser.rows[0].user_id;
 
     // enter user into db
-    if (is_student) {
+    if (jobTitle.length < 1) {
       const newStudent = await pool.query(
         "INSERT INTO students (student_id, student_name,student_email,student_password) VALUES ($1,$2,$3, $4)",
         [user_id, name, email, bcryptpassword]
       );
       // res.json(newStudent.rows[0])
     }
-    if (!is_student) {
+    else {
       const newPro = await pool.query(
         "INSERT INTO professionals (pro_id, pro_name, pro_email, pro_password, pro_company, pro_role) VALUES ($1, $2, $3, $4, $5, $6)",
-        [user_id, name, email, bcryptpassword, pro_company, pro_role]
+        [user_id, name, email, bcryptpassword, company, jobTitle]
       );
       // res.json(newPro.rows[0])
     }
