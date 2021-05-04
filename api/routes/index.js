@@ -4,7 +4,6 @@ const router = require("express").Router();
 const echoRouter = require("./echo");
 const jwtauthRouter = require("./jwtauth");
 const dashboardRouter = require("./dashboard");
-const { route } = require("./jwtauth");
 
 // Connect routes
 router.use("/auth", jwtauthRouter);
