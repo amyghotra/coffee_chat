@@ -1,7 +1,7 @@
 -- Create a Company
-INSERT INTO companies(name, totalHours) VALUES ('Amazon', 50);
-INSERT INTO companies(name, totalHours) VALUES ('Google', 60);
-INSERT INTO companies(name, totalHours) VALUES ('Facebook', 10);
+INSERT INTO companies(company, totalHours) VALUES ('Amazon', 50);
+INSERT INTO companies(company, totalHours) VALUES ('Google', 60);
+INSERT INTO companies(company, totalHours) VALUES ('Facebook', 10);
 
 -- When registering Student user
 INSERT INTO users (name, email, social, password) VALUES ('John Smith', 'js@gmail.com', 'js.com', 'pass');
@@ -12,7 +12,7 @@ INSERT INTO users (name, email, social, password) VALUES ('PRO John Smith', 'PRO
 INSERT INTO professionals(id) VALUES((SELECT id FROM users WHERE email = 'PROjs@gmail.com'));
 INSERT INTO worksAt(pro_id, company_id, position) VALUES (
   (SELECT id FROM users WHERE email = 'PROjs@gmail.com'),
-  (SELECT id FROM companies WHERE name = 'Amazon'),
+  (SELECT id FROM companies WHERE company = 'Amazon'),
   'SWE'
   );
 

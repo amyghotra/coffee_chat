@@ -50,7 +50,7 @@ CREATE TABLE proAvailability(
 
 CREATE TABLE companies(
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR(64),
+    company VARCHAR(64),
     totalHours FLOAT
 );
 
