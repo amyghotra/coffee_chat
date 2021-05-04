@@ -45,12 +45,7 @@ const SignUpForm = ({setAuth}) => {
   }
 
   const handleAuthSuccess = () => {
-    history.push({
-      pathname:'/dash',
-      state:{ isAuth: true,
-        is_student: isStudent
-      }
-    })
+    history.push('/dash')
   }
 
   const handleAuthFailure = () => {

@@ -18,6 +18,7 @@ const useStyle = makeStyles({
 
 const LoginForm = () => {
   const styleClasses = useStyle();
+  const [isAuth, setIsAuth] = useState(false)
 
   const history = useHistory()
 
@@ -33,15 +34,52 @@ const LoginForm = () => {
     setPassword(event.target.value);
   }
 
-  const handleLogin = (event) => {
-    // TODO: SEND TO SERVER SIDE
-    // console.log('try login');
-    history.push("/dash")
+  const handleSuccess = () => {
+    history.push('/dash')
+  }
+
+  const handleFailure = () => {
+    history.push('/sign-in')
+  }
+
+  const handleLogin = async (event) => {
+    event.preventDefault()
+    try {
+      const body = { email, password };
+      const response = await fetch(
+        "http://localhost:5000/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify(body)
+        }
+      )
+        .then(res => res.text())
+        // .then(text => console.log(text))
+
+      const parseRes = await response;
+
+      const token_value = parseRes.split('"')[3]
+
+      if (parseRes.length) {
+        localStorage.setItem("token", token_value);
+        setIsAuth(true);
+        handleSuccess()
+        // toast.success("Logged in Successfully");
+      } else {
+        setIsAuth(false);
+        handleFailure()
+        // toast.error(parseRes);
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
   }
 
   return (
     <div>
-      {console.log('login', email, password)}
 
       <Form className={styleClasses.form}>
         <FormGroup>

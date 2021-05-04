@@ -2,17 +2,13 @@ import React from 'react'
 import './proinfo.css'
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
+import { ThemeProvider } from '@material-ui/styles';
 // import { useHistory } from "react-router-dom";
 
 class ProfessionalInfo extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            name:"",
-            company:"",
-            role:"",
-            linkedin:""
-        }
+    constructor(props){
+        super(props);
+        this.state={}
     }
 
     render(){
@@ -22,17 +18,17 @@ class ProfessionalInfo extends React.Component{
             <div style={{display:"flex", flexDirection:"row"}}>
                     <div style={{backgroundColor:"white"}}>
                         <Fade left>
-                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif", backgroundColor:"white"}} id="pro_name" className="pro-profile-top-item">Katy Johnsonpro</h3>
+                            <h3 style={{ width:"30vw", fontSize:"65px", paddingLeft:"15px", fontFamily:"'Raleway', sans-serif", backgroundColor:"white"}} id="pro_name" className="pro-profile-top-item">{this.props.name}</h3>
                         </Fade>
                     </div>
                     <div className="pro-profile-top-container">
                         <Fade left>
                             <div>
-                                <p className="pro-profile-top-item">Microsoft: Senior Engineer</p>
+                                <p className="pro-profile-top-item">{this.props.company}: {this.props.role}</p>
                             </div>
 
                             <div>
-                                <p className="pro-profile-top-item" id="linkedin">https://www.linkedin.com</p> 
+                                <a href={this.state.social}><p className="student-profile-top-item" id="linkedin">LinkedIn</p> </a>
                             </div>
                             <div>
                                 <div>
