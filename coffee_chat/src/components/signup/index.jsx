@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import {useHistory, Redirect} from 'react-router-dom'
+
 
 const useStyle = makeStyles({
   submitButton: {
@@ -12,23 +14,27 @@ const useStyle = makeStyles({
   },
 })
 
-const SignUpForm = () => {
+const SignUpForm = ({setAuth}) => {
   const styleClasses = useStyle();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  // const [errorMessage, setErrorMessage] = useState();
-  const [isStudent, setIsStudent] = useState(true);
-  const [company, setCompany]   = useState("");
-  const [jobTitle, setJobTitle] = useState("");
-  
-  const handleUserUpdate = (event) => {
-    setUsername(event.target.value);
-  }
+  const history = useHistory()
 
-  const handlePassUpdate = (event) => {
-    setPassword(event.target.value);
-  }
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  const [inputs, setInputs] = useState({
+    name:"",
+    email:"",
+    password:"",
+    company:"",
+    jobTitle:""
+  })
+
+  const { name, email, password, company, jobTitle } = inputs;
+
+  const onChange = e =>
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+
+  const [isStudent, setIsStudent] = useState(true);
 
   const handleStudent = (event) => {
     setIsStudent(true);
@@ -38,34 +44,74 @@ const SignUpForm = () => {
     setIsStudent(false);
   }
 
-  const handleCompanyUpdate = (event) => {
-    setCompany(event.target.value);
+  const handleAuthSuccess = () => {
+    history.push('/dash')
   }
 
-  const handleTitleUpdate = (event) => {
-    setJobTitle(event.target.value);
+  const handleAuthFailure = () => {
+    // 
   }
 
-  const handleLogin = (event) => {
-    console.log('try sign up');
+  async function handleLogin(event) {
+    event.preventDefault();
+
+    try {
+      const body = { name, email, password, isStudent, company, jobTitle }
+      const response = await fetch(
+        "http://localhost:5000/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(body)
+        }
+      )
+        .then(res => res.text())
+        // .then(res => console.log(res.json()))
+        // .then(text => console.log(text))
+
+      const parse = await response
+      console.log(parse.split('"')[3]) // token value
+
+      const token_value = parse.split('"')[3]
+
+      if (parse.split('"')[1] === 'token') {
+        localStorage.setItem("token", token_value);
+        setIsAuthenticated(true);
+        handleAuthSuccess()
+        // toast.success("Register Successfully");
+      } else {
+        setIsAuthenticated(false)
+        // toast.error(parse);
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+    // history.push("./landing")
   }
 
   return (
     <div>
-      {console.log('sign up',username, password, isStudent, company, jobTitle)}
+      {/* {console.log('sign up',email, name, password, isStudent, company, jobTitle)} */}
 
       <Form>
         {/* Username */}
         <FormGroup>
-          <Label for="username">Username</Label>
-          <Input type='text' name="username" id="username" 
-          placeholder="Username" onChange={handleUserUpdate} />
+          <Label for="name">Full Name</Label>
+          <Input type='text' name="name" id="name" 
+          placeholder="Name" onChange={onChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label for="email">Email</Label>
+          <Input type='text' name="email" id="email" 
+          placeholder="Email" onChange={onChange} />
         </FormGroup>
         {/* Password */}
         <FormGroup>
           <Label for="password">Password</Label>
           <Input type='password' name="password" id="password" 
-          placeholder="Password" onChange={handlePassUpdate} />
+          placeholder="Password" onChange={onChange} />
         </FormGroup>
         {/* Position */}
         <FormGroup>
@@ -90,13 +136,13 @@ const SignUpForm = () => {
             <FormGroup>
               <Label for="company">Company</Label>
               <Input type='text' name="company" id="company" 
-              placeholder="ex: Google" onChange={handleCompanyUpdate} />
+              placeholder="ex: Google" onChange={onChange} />
             </FormGroup>
             {/* Position */}
             <FormGroup>
               <Label for="jobTitle">Job Title</Label>
               <Input type='jobTitle' name="jobTitle" id="jobTitle" 
-              placeholder="ex: Senior Software Engineer" onChange={handleTitleUpdate} />
+              placeholder="ex: Senior Software Engineer" onChange={onChange} />
             </FormGroup>
           </>
         )}
