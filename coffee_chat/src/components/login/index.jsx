@@ -60,6 +60,7 @@ const LoginForm = () => {
         // .then(text => console.log(text))
 
       const parseRes = await response;
+      // console.log(parseRes)
 
       const token_value = parseRes.split('"')[3]
 

@@ -5,12 +5,14 @@ import NavBar from '../../components/navbar/index'
 import {useHistory, location} from 'react-router-dom'
 
 export default function ProfessionalProfile(props){ 
-    // const { name } = props
-    // console.log(`person name is : ${props.location.state.name}`)
-    const str = JSON.parse(props.location.state.obj)
-    console.log(str)
-    const { pro_name, pro_company, pro_role, pro_social } = str
-    console.log(str.pro_name)
+    // console.log(props.location.state.obj)
+    const { name, email, social } = props.location.state.obj.userInfo
+    const { experience } = props.location.state.obj.professionalInfo
+    const { company } = props.location.state.obj.company
+    const { position } = props.location.state.obj.role
+
+    // console.log(props.location.state.obj.role)
+    // console.log(props.location.state.obj.company)
     
     const history = useHistory()
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -27,7 +29,7 @@ export default function ProfessionalProfile(props){
     return(
         <>
             <NavBar />
-            <ProfessionalInfo name={str.pro_name} company={pro_company} role={pro_role} social={pro_social} />
+            <ProfessionalInfo name={name} company={company} role={position} social={social} email={email} />
             <div style={{display:"flex", flexDirection:"row"}}>
                 <ProScheduledMeetings />
             </div>
