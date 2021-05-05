@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {useHistory, Redirect} from 'react-router-dom'
-
+import Fade from 'react-reveal/Fade';
 
 const useStyle = makeStyles({
   submitButton: {
@@ -131,7 +131,7 @@ const SignUpForm = ({setAuth}) => {
         </FormGroup>
         {/* Pros additional info */}
         {isStudent? null: (
-          <>
+          <Fade>
             {/* Company */}
             <FormGroup>
               <Label for="company">Company</Label>
@@ -144,7 +144,7 @@ const SignUpForm = ({setAuth}) => {
               <Input type='jobTitle' name="jobTitle" id="jobTitle" 
               placeholder="ex: Senior Software Engineer" onChange={onChange} />
             </FormGroup>
-          </>
+          </Fade>
         )}
         {/* Submit */}
         <FormGroup>
