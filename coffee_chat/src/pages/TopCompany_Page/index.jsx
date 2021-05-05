@@ -11,7 +11,8 @@ import {
   Container,
   Typography,
 } from "@material-ui/core";
-import axios from "axios";
+import { RetrieveCompanies } from "../../services";
+
 
 import { COLOR_PALETTE } from "../../utils/theme";
 import Navbar from "../../components/navbar";
@@ -27,20 +28,9 @@ const useStyles = makeStyles({
     margin: "1em auto .25em",
   },
   tableHeader: {
-    backgroundColor: COLOR_PALETTE.Primary,
+    backgroundColor: COLOR_PALETTE.Secondary,
   },
 });
-
-const DEMO_COMPANIES = [
-  {
-    name: "Company1",
-    hours: 55,
-  },
-  {
-    name: "Company2",
-    hours: 50,
-  }
-];
 
 const NoResult = () => (
   <TableRow>
@@ -58,14 +48,18 @@ const CompanyList = () => {
   // const fetchTopCompanies = 
 
   useEffect(() => {
-    const fetchData = async () => {
-      const topcompanies = await axios.get("http://localhost:5000/companies");
-      return topcompanies.data;
-    }
-    fetchData().then((value) => {
-        setCompanies(value.data);
-      }
-    );
+    // const fetchData = async () => {
+    //   const topcompanies = await axios.get("http://localhost:5000/companies");
+    //   return topcompanies.data;
+    // }
+    // fetchData().then((value) => {
+    //     setCompanies(value.data);
+    //   }
+    // );
+    RetrieveCompanies().then((value) => {
+      // console.log(value);
+      setCompanies(value.data);
+    })
   }, []);
 
   return (
@@ -76,7 +70,7 @@ const CompanyList = () => {
       <TableContainer component={Paper} >
         <Table className={classes.table} >
           <TableHead>
-            <TableRow classname={classes.tableHeader}>
+            <TableRow className={classes.tableHeader}>
               <TableCell>Rank</TableCell>
               <TableCell>Company</TableCell>
               <TableCell>Hours</TableCell>
