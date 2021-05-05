@@ -45,8 +45,6 @@ const CompanyList = () => {
 
   const [ companies, setCompanies] = useState([]);
 
-  // const fetchTopCompanies = 
-
   useEffect(() => {
     // const fetchData = async () => {
     //   const topcompanies = await axios.get("http://localhost:5000/companies");
@@ -57,7 +55,6 @@ const CompanyList = () => {
     //   }
     // );
     RetrieveCompanies().then((value) => {
-      // console.log(value);
       setCompanies(value.data);
     })
   }, []);
