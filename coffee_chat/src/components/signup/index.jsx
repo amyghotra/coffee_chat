@@ -26,10 +26,13 @@ const SignUpForm = ({setAuth}) => {
     email:"",
     password:"",
     company:"",
-    jobTitle:""
+    jobTitle:"",
+    school:"",
+    major:"",
+    yearsExperience:""
   })
 
-  const { name, email, password, company, jobTitle } = inputs;
+  const { name, email, password, company, jobTitle, yearsExperience, school, major } = inputs;
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -56,7 +59,7 @@ const SignUpForm = ({setAuth}) => {
     event.preventDefault();
 
     try {
-      const body = { name, email, password, isStudent, company, jobTitle }
+      const body = { name, email, password, isStudent, school, major, company, jobTitle, yearsExperience }
       const response = await fetch(
         "http://localhost:5000/auth/register",
         {
@@ -68,15 +71,14 @@ const SignUpForm = ({setAuth}) => {
         }
       )
         .then(res => res.text())
-        // .then(res => console.log(res.json()))
         // .then(text => console.log(text))
 
-      const parse = await response
-      console.log(parse.split('"')[3]) // token value
+      const parseRes = await response;
+      console.log(parseRes.split('"')[3])
 
-      const token_value = parse.split('"')[3]
+      const token_value = parseRes.split('"')[3]
 
-      if (parse.split('"')[1] === 'token') {
+      if (parseRes.split('"')[1] === 'token') {
         localStorage.setItem("token", token_value);
         setIsAuthenticated(true);
         handleAuthSuccess()
@@ -130,7 +132,22 @@ const SignUpForm = ({setAuth}) => {
           </FormGroup>
         </FormGroup>
         {/* Pros additional info */}
-        {isStudent? null: (
+        {isStudent? 
+          <Fade>
+            {/* Company */}
+            <FormGroup>
+              <Label for="school">School</Label>
+              <Input type='text' name="school" id="school" 
+              placeholder="ex: Colby College" onChange={onChange} />
+            </FormGroup>
+            {/* Position */}
+            <FormGroup>
+              <Label for="major">Major</Label>
+              <Input type='text' name="major" id="major" 
+              placeholder="ex: Computer Science" onChange={onChange} />
+            </FormGroup>
+          </Fade> 
+          : (
           <Fade>
             {/* Company */}
             <FormGroup>
@@ -141,8 +158,13 @@ const SignUpForm = ({setAuth}) => {
             {/* Position */}
             <FormGroup>
               <Label for="jobTitle">Job Title</Label>
-              <Input type='jobTitle' name="jobTitle" id="jobTitle" 
+              <Input type='text' name="jobTitle" id="jobTitle" 
               placeholder="ex: Senior Software Engineer" onChange={onChange} />
+            </FormGroup>
+            <FormGroup>
+              <Label for="yearsExperience">Years Experience</Label>
+              <Input type='text' name="yearsExperience" id="yearsExperience" 
+              placeholder="ex: 5" onChange={onChange} />
             </FormGroup>
           </Fade>
         )}

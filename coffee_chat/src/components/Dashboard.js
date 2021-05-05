@@ -15,32 +15,32 @@ export default function Dashboard(props){
                 headers:{ jwtToken: localStorage.token}
             })
                 .then(res => res.text())
-                .then(text => {object = text; obj_string = text})
+                .then(text => obj_string = text)
+                // .then(text => {object = text; obj_string = text})
             // const something = await response
-            object = JSON.parse(object)
-
-            const user_type = obj_string.split('"')[1]
-            const user_name = object.pro_name
+            object = JSON.parse(obj_string)
             // console.log(object)
 
-            if(obj_string.split('"')[1] == 'pro_id') {
+            const user_type = obj_string.split('"')[1]
+            // const user_name = object.pro_name
+            // console.log(obj_string)
+
+            if(object.professionalInfo) {
                 history.push({
                     pathname:"/professionalprofile",
                     state:{
                         isAuth: true,
-                        obj: obj_string
+                        obj: object
                     }
                 })
-                // return <Redirect to='/professionalprofile' />
             } else {
                 history.push({
                     pathname:"/studentprofile",
                     state:{
                         isAuth: true,
-                        obj: obj_string
+                        obj: object
                     }
                 })
-                // return <Redirect to='/studentprofile' />
             }
 
         } catch (err) {

@@ -26,7 +26,7 @@ class StudentInfo extends React.Component{
                             </div>
 
                             <div>
-                                <a href={this.state.social}><p className="student-profile-top-item" id="linkedin">LinkedIn</p> </a>
+                                <a href={this.props.social}><p className="student-profile-top-item" id="linkedin">LinkedIn</p> </a>
                             </div>
                             <div>
                                 <Link to='/student_edit'><button className="student-profile-top-item" id="edit_profile_button">edit profile</button></Link> 

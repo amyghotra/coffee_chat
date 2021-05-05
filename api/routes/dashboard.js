@@ -6,20 +6,26 @@ router.get("/", authorization, async (req, res) => {
   try {
     // req.user has the payload
     // res.json(req.user)
-    const user = await pool.query("SELECT * FROM cc_users where user_id = $1", [
+    const user = await pool.query("SELECT * FROM users where id = $1", [
       req.user,
     ]);
 
-    if(user.rows[0].is_student) {
-      const student = await pool.query("SELECT * FROM students where student_id = $1", [
-        req.user,
-      ]);
-      res.json(student.rows[0]);
+    const student = await pool.query("SELECT * FROM students where id = $1", [
+      req.user,
+    ]);
+    if(student.rows.length){
+      res.json({userInfo: user.rows[0],studentInfo: student.rows[0]});
     } else {
-      const professional = await pool.query("SELECT * FROM professionals where pro_id = $1", [
+      const professional = await pool.query("SELECT * FROM professionals where id = $1", [
         req.user,
-      ]);
-      res.json(professional.rows[0]);
+      ]); // professional's id and EXP YEARS
+      const workInfo = await pool.query("SELECT * FROM worksAt where pro_id = $1", [
+        req.user,
+      ]); // pro id, company id, ROLE
+      const companyInfo = await pool.query("SELECT * FROM companies where id = $1", [
+        workInfo.rows[0].company_id,
+      ]); // company id and COMPANY NAME
+      res.json({userInfo: user.rows[0], professionalInfo: professional.rows[0], role: workInfo.rows[0], company: companyInfo.rows[0]});
     }
 
   } catch (err) {

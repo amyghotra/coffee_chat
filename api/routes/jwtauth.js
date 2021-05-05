@@ -14,13 +14,16 @@ router.post("/register", validInput, async (req, res) => {
       email,
       password,
       isStudent,
+      school,
+      major,
       company,
       jobTitle,
+      yearsExperience
     } = req.body;
 
     // check if user exists; if yes, throw error
     const user = await pool.query(
-      "SELECT * FROM cc_users where user_email = $1",
+      "SELECT * FROM users where email = $1",
       [email]
     );
 
@@ -36,32 +39,58 @@ router.post("/register", validInput, async (req, res) => {
     // res.json(req.body)
 
     const newUser = await pool.query(
-      "INSERT INTO cc_users (username,user_email,user_password, is_student) VALUES ($1,$2,$3,$4) RETURNING *",
-      [name, email, bcryptpassword, isStudent]
+      "INSERT INTO users (name,email,password) VALUES ($1,$2,$3) RETURNING *",
+      [name, email, bcryptpassword]
     );
 
     // res.json(newUser.rows[0])
 
-    let user_id = newUser.rows[0].user_id;
+    let id = newUser.rows[0].id;
 
     // enter user into db
-    if (jobTitle.length < 1) {
+    if (isStudent) {
       const newStudent = await pool.query(
-        "INSERT INTO students (student_id, student_name,student_email,student_password) VALUES ($1,$2,$3, $4)",
-        [user_id, name, email, bcryptpassword]
+        "INSERT INTO students (id, school, major) VALUES ($1,$2,$3)",
+        [id, school, major]
       );
       // res.json(newStudent.rows[0])
     }
     else {
       const newPro = await pool.query(
-        "INSERT INTO professionals (pro_id, pro_name, pro_email, pro_password, pro_company, pro_role) VALUES ($1, $2, $3, $4, $5, $6)",
-        [user_id, name, email, bcryptpassword, company, jobTitle]
+        "INSERT INTO professionals (id, experience) VALUES ($1, $2)",
+        [id, yearsExperience]
       );
+      const companyid = await pool.query(
+        "SELECT * FROM companies WHERE company = $1",
+        [company]
+      );
+      if(companyid.rows.length) {
+        const company_id_ = companyid.rows[0].id
+        const newWorksAt = await pool.query(
+          "INSERT INTO worksat (pro_id, company_id, position) VALUES ($1, $2, $3)",
+          [id, company_id_, jobTitle]
+        );
+      } else {
+        let hours = 0;
+        const newCompany = await pool.query(
+          "INSERT INTO companies (company, totalhours) VALUES ($1, $2)",
+          [company, hours]
+        );
+        const companyid = await pool.query(
+          "SELECT * FROM companies WHERE company = $1",
+          [company]
+        );
+        const company_id_ = companyid.rows[0].id
+        const newWorksAt = await pool.query(
+          "INSERT INTO worksat (pro_id, company_id, position) VALUES ($1, $2, $3)",
+          [id, company_id_, jobTitle]
+        );
+      }
       // res.json(newPro.rows[0])
     }
 
     // generate jwt token
-    const token = jwtGenerator(newUser.rows[0].user_id);
+    const token = jwtGenerator(newUser.rows[0].id);
     res.json({ token });
   } catch (err) {
     console.log(err.message);
@@ -77,7 +106,7 @@ router.post("/login", validInput, async (req, res) => {
 
     // check if user doesnt exist;if not then throw err
     const user = await pool.query(
-      "SELECT * FROM cc_users where user_email = $1",
+      "SELECT * FROM users where email = $1",
       [email]
     );
 
@@ -89,15 +118,17 @@ router.post("/login", validInput, async (req, res) => {
     // check if given password = db password
     const validPassword = await bcrypt.compare(
       password,
-      user.rows[0].user_password
-    );
+      user.rows[0].password
+    )
 
     if (!validPassword) {
       return res.status(401).send("password or email is incorrect");
     }
 
+    
+
     // give jwt token
-    const jwtToken = jwtGenerator(user.rows[0].user_id);
+    const jwtToken = jwtGenerator(user.rows[0].id);
     res.json({ jwtToken });
   } catch (err) {
     console.log(err.message);

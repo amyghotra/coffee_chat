@@ -9,10 +9,10 @@ export default function Student_Profile(props){
     const history = useHistory()
     const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-    // console.log(`person name is : ${props.location.state.name}`)
-    const str = JSON.parse(props.location.state.obj)
-    const { student_name, student_school, student_major, student_social } = str
-    // console.log(str)
+    const { school, major } = props.location.state.obj.studentInfo
+    const { name, email, social } = props.location.state.obj.userInfo
+    // console.log(props.location.state.obj.studentInfo)
+    // console.log(props.location.state.obj.userInfo)
 
     // useEffect(() => {
     //     if(props.location.state.isAuth !== 'undefined') {
@@ -26,7 +26,7 @@ export default function Student_Profile(props){
     return(
         <>
         <NavBar />
-            <StudentInfo name={student_name} school={student_school} major={student_major} social={student_social} />
+            <StudentInfo name={name} school={school} major={major} social={social} email={email} />
             <div id="make-row" style={{display:"flex", flexDirection:"column"}}>
                 <div id="new_meets">
                     <ScheduledMeetings />
