@@ -16,6 +16,14 @@ INSERT INTO worksAt(pro_id, company_id, position) VALUES (
   'SWE'
   );
 
+INSERT INTO users (name, email, social, password) VALUES ('PRO', 'PRO@gmail.com', 'PRO.com', 'PROpass');
+INSERT INTO professionals(id) VALUES((SELECT id FROM users WHERE email = 'PRO@gmail.com'));
+INSERT INTO worksAt(pro_id, company_id, position) VALUES (
+  (SELECT id FROM users WHERE email = 'PRO@gmail.com'),
+  (SELECT id FROM companies WHERE company = 'Google'),
+  'DB'
+  );
+
 -- Pro setting schedule
 INSERT INTO proAvailability(pro_id, date, time) VALUES (
     (SELECT id FROM users WHERE email = 'PROjs@gmail.com'),
