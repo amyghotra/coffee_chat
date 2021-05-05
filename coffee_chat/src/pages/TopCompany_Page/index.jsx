@@ -11,6 +11,7 @@ import {
   Container,
   Typography,
 } from "@material-ui/core";
+import axios from "axios";
 
 import { COLOR_PALETTE } from "../../utils/theme";
 import Navbar from "../../components/navbar";
@@ -38,22 +39,6 @@ const DEMO_COMPANIES = [
   {
     name: "Company2",
     hours: 50,
-  },
-  {
-    name: "Company3",
-    hours: 45,
-  },
-  {
-    name: "Company4",
-    hours: 40,
-  },
-  {
-    name: "Company5",
-    hours: 35,
-  },
-  {
-    name: "Company6",
-    hours: 30,
   }
 ];
 
@@ -73,7 +58,14 @@ const CompanyList = () => {
   // const fetchTopCompanies = 
 
   useEffect(() => {
-    setCompanies(DEMO_COMPANIES);
+    const fetchData = async () => {
+      const topcompanies = await axios.get("http://localhost:5000/companies");
+      return topcompanies.data;
+    }
+    fetchData().then((value) => {
+        setCompanies(value.data);
+      }
+    );
   }, []);
 
   return (
@@ -93,13 +85,13 @@ const CompanyList = () => {
           <TableBody>
             {companies.length === 0? 
               (<NoResult />) : 
-              companies.map((company, index) => {
-                const { name, hours } = company;
+              companies.map((companyObj, index) => {
+                const { company, totalhours } = companyObj;
                 return (
                   <TableRow key={index}>
                     <TableCell>{index + 1}</TableCell>
-                    <TableCell component="th" scope="row">{name}</TableCell>
-                    <TableCell>{hours}</TableCell>
+                    <TableCell component="th" scope="row">{company}</TableCell>
+                    <TableCell>{totalhours}</TableCell>
                   </TableRow>
                 ) 
               })
