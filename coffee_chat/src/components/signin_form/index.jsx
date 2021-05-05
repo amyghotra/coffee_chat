@@ -13,8 +13,9 @@ import SignUpForm from "../signup";
 const useStyle = makeStyles({
   formContainer: {
     width: "25em",
-    // minHeight: "25em",
-    height: "40em",
+    minHeight: "25em",
+    maxHeight: "46em",
+    // height: "45em",
     border: "2px solid",
     padding: "2em",
     position: "relative",
@@ -74,7 +75,7 @@ const SignInForm = () => {
             <h5>Register</h5>
           </Col>
         </Row>
-        <LoginForm />
+          <LoginForm />
       </div>
     </>
   );
@@ -90,7 +91,9 @@ const SignInForm = () => {
             <h5>Register</h5>
           </Col>
         </Row>
-        <SignUpForm />
+        <Fade>
+          <SignUpForm />
+        </Fade>
       </div>
     </>
   );
