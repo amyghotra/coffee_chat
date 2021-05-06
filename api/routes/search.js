@@ -5,8 +5,9 @@ router.get("/", async (req, res) => {
   try {
     const { company, profession } = req.body;
     let results = {};
-    //   SELECT * FROM professionals WHERE id in (SELECT pro_id FROM proAvailability);
     if (!company && !profession) {
+      // If company and profession were both left empty
+
       const all = await pool.query(
         `
           SELECT u.id pro_id, u.name, u.social, p.experience, w.position, c.company FROM users u 
@@ -19,6 +20,7 @@ router.get("/", async (req, res) => {
       results.data = all.rows;
       console.log(results.data);
     } else if (!company) {
+      // ONLY PROFESSION WAS ENTERED
       const onlyProfession = await pool.query(
         `
           SELECT u.id pro_id, u.name, u.social, p.experience, w.position, c.company FROM users u 
@@ -31,6 +33,7 @@ router.get("/", async (req, res) => {
       );
       results.data = onlyProfession.rows;
     } else if (!profession) {
+      // ONLY COMPANY WAS ENTERED
       const onlyCompany = await pool.query(
         `
           SELECT u.id pro_id, u.name, u.social, p.experience, w.position, c.company FROM users u 
@@ -44,6 +47,7 @@ router.get("/", async (req, res) => {
 
       results.data = onlyCompany.rows;
     } else {
+      // BOTH QUERIES WERE ENTERED
       const searchQuery = await pool.query(
         `
           SELECT u.id pro_id, u.name, u.social, p.experience, w.position, c.company FROM users u 
