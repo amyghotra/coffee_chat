@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import {Redirect, location, useHistory} from 'react-router-dom'
 import ProfessionalProfile from '../pages/Professional_Profile/index'
+import Loading from './loading/index'
 
-export default function Dashboard(props){
-    const history = useHistory()
+export default function Dashboard(props){ const history = useHistory()
+
     const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-    async function getName(){
+    async function getInfo(){
         let object = ""
         let obj_string = ""
         try {
@@ -17,13 +18,11 @@ export default function Dashboard(props){
                 .then(res => res.text())
                 .then(text => obj_string = text)
                 // .then(text => {object = text; obj_string = text})
-            // const something = await response
             object = JSON.parse(obj_string)
             // console.log(object)
 
             const user_type = obj_string.split('"')[1]
             // const user_name = object.pro_name
-            // console.log(obj_string)
 
             if(object.professionalInfo) {
                 history.push({
@@ -49,7 +48,7 @@ export default function Dashboard(props){
     }
 
     useEffect(() =>{
-        getName()
+        getInfo()
     }, [])
 
     // useEffect(() => {
@@ -78,7 +77,7 @@ export default function Dashboard(props){
 
     return(
         <>
-            <h1>Dashboard</h1>
+            <Loading />
         </>
     )
 }
