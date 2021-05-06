@@ -14,7 +14,7 @@ const useStyle = makeStyles({
   formContainer: {
     width: "25em",
     minHeight: "25em",
-    maxHeight: "46em",
+    // maxHeight: "46em",
     // height: "45em",
     border: "2px solid",
     padding: "2em",
@@ -22,7 +22,7 @@ const useStyle = makeStyles({
     top: "20%",
     borderRadius: '1em',
     backgroundColor: `rgb(255,255,255, 0.8)`,
-    // margin: "auto",
+    margin: "auto",
   },
   pageContainer: {
     height: "100vh",
@@ -31,9 +31,9 @@ const useStyle = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    display: "flex",
-    justifyContent: "center",
-    verticalAlign: "center",
+    // display: "flex",
+    // justifyContent: "center",
+    // verticalAlign: "center",
   },
   buttonPrimary: {
     padding: "3px",
