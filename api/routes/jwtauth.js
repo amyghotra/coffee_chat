@@ -8,7 +8,7 @@ const authorization = require("../middleware/authorization"); // check if token 
 // registering
 router.post("/register", validInput, async (req, res) => {
   try {
-    // desrtucture req.body
+    // destructure req.body
     const {
       name,
       email,
@@ -27,7 +27,6 @@ router.post("/register", validInput, async (req, res) => {
       [email]
     );
 
-    // res.json(user.rows)
     if (user.rows.length !== 0) {
       return res.status(401).send("user alrady exists");
     }
@@ -43,7 +42,6 @@ router.post("/register", validInput, async (req, res) => {
       [name, email, bcryptpassword]
     );
 
-    // res.json(newUser.rows[0])
 
     let id = newUser.rows[0].id;
 
@@ -53,7 +51,6 @@ router.post("/register", validInput, async (req, res) => {
         "INSERT INTO students (id, school, major) VALUES ($1,$2,$3)",
         [id, school, major]
       );
-      // res.json(newStudent.rows[0])
     }
     else {
       const newPro = await pool.query(
@@ -86,12 +83,11 @@ router.post("/register", validInput, async (req, res) => {
           [id, company_id_, jobTitle]
         );
       }
-      // res.json(newPro.rows[0])
     }
 
     // generate jwt token
     const token = jwtGenerator(newUser.rows[0].id);
-    res.json({ token });
+    res.json({ token: token, id: newUser.rows[0].id});
   } catch (err) {
     console.log(err.message);
     res.status(500).send("server error");
@@ -129,7 +125,7 @@ router.post("/login", validInput, async (req, res) => {
 
     // give jwt token
     const jwtToken = jwtGenerator(user.rows[0].id);
-    res.json({ jwtToken });
+    res.json({ token: jwtToken, id: user.rows[0].id });
   } catch (err) {
     console.log(err.message);
     res.status(500).send("server error");
