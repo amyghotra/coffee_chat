@@ -1,89 +1,127 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './proeditinfo.css'
 import NavBar from '../../components/navbar/index'
+import { useHistory, location } from 'react-router-dom'
 
-class ProEditInfo extends React.Component {
-    constructor() {
-        super();
-        this.state={
-            name:"",
-            email:"",
-            company:"",
-            role:"",
-            linkedin:""
+function ProEditInfo(props) {
+    const history = useHistory()
+
+    const [info, setInfo] = useState({
+        name:props.location.state.name,
+        email:props.location.state.email,
+        social:props.location.state.social,
+        company:props.location.state.company,
+        role:props.location.state.role,
+        yearsExperience:props.location.state.yearsExperience
+    })
+
+    const { name, email, social, company, role, yearsExperience } = info
+
+    const onChange = e =>
+        setInfo({ ...info, [e.target.name]: e.target.value }
+    )
+
+    async function onSubmit(event) {
+        event.preventDefault()
+
+        try {
+            let object = ""
+            let object_string = ""
+            const response = await fetch("http://localhost:5000/updateProInfo/get", {
+                method:"GET",
+                headers:{ jwtToken: localStorage.token}
+            })
+                .then(res => res.text())
+                .then(text => object_string = text)
+            object = JSON.parse(object_string)
+            // console.log(object)
+            
+            const proId = object.proId
+            // console.log("id " + proId)
+            // history.goBack()
+
+            // update professional information
+            const body = { name, email, social, company, role, yearsExperience, proId }
+            const postRes = await fetch(
+                "http://localhost:5000/updateProInfo/post",
+                {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify(body)
+                }
+            )
+                .then(res => res.text())
+
+                .then(text => console.log(text))
+        
+            const parseRes = await postRes;
+            // console.log("FINAL OUTPUT " + parseRes.split('"')[3])
+            
+            
+        } catch (err) {
+            console.log(err)
         }
-        this.onSubmit = this.onSubmit.bind(this)
-        this.onChange = this.onChange.bind(this)
+        history.push('/dash')
+        // alert("submitted")
     }
 
-    onChange(event){
-        const {name, value} = event.target
-        this.setState({
-            [name]: value
-        }) 
-    }
-
-    onSubmit(event){
-        alert('Successfully changed information', 2000);
-    }
-
-    render(){
-        return(
-            <>
-            <NavBar />
-                <div style={{backgroundColor:"white"}} id="pro_edit_info_page">
-                <h2 id="pro_edit_page_title">Edit your information</h2>
-                    <div id="pro_edit_info_form">
-                    <form onSubmit={this.onSubmit}>
-                            <div style={{textAlign:"left"}}>
-                                <label>Name: </label>
-                                    <br />
-                                    <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="name" type="text" onChange={this.onChange} value={this.state.name} />
-
-                            </div>
-                           
-                            <br /><br />
-
-                            <div style={{textAlign:"left"}}>
-                                <label>Email: </label>
+    return(
+        <>
+        <NavBar />
+            <div style={{backgroundColor:"white"}} id="pro_edit_info_page">
+            <h2 id="pro_edit_page_title">Edit your information</h2>
+                <div id="pro_edit_info_form">
+                <form onSubmit={onSubmit}>
+                        <div style={{textAlign:"left"}}>
+                            <label>Name: </label>
                                 <br />
-                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}}name="email" type="text" onChange={this.onChange} value={this.state.email} />
-                            </div>
-                            <br /><br />
+                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="name" type="text" onChange={onChange} value={name} />
 
-                            <div style={{textAlign:"left"}}>
-                                <label>Company: </label>
-                                <br />
-                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="company" type="text" onChange={this.onChange} value={this.state.company} />
-                            </div>
+                        </div>
+                        
+                        <br /><br />
 
-                            <br /><br />
+                        <div style={{textAlign:"left"}}>
+                            <label>Email: </label>
+                            <br />
+                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}}name="email" type="text" onChange={onChange} value={email} />
+                        </div>
+                        <br /><br />
 
-                            <div style={{textAlign:"left"}}>
-                                <label>Role: </label>
-                                <br />
-                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="role" type="text" onChange={this.onChange} value={this.state.role} />
-                            </div>
+                        <div style={{textAlign:"left"}}>
+                            <label>Company: </label>
+                            <br />
+                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="company" type="text" onChange={onChange} value={company} />
+                        </div>
 
-                            <br /><br />
-                            
-                            <div style={{textAlign:"left"}}>
-                                <label>LinkedIn: </label>
-                                <br />
-                                <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="linkedin" type="text" onChange={this.onChange} value={this.state.linkedin} />
-                            </div>
+                        <br /><br />
 
-                            <br /><br />
+                        <div style={{textAlign:"left"}}>
+                            <label>Role: </label>
+                            <br />
+                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="role" type="text" onChange={onChange} value={role} />
+                        </div>
 
-                            <div style={{textAlign:"right"}}>
-                                <button id="update_info_button" type="submit" value="save">update</button>
-                            </div>
-                        </form>
-                    </div>
+                        <br /><br />
+                        
+                        <div style={{textAlign:"left"}}>
+                            <label>LinkedIn: </label>
+                            <br />
+                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="social" type="text" onChange={onChange} value={social} />
+                        </div>
+
+                        <br /><br />
+
+                        <div style={{textAlign:"right"}}>
+                            <button onClick={onSubmit} id="update_info_button" type="submit" value="save">update</button>
+                        </div>
+                    </form>
                 </div>
-            </>
-        )
-    }
+            </div>
+        </>
+    )
 }
 
 export default ProEditInfo
