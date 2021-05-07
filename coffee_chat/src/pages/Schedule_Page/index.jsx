@@ -7,6 +7,8 @@ import NavBar from "../../components/navbar";
 import SearchResultList from "../../components/search_results_list";
 import SearchForm from "../../components/search_form";
 
+import { GetProfessionals } from '../../services';
+
 // const Loading = () => <Spinner color="info" />;
 
 const DEMO_RES = [
@@ -65,13 +67,14 @@ const SchedulePage = () => {
   // const [loadingSearch, setLoadingSearch] = useState(false);
   const [isError, setIsError] = useState(undefined);
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     setIsError(undefined);
 
     console.log(compQuery, profQuery);
+    const results = await GetProfessionals(compQuery, profQuery);
     // setSearchResults = ...
-    setSearchResult(DEMO_RES);
-
+    // setSearchResult(DEMO_RES);
+    console.log(results.data);
     setCompany(compQuery);
     setProfession(profQuery);
 
