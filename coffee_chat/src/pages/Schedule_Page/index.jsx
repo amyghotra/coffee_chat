@@ -69,17 +69,15 @@ const SchedulePage = () => {
 
   const handleSearch = async () => {
     setIsError(undefined);
-
+    
     console.log(compQuery, profQuery);
     const results = await GetProfessionals(compQuery, profQuery);
-    // setSearchResults = ...
-    // setSearchResult(DEMO_RES);
     console.log(results.data);
+    setSearchResult(results.data);
     setCompany(compQuery);
     setProfession(profQuery);
 
     setIsError(false);
-    // setisError(false);
   };
 
   const handleCompChange = (value) => {
