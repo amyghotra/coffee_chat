@@ -39,8 +39,8 @@ const SearchResultItem = ({ professionalInfo }) => {
             {/* {`${first} ${last}`} */}
             {`${name}`}
           </Typography>
-          <Typography variant="subtitle2">
-            {`${company} ${position}`}
+          <Typography variant="subtitle1">
+            {`${position} at ${company}`}
           </Typography>
           {/* onclick should bring to a new page */}
           <Button color="primary">
