@@ -3,7 +3,12 @@ const pool = require("../db");
 
 router.get("/", async (req, res) => {
   try {
-    const { company, profession } = req.body;
+    let company = null;
+    let profession = null;
+    if (!req.query.length) {
+      company = req.query.company;
+      profession = req.query.profession;
+    }
     let results = {};
     if (!company && !profession) {
       // If company and profession were both left empty
@@ -18,7 +23,7 @@ router.get("/", async (req, res) => {
       );
 
       results.data = all.rows;
-      console.log(results.data);
+      // console.log(results.data);
     } else if (!company) {
       // ONLY PROFESSION WAS ENTERED
       const onlyProfession = await pool.query(
