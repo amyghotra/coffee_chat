@@ -19,10 +19,6 @@ function StudentEditInfo(props) {
     const onChange = e =>
         setInfo({ ...info, [e.target.name]: e.target.value })
 
-    // useEffect(() => {
-    //     console.log(props.location.state)
-    // }, [])
-
     async function onSubmit(event){
         event.preventDefault();
 
@@ -91,7 +87,7 @@ function StudentEditInfo(props) {
                         <div style={{textAlign:"left"}}>
                             <label>Email: </label>
                             <br />
-                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}}name="email" type="text" onChange={onChange} value={email} />
+                            <input style={{height:"25px", width:"350px", borderRadius:"5px",border:"1px solid black",'fontFamily': "'Raleway', sans-serif"}} name="email" type="text" onChange={onChange} value={email} />
                         </div>
                         <br /><br />
 

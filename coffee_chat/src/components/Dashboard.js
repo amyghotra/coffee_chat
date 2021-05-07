@@ -23,8 +23,10 @@ export default function Dashboard(props){ const history = useHistory()
 
             const user_type = obj_string.split('"')[1]
             // const user_name = object.pro_name
+            console.log("stuck in here")
 
             if(object.professionalInfo) {
+                console.log("stuck in prof info")
                 history.push({
                     pathname:"/professionalprofile",
                     state:{

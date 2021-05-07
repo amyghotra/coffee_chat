@@ -5,13 +5,13 @@ import NavBar from '../../components/navbar/index'
 import {useHistory, location} from 'react-router-dom'
 
 export default function ProfessionalProfile(props){ 
-    // console.log(props.location.state.obj)
+    console.log(props.location.state.obj)
     const { name, email, social } = props.location.state.obj.userInfo
     const { experience } = props.location.state.obj.professionalInfo
     const { company } = props.location.state.obj.company
     const { position } = props.location.state.obj.role
 
-    // console.log(props.location.state.obj.role)
+    console.log(props.location.state.obj.role)
     // console.log(props.location.state.obj.company)
     
     const history = useHistory()
@@ -29,7 +29,7 @@ export default function ProfessionalProfile(props){
     return(
         <>
             <NavBar />
-            <ProfessionalInfo name={name} company={company} role={position} social={social} email={email} />
+            <ProfessionalInfo name={name} company={company} role={position} social={social} email={email} yearsExperience={experience} />
             <div style={{display:"flex", flexDirection:"row"}}>
                 <ProScheduledMeetings />
             </div>

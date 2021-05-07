@@ -56,30 +56,4 @@ router.put("/post", async(req, res) => {
     }
 });
 
-// router.put("/post/:id", async(req, res) => {
-//     try {
-//         res.json(req.body)
-//         const { id } = req.params
-//         // destructure req.body
-//         const { name, email, social, school, major, studentId } = req.body
-
-//         const update_users_table = await pool.query(
-//             "UPDATE users SET name=$1,email=$2,social=$3 WHERE id=$4",
-//             [name, email, social,id]
-//         )
-
-//         const update_students_table =  await pool.query(
-//             "UPDATE students SET school=$1,major=$2 WHERE id=$3",
-//             [school,major,id]
-//         )
-
-//         // res.json({newUsersEntry: update_users_table.rows[0], newStudentsEntry:update_students_table.rows[0]})
-//         // const jwtToken = jwtGenerator(id);
-//         // res.json({ jwtToken });
-        
-//     } catch (err) {
-//         console.log(err.message)
-//     }
-// });
-
 module.exports = router
