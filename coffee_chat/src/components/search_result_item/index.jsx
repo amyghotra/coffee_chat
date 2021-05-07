@@ -20,21 +20,24 @@ const useStyles = makeStyles({
 const SearchResultItem = ({ professionalInfo }) => {
   const classes = useStyles();
 
-  const { first, last, imgsrc, company, position, availbility } = professionalInfo;
-
+  const { name, imgsrc, company, position } = professionalInfo;
+  
+  const key = name.replace(/\s+/g, '-').toLowerCase();
   return (
     <Fade>
-      <Grid container spacing={3} key={`${first}${last}`}>
+      {/* <Grid container spacing={3} key={`${first}${last}`}> */}
+      <Grid container spacing={3} key={`${key}`}>
         <Grid item xs={3}>
           <Avatar 
-            alt={`${first}'s profile picture`}
+            alt={`${name}'s profile picture`}
               src={imgsrc}
             className={classes.avatar}
           />
         </Grid>
         <Grid item xs={4}>
           <Typography variant="h5">
-            {`${first} ${last}`}
+            {/* {`${first} ${last}`} */}
+            {`${name}`}
           </Typography>
           <Typography variant="subtitle2">
             {`${company} ${position}`}
