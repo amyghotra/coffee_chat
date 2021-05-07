@@ -58,12 +58,12 @@ function ProEditInfo(props) {
         
             const parseRes = await postRes;
             // console.log("FINAL OUTPUT " + parseRes.split('"')[3])
-            history.goBack()
+            
             
         } catch (err) {
             console.log(err)
         }
-
+        history.push('/dash')
         // alert("submitted")
     }
 
