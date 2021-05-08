@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ProEditSched.css'
 
 export default function SelectedTimes(props){
+
+    // useEffect(() => {
+    //     // fetch all objectt from db
+    // },[])
+
     return (
         <>
             <div id="current_sched_item">

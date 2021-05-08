@@ -21,6 +21,17 @@ function ProfessionalInfo(props){
         })
     }
 
+    function goToSchedEdit() {
+        // console.log(props)
+        // console.log(localStorage)
+        history.push({
+            pathname:"/schedit",
+            state:{
+                proID: ""
+            }
+        })
+    }
+
     return(
         <div id="pro">
         {/* <Fade left cascade> */}
@@ -48,7 +59,7 @@ function ProfessionalInfo(props){
                                 {/* </Link> */}
                             </div>
                             <div>
-                                <Link to='./schedit'><button className="pro-profile-top-item" id="edit_profile_button">set schedule</button></Link>
+                                <button onClick={goToSchedEdit} className="pro-profile-top-item" id="edit_profile_button">set schedule</button>
                             </div>
                         </div>
                         
