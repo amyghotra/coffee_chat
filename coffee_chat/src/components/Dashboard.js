@@ -43,9 +43,9 @@ export default function Dashboard(props) {
                 })
             }
 
-        } catch (err) {
-            console.log(err.message)
-        }
+    } catch (err) {
+        console.log(err.message)
+    }
 
       const user_type = obj_string.split('"')[1];
       // const user_name = object.pro_name
@@ -67,10 +67,8 @@ export default function Dashboard(props) {
           },
         });
       }
-    } catch (err) {
-      console.log(err.message);
     }
-  }
+
 
   useEffect(() => {
     getInfo();
