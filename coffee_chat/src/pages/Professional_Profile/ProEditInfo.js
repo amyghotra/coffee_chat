@@ -37,8 +37,6 @@ function ProEditInfo(props) {
             // console.log(object)
             
             const proId = object.proId
-            // console.log("id " + proId)
-            // history.goBack()
 
             // update professional information
             const body = { name, email, social, company, role, yearsExperience, proId }
@@ -57,8 +55,6 @@ function ProEditInfo(props) {
                 .then(text => console.log(text))
         
             const parseRes = await postRes;
-            // console.log("FINAL OUTPUT " + parseRes.split('"')[3])
-            
             
         } catch (err) {
             console.log(err)

@@ -9,6 +9,7 @@ const professionalsRouter = require("./professionals");
 const searchRouter = require("./search");
 const updateStudentInfo = require("./updateStudentInfo")
 const updateProInfo = require("./updateProInfo")
+const proSchedule = require("./proSchedule")
 
 // Connect routes
 router.use("/auth", jwtauthRouter);
@@ -18,6 +19,7 @@ router.use("/professionals", professionalsRouter);
 router.use("/search", searchRouter);
 router.use("/updateStudentInfo", updateStudentInfo);
 router.use("/updateProInfo", updateProInfo);
+router.use("/proSchedule", proSchedule);
 
 // Testing purposes
 router.use("/echo", echoRouter);
