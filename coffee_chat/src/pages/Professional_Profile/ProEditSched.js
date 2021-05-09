@@ -4,7 +4,6 @@ import NavBar from '../../components/navbar/index'
 import SelectedTimes from './SelectedTimes'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// var TimePicker = require('basic-react-timepicker');
 import TimePicker from 'react-time-picker';
 
 function ProEditSched(){
@@ -85,6 +84,37 @@ function ProEditSched(){
         }
     }
 
+    async function deleteAvailability(selectedDate, selectedTime) {
+        // console.log(selectedDate)
+        // console.log(selectedTime)
+        try {
+            // get professional's ID
+            let object = ""
+            let object_string = ""
+            const response = await fetch("http://localhost:5000/proSchedule/getID", {
+                method:"GET",
+                headers:{ jwtToken: localStorage.token}
+            })
+                .then(res => res.text())
+                .then(text => object_string = text)
+            object = JSON.parse(object_string)
+            // console.log(object)
+        
+            const selectedproId = object.proId
+
+            const body = { selectedDate, selectedTime, selectedproId }
+            const deleteAvailItem = await fetch("http://localhost:5000/proSchedule/delete",{
+                method:'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                  },
+                body: JSON.stringify(body)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return(
         <>
         <NavBar />
@@ -114,8 +144,10 @@ function ProEditSched(){
                 <div id="current_sched">
                     <h2 id="current_sched_title">Currently selected</h2>
                     <div id="current_sched_list"> 
-                        {console.log(selectedTimes)}
-                        {selectedTimes.map(item => {return <SelectedTimes date={item.date.substr(0,10)} time={item.time.substr(0,5)} />})}
+                        {selectedTimes.map(item => 
+                        {
+                            return <div><SelectedTimes pro_id={proId} date={item.date.substr(0,10)} time={item.time.substr(0,8)} /> <br /> <button onClick={() => deleteAvailability(item.date.substr(0,10), item.time)}>click me</button></div>}
+                        )}
 
                     </div>
                 </div>
