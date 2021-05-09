@@ -12,38 +12,34 @@ function ProEditSched(){
 
     const [time, onSetTime] = useState('10:00');
 
-    const [info, setInfo] = useState ({
-        selected_times:[]
-    })
+    const [selectedTimes, setSelectedTimes] = useState([])
 
-    const { selected_times } = info
+    let availObjs = []
+
+    let proId=""
 
     async function getAvailabilityItems() {
         try {
-            let object = ""
             let object_string = ""
             const response = await fetch("http://localhost:5000/proSchedule/getItems", {
                 method:"GET",
                 headers:{ jwtToken: localStorage.token}
             })
                 .then(res => res.text())
-                .then(text => object_string = text)
-            object = JSON.parse(object_string)
-            // console.log(object)
-        
-            const proId = object.proId
+                .then(text => {object_string = text})
+                .then(text => {availObjs = JSON.parse(object_string) })
+            
+            proId = availObjs[0].pro_id
+            setSelectedTimes(availObjs)
+            console.log(availObjs)
+            console.log(selectedTimes)
         } catch (err) {
             console.log(err)
         }
     }
 
-    const onChange = e =>
-        setInfo({ ...info, [e.target.name]: e.target.value })
-
-
     useEffect(() =>{
         getAvailabilityItems()
-        // fetch all objects associated with proID and store in selected_times (call obj w props)
     },[])
 
     async function newTimeAdded(event) {
@@ -92,7 +88,6 @@ function ProEditSched(){
     return(
         <>
         <NavBar />
-        <button onClick={getAvailabilityItems}>click me</button>
             <div id="sched_info">
                 <div id="pro_edit_sched_container">
                     <h2 id="edit_sched_title">Edit your availability</h2>
@@ -100,7 +95,6 @@ function ProEditSched(){
                         <form id="schedule_selection">
                             <div id="date_picker">
                                 <label>Date:</label>
-                                {/* <input id="text_input" type="text" /> */}
                                 <DatePicker name="selectedDate" value={selectedDate} selected={selectedDate} onChange={date => setSelectedDate(date)} />
                             </div>
 
@@ -119,9 +113,9 @@ function ProEditSched(){
                 
                 <div id="current_sched">
                     <h2 id="current_sched_title">Currently selected</h2>
-                    <div id="current_sched_list">
-
-                        {selected_times}
+                    <div id="current_sched_list"> 
+                        {console.log(selectedTimes)}
+                        {selectedTimes.map(item => {return <SelectedTimes date={item.date.substr(0,10)} time={item.time.substr(0,5)} />})}
 
                     </div>
                 </div>
