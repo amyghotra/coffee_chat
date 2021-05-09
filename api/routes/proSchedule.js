@@ -25,7 +25,7 @@ router.get("/getID", authorization, async(req, res) => {
 router.get("/getItems", authorization, async(req,res) => {
     try {
         // req.user has the payload
-        console.log(`something ${req.user}`)
+        // console.log(`something ${req.user}`)
         const user = await pool.query("SELECT * FROM users where id=$1", [
           req.user,
         ]);
