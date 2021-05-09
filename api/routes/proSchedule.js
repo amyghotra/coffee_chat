@@ -14,17 +14,37 @@ router.get("/getID", authorization, async(req, res) => {
 
         res.json({proId: user.rows[0].id});
     
-      } catch (err) {
+    } catch (err) {
         console.log(err.message);
         res.status(500).send("server error");
-      }
+    }
 });
 
+
 // get list of time/date objects
-// router.get("/get", async(req,res) => {
-//     // console.log(req.body)
-//     res.json("schedule")
-// })
+router.get("/getItems", authorization, async(req,res) => {
+    try {
+        // req.user has the payload
+        console.log(`something ${req.user}`)
+        const user = await pool.query("SELECT * FROM users where id=$1", [
+          req.user,
+        ]);
+
+        // console.log(user.rows[0].id)
+
+        const items = await pool.query("SELECT * FROM proavailability WHERE pro_id=$1",[user.rows[0].id])
+        
+        // console.log(items.rows)
+
+        res.json(items.rows)
+
+        // res.json({proId: user.rows[0]});
+    
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send("server error");
+    }
+})
 
 // // create new time/date object
 router.post("/post", async(req,res) => {

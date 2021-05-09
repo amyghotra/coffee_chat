@@ -18,18 +18,38 @@ function ProEditSched(){
 
     const { selected_times } = info
 
+    async function getAvailabilityItems() {
+        try {
+            let object = ""
+            let object_string = ""
+            const response = await fetch("http://localhost:5000/proSchedule/getItems", {
+                method:"GET",
+                headers:{ jwtToken: localStorage.token}
+            })
+                .then(res => res.text())
+                .then(text => object_string = text)
+            object = JSON.parse(object_string)
+            // console.log(object)
+        
+            const proId = object.proId
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     const onChange = e =>
         setInfo({ ...info, [e.target.name]: e.target.value })
 
 
-    // useEffect(() =>{
-        // // fetch all objects associated with proID and store in selected_times (call obj w props)
-    // },[])
+    useEffect(() =>{
+        getAvailabilityItems()
+        // fetch all objects associated with proID and store in selected_times (call obj w props)
+    },[])
 
     async function newTimeAdded(event) {
         event.preventDefault()
         const date = selectedDate.toJSON().substr(0,10)
-        console.log(localStorage)
+        // console.log(localStorage)
 
         try {
             // get professional's ID
@@ -72,6 +92,7 @@ function ProEditSched(){
     return(
         <>
         <NavBar />
+        <button onClick={getAvailabilityItems}>click me</button>
             <div id="sched_info">
                 <div id="pro_edit_sched_container">
                     <h2 id="edit_sched_title">Edit your availability</h2>
