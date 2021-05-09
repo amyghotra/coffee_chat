@@ -46,16 +46,31 @@ router.get("/getItems", authorization, async(req,res) => {
     }
 })
 
-// // create new time/date object
+// create new time/date object
 router.post("/post", async(req,res) => {
     const { proId, date, time } = req.body
 
     const newAvailObject = await pool.query("INSERT INTO proavailability(pro_id,date,time) VALUES ($1,$2,$3) RETURNING *",[proId, date, time])
 
-
     res.json(newAvailObject.rows[0])
 })
 
 // delete time/date object
+router.put("/delete", async(req, res) => {
+    console.log(req.body)
+    const { selectedDate, selectedTime, selectedproId } = req.body
+    
+    const updateProAvailTable = await pool.query(
+        "DELETE FROM proavailability WHERE pro_id=$1 AND date=$2 AND time=$3",
+        [selectedproId, selectedDate, selectedTime]
+    )
+
+    const updateMeetingsTable = await pool.query(
+        "DELETE FROM meetings WHERE pro_id=$1 AND date=$2 AND time=$3",
+        [selectedproId, selectedDate, selectedTime]
+    )
+
+    res.json("successfully deleted")
+})
 
 module.exports = router
