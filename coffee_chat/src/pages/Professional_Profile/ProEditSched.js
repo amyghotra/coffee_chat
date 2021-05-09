@@ -5,8 +5,10 @@ import SelectedTimes from './SelectedTimes'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
+import { useHistory } from 'react-router-dom'
 
 function ProEditSched(){
+    const history = useHistory()
     const [selectedDate, setSelectedDate] = useState(new Date());
 
     const [time, onSetTime] = useState('10:00');
@@ -79,6 +81,7 @@ function ProEditSched(){
         
             const parseRes = await postRes;
 
+            history.go(0)
         } catch (err) {
             console.log(err)
         }
@@ -110,6 +113,7 @@ function ProEditSched(){
                   },
                 body: JSON.stringify(body)
             })
+            history.go(0)
         } catch (err) {
             console.log(err)
         }
