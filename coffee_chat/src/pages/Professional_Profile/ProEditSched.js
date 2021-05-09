@@ -31,6 +31,8 @@ function ProEditSched(){
             
             proId = availObjs[0].pro_id
             setSelectedTimes(availObjs)
+            console.log(availObjs)
+            console.log(selectedTimes)
         } catch (err) {
             console.log(err)
         }
@@ -86,7 +88,6 @@ function ProEditSched(){
     return(
         <>
         <NavBar />
-        <button onClick={getAvailabilityItems}>click me</button>
             <div id="sched_info">
                 <div id="pro_edit_sched_container">
                     <h2 id="edit_sched_title">Edit your availability</h2>
