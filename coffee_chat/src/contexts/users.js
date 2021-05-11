@@ -27,14 +27,18 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     const handleRetrieveUserType = async (token) => {
-      const userT = await GetVertification(token);
-      // console.log(userT.userType);
-      if (userT.userType === 'student') {
-        setUserType(uType.STUDENT);
-        setAuthorized(true);
-      } else if (userT.userType === 'professional') {
-        setUserType(uType.PRO);
-        setAuthorized(true);
+      try {
+        const userT = await GetVertification(token);
+        // console.log(userT);
+        if (userT.userType === 'student') {
+          setUserType(uType.STUDENT);
+          setAuthorized(true);
+        } else if (userT.userType === 'professional') {
+          setUserType(uType.PRO);
+          setAuthorized(true);
+        }
+      } catch (error) {
+        setUserType(uType.GUEST);
       }
     };
 
