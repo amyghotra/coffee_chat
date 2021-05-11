@@ -1,13 +1,14 @@
 import axios from 'axios';
 
 export const GetVertification = async (token) => {
-  const userType = await axios.get('https://localhost:5000/auth/verify', {
+  const userType = await axios.get('http://localhost:5000/auth/verify', {
     headers: {
       jwtToken: token,
     },
   });
 
   console.log(userType.data);
+  return userType.data;
 };
 
 export const RetrieveCompanies = async () => {
