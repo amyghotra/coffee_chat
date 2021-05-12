@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const pool = require("../db");
+const router = require('express').Router();
+const pool = require('../db');
 
-router.get("/all", async (_, res) => {
+router.get('/all', async (_, res) => {
   try {
     const results = {};
 
@@ -21,13 +21,13 @@ router.get("/all", async (_, res) => {
     return res.json(results);
   } catch (err) {
     console.log(err.message);
-    return res.status(401).json("professional error");
+    return res.status(401).json('professional error');
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const results = {};
+    // const results = {};
     const searchId = req.params.id;
 
     const specificPro = await pool.query(
@@ -41,12 +41,12 @@ router.get("/:id", async (req, res) => {
       [searchId]
     );
 
-    results.data = specificPro.rows;
+    const results = specificPro.rows;
 
     return res.json(results);
   } catch (err) {
     console.error(err.message);
-    return res.status(401).json("proid Server Error");
+    return res.status(401).json('proid Server Error');
   }
 });
 
