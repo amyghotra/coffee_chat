@@ -4,6 +4,7 @@ import './PublicProInfo.css';
 import Fade from 'react-reveal/Fade';
 
 const PublicProInfo = ({ professionalInfo }) => {
+  console.log(professionalInfo);
   const { name, social, position, company } = professionalInfo;
 
   return (

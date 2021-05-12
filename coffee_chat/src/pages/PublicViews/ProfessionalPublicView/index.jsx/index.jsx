@@ -14,6 +14,7 @@ const ProfessionalPublicView = () => {
 	useEffect(async () => {
 		try {
 			const dbProfessionalInfo = await GetProfessionalInfo(selectedProfessional);
+			console.log('db', dbProfessionalInfo)
 			setProfessionalInfo(dbProfessionalInfo.data);
 		} catch (error) {
 		}
@@ -27,12 +28,16 @@ const ProfessionalPublicView = () => {
 
 	return (
 	  <>
-			{console.log(professionalInfo)}
 	    <NavBar />
-	    <div id="pro_public_container">
-	      <PublicProInfo professionalInfo={professionalInfo} />
-	      <PublicProMeetingSelection />
-	    </div>
+			{
+				professionalInfo ? 
+					<div id="pro_public_container">
+						<PublicProInfo professionalInfo={professionalInfo} />
+						<PublicProMeetingSelection />
+					</div> 
+					: 
+					<></>
+			}
 	  </>
   );  
 }
