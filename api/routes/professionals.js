@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
       [searchId]
     );
 
-    const results = specificPro.rows;
+    const results = specificPro.rows[0];
 
     return res.json(results);
   } catch (err) {
