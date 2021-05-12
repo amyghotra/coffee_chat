@@ -7,7 +7,6 @@ export const GetVertification = async (token) => {
     },
   });
 
-  console.log(userType.data);
   return userType.data;
 };
 
