@@ -20,15 +20,17 @@ const ProfessionalPublicView = () => {
 		
 	}, [selectedProfessional])
 
+	// Checks to see if selectedProfessional was valid if not redirect
+	if (!selectedProfessional) {
+		return <Redirect to='/schedule' />;
+	}
 
 	return (
 	  <>
-			{/* Checks to see if selectedProfessional was valid if not redirect */}
-			{!selectedProfessional ? <Redirect to="/schedule" /> : <></>}
 			{console.log(professionalInfo)}
 	    <NavBar />
 	    <div id="pro_public_container">
-	      <PublicProInfo />
+	      <PublicProInfo professionalInfo={professionalInfo} />
 	      <PublicProMeetingSelection />
 	    </div>
 	  </>
