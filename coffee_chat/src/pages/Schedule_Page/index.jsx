@@ -19,9 +19,9 @@ const SchedulePage = () => {
 
   const handleSearch = async () => {
     setIsError(undefined);
-    console.log(compQuery, profQuery);
+    // console.log(compQuery, profQuery);
     const results = await GetProfessionals(compQuery, profQuery);
-    console.log(results.data);
+    // console.log(results.data);
     setSearchResult(results.data);
     setCompany(compQuery);
     setProfession(profQuery);
