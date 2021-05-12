@@ -35,7 +35,6 @@ const SearchResultItem = ({ professionalInfo }) => {
     position,
     company,
   } = professionalInfo
-  
 
   const key = name.replace(/\s+/g, '-').toLowerCase();
   return (
@@ -55,7 +54,7 @@ const SearchResultItem = ({ professionalInfo }) => {
           <Typography variant="subtitle1">
             {`${position} at ${company}`}
           </Typography>
-          <Button color="primary" onClick={handleSetProfessional(pro_id)}>
+          <Button color="primary" onClick={() => handleSetProfessional(pro_id)}>
             <Link to="/professional_public"> View Time Slots</Link>
           </Button>
         </Grid>
