@@ -8,7 +8,7 @@ import {
   Input, 
 } from "reactstrap";
 
-const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
+const SearchForm = ({ onSearch, onProfChange, onCompChange, compQuery, profQuery }) => {
 
   const handleCompChange = (e) => {
     onCompChange(e.target.value);
@@ -19,7 +19,10 @@ const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
   }
 
   const handleSearch = (e) => {
+    e.preventDefault();
     // onSearch(profession, company);
+    onProfChange('');
+    onCompChange('');
     onSearch();
   }
 
@@ -34,6 +37,7 @@ const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
             name="company"
             placeholder="Company Name"
             onChange={handleCompChange}
+            value={compQuery}
           />
         </FormGroup>
         <FormGroup>
@@ -43,6 +47,7 @@ const SearchForm = ({ onSearch, onProfChange, onCompChange }) => {
             name="profession"
             placeholder="Profession Name"
             onChange={handleProfChange}
+            value={profQuery}
           />
         </FormGroup>
         <FormGroup>

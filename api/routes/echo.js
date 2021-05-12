@@ -1,14 +1,14 @@
-const router = require("express").Router();
-const pool = require("../db");
+const router = require('express').Router();
+const pool = require('../db');
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const contributors = await pool.query("SELECT * FROM contributors;");
+    const contributors = await pool.query('SELECT * FROM contributors;');
 
     return res.json(contributors.rows);
   } catch (err) {
     console.error(err.message);
-    return res.status(500).json("Server Error");
+    return res.status(500).json('Server Error');
   }
 });
 
