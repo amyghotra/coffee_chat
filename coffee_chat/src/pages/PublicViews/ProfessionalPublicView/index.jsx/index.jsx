@@ -9,7 +9,7 @@ import { GetProfessionalInfo } from '../../../../services/professional';
 const ProfessionalPublicView = () => {
 	const { selectedProfessional } = useContext(UserContext);
 
-	const [ professionalInfo, setProfessionalInfo] = useState([]);
+	const [ professionalInfo, setProfessionalInfo] = useState();
 
 	useEffect(async () => {
 		try {
@@ -28,6 +28,7 @@ const ProfessionalPublicView = () => {
 
 	return (
 	  <>
+			{console.log('profinfo', professionalInfo)}
 	    <NavBar />
 			{
 				professionalInfo ? 
