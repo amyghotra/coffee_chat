@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
+
+.input_label{
+    font-size: 18px;
+}
+
+.input_label, .input_field, #submit_search_button{
+    font-family: 'Raleway', sans-serif;
+}

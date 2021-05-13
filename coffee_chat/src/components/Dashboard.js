@@ -7,9 +7,8 @@ export default function Dashboard() {
   const history = useHistory();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  setIsAuthenticated(false);
 
-  useEffect(() => {
+  useEffect(async () => {
     async function getInfo() {
       let object = '';
       let obj_string = '';
@@ -46,29 +45,28 @@ export default function Dashboard() {
       } catch (err) {
         console.log(err.message);
       }
-
       // const user_type = obj_string.split('"')[1];
       // const user_name = object.pro_name
 
-      if (object.professionalInfo) {
-        history.push({
-          pathname: '/professionalprofile',
-          state: {
-            isAuth: true,
-            obj: object,
-          },
-        });
-      } else {
-        history.push({
-          pathname: '/studentprofile',
-          state: {
-            isAuth: true,
-            obj: object,
-          },
-        });
-      }
+      // if (object.professionalInfo) {
+      //   history.push({
+      //     pathname: '/professionalprofile',
+      //     state: {
+      //       isAuth: true,
+      //       obj: object,
+      //     },
+      //   });
+      // } else {
+      //   history.push({
+      //     pathname: '/studentprofile',
+      //     state: {
+      //       isAuth: true,
+      //       obj: object,
+      //     },
+      //   });
+      // }
     }
-    getInfo();
+    await getInfo();
   }, [history]);
 
   if (!isAuthenticated) {

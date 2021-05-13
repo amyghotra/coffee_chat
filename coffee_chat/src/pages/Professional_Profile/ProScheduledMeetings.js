@@ -22,7 +22,8 @@ class ProScheduledMeetings extends React.Component {
                 <div id="pro-scheduled-meeting">
                     <div className="pro-scheduled-container">
                         <div id="pro_meetings"> 
-                            <h3 style={{color:"white", fontSize:"25px"}}>Upcoming meetings <em style={{color:"white", fontSize:"15px"}}>(click name for info)</em></h3>
+                            <h3 style={{color:"white", fontSize:"25px"}}>Upcoming meetings </h3>
+                            {/* <em style={{color:"white", fontSize:"15px"}}>(click name for info)</em> */}
 
                             <Fade right cascade>
                             <div id="pro_meeting_info_container">

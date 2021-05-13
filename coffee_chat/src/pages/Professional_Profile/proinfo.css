@@ -28,17 +28,16 @@
 }
 
 .pro-profile-top-container {
-    background-color: white;
     /* EEDACD */
     /* // 6f5e53 */
     display: flex;
     color:#283044;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap:wrap;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: left;
     height: 25vh;
-    width: 100vw;
+    width: 60vw;
     line-height: 0.2em;
 }
 
@@ -61,8 +60,8 @@
 
 #edit_profile_button {
     font-family: 'Raleway', sans-serif;
-    margin-left: 55px;
-    margin-top: 20px;
+    /* margin-left: 55px;
+    margin-top: 20px; */
     background-color: transparent;
     border-radius: 7px;
     border: none;

@@ -12,7 +12,7 @@ import SignUpForm from "../signup";
 
 const useStyle = makeStyles({
   formContainer: {
-    width: "25em",
+    width: "50em",
     minHeight: "25em",
     // maxHeight: "46em",
     // height: "45em",
@@ -21,7 +21,7 @@ const useStyle = makeStyles({
     position: "relative",
     top: "20%",
     borderRadius: '1em',
-    backgroundColor: `rgb(255,255,255, 0.8)`,
+    backgroundColor: `white`,
     margin: "auto",
   },
   pageContainer: {
