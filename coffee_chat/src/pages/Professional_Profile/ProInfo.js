@@ -43,23 +43,20 @@ function ProfessionalInfo(props){
                 </div>
                 <div className="pro-profile-top-container">
                     <Fade left>
-                        <div>
-                            <p className="pro-profile-top-item">{props.company}: {props.role}</p>
-                        </div>
-
-                        <div>
-                            <a href={props.social}><p className="student-profile-top-item" id="linkedin">LinkedIn</p> </a>
-                        </div>
-                        <div>
+                        <div style={{display:"flex",flexFlow:"column"}}>
                             <div>
-                                {/* <Link to='./pro-edit'> */}
-                                
-                                <button onClick={handleClick} className="pro-profile-top-item" id="edit_profile_button">edit profile</button>
-                                
-                                {/* </Link> */}
+                                <p className="pro-profile-top-item">{props.company}: {props.role}</p>
                             </div>
                             <div>
-                                <button onClick={goToSchedEdit} className="pro-profile-top-item" id="edit_profile_button">set schedule</button>
+                                <p style={{marginTop:"30px",marginLeft:"60px"}} className="pro-profile-top-item" id="linkedin"><a href={props.social}>LinkedIn</a></p> 
+                            </div>
+                        </div>
+                        <div style={{display:"flex",flexFlow:"column"}}>
+                            <div>
+                                <button onClick={handleClick} className="pro-profile-top-item" id="edit_profile_button">edit profile</button>
+                            </div>
+                            <div>
+                                <button style={{marginTop:"10px"}} onClick={goToSchedEdit} className="pro-profile-top-item" id="edit_profile_button">set schedule</button>
                             </div>
                         </div>
                         

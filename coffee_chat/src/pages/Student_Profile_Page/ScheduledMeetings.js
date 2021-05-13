@@ -27,7 +27,8 @@ class ScheduledMeetings extends React.Component {
                     <Fade bottom>
                         <div className="student-scheduled-container">
                             <div id="meetings"> 
-                                <h3 style={{color:"white", fontSize:"25px"}}>Upcoming meetings <em style={{color:"white", fontSize:"15px"}}>(click name for info)</em></h3>
+                                <h3 style={{color:"white", fontSize:"25px"}}>Upcoming meetings </h3>
+                                {/* <em style={{color:"white", fontSize:"15px"}}>(click name for info)</em> */}
                                 
                                 <Fade right cascade>
                                     <div id="student_meeting_container">

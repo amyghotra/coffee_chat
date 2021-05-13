@@ -97,8 +97,9 @@ const SignUpForm = ({setAuth}) => {
     <div>
       {/* {console.log('sign up',email, name, password, isStudent, company, jobTitle)} */}
 
-      <Form>
+      <Form style={{display:"flex",flexFlow:"row",marginLeft:"13%"}}>
         {/* Username */}
+        <div style={{marginRight:"10px"}}>
         <FormGroup>
           <Label for="name">Full Name</Label>
           <Input type='text' name="name" id="name" 
@@ -132,7 +133,9 @@ const SignUpForm = ({setAuth}) => {
           </FormGroup>
         </FormGroup>
         {/* Pros additional info */}
+        </div>
         {isStudent? 
+        <div>
           <Fade>
             {/* Company */}
             <FormGroup>
@@ -147,7 +150,11 @@ const SignUpForm = ({setAuth}) => {
               placeholder="ex: Computer Science" onChange={onChange} />
             </FormGroup>
           </Fade> 
-          : (
+          <FormGroup>
+          <Button className={styleClasses.submitButton} onClick={handleLogin} >Create Account</Button>
+        </FormGroup>
+          </div>: (
+          <div>
           <Fade>
             {/* Company */}
             <FormGroup>
@@ -166,12 +173,14 @@ const SignUpForm = ({setAuth}) => {
               <Input type='text' name="yearsExperience" id="yearsExperience" 
               placeholder="ex: 5" onChange={onChange} />
             </FormGroup>
+            <FormGroup>
+            <Button className={styleClasses.submitButton} onClick={handleLogin} >Create Account</Button>
+        </FormGroup>
           </Fade>
+          </div>
         )}
         {/* Submit */}
-        <FormGroup>
-          <Button className={styleClasses.submitButton} onClick={handleLogin} >Create Account</Button>
-        </FormGroup>
+        
       </Form>
     </div>
   )
