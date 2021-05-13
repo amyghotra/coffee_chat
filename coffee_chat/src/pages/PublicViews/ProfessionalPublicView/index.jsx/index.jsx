@@ -9,13 +9,13 @@ import { GetProfessionalInfo } from '../../../../services/professional';
 const ProfessionalPublicView = () => {
 	const { selectedProfessional } = useContext(UserContext);
 
-	const [ professionalInfo, setProfessionalInfo] = useState();
+	const [ professionalInfo, setProfessionalInfo] = useState([]);
 
 	useEffect(async () => {
 		try {
 			const dbProfessionalInfo = await GetProfessionalInfo(selectedProfessional);
 			console.log('db', dbProfessionalInfo)
-			setProfessionalInfo(dbProfessionalInfo.data);
+			setProfessionalInfo(dbProfessionalInfo);
 		} catch (error) {
 		}
 		

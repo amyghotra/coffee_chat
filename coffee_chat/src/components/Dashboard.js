@@ -1,58 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { Redirect, location, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 // import ProfessionalProfile from '../pages/Professional_Profile/index'
-import Loading from "./loading/index";
+import Loading from './loading/index';
 
 export default function Dashboard(props) {
   const history = useHistory();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  setIsAuthenticated(false);
 
-  async function getInfo() {
-    let object = "";
-    let obj_string = "";
-    try {
-      const response = await fetch("http://localhost:5000/dashboard/", {
-        method: "GET",
-        headers: { jwtToken: localStorage.token },
-      })
-        .then((res) => res.text())
-        .then((text) => (obj_string = text));
-      // .then(text => {object = text; obj_string = text})
-      object = JSON.parse(obj_string);
-      // console.log(object)
+  useEffect(() => {
+    async function getInfo() {
+      let object = '';
+      let obj_string = '';
+      try {
+        await fetch('http://localhost:5000/dashboard/', {
+          method: 'GET',
+          headers: { jwtToken: localStorage.token },
+        })
+          .then((res) => res.text())
+          .then((text) => (obj_string = text));
+        // .then(text => {object = text; obj_string = text})
+        object = JSON.parse(obj_string);
 
-      const user_type = obj_string.split('"')[1]
-      // const user_name = object.pro_name
+        // const user_type = obj_string.split('"')[1]
+        // const user_name = object.pro_name
 
-      if(object.professionalInfo) {
+        if (object.professionalInfo) {
           history.push({
-              pathname:"/professionalprofile",
-              state:{
-                  isAuth: true,
-                  obj: object
-              }
-          })
-      } else {
+            pathname: '/professionalprofile',
+            state: {
+              isAuth: true,
+              obj: object,
+            },
+          });
+        } else {
           history.push({
-              pathname:"/studentprofile",
-              state:{
-                  isAuth: true,
-                  obj: object
-              }
-          })
+            pathname: '/studentprofile',
+            state: {
+              isAuth: true,
+              obj: object,
+            },
+          });
+        }
+      } catch (err) {
+        console.log(err.message);
       }
 
-    } catch (err) {
-        console.log(err.message)
-    }
-
-      const user_type = obj_string.split('"')[1];
+      // const user_type = obj_string.split('"')[1];
       // const user_name = object.pro_name
 
       if (object.professionalInfo) {
         history.push({
-          pathname: "/professionalprofile",
+          pathname: '/professionalprofile',
           state: {
             isAuth: true,
             obj: object,
@@ -60,7 +60,7 @@ export default function Dashboard(props) {
         });
       } else {
         history.push({
-          pathname: "/studentprofile",
+          pathname: '/studentprofile',
           state: {
             isAuth: true,
             obj: object,
@@ -68,11 +68,8 @@ export default function Dashboard(props) {
         });
       }
     }
-
-
-  useEffect(() => {
     getInfo();
-  }, []);
+  }, [history]);
 
   // useEffect(() => {
   //     if(props.location.state.isAuth !== 'undefined') {

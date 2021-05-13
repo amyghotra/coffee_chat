@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ProScheduledMeetings from './ProScheduledMeetings'
 import ProfessionalInfo from './ProInfo'
 import NavBar from '../../components/navbar/index'
-import {useHistory, location} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 
 export default function ProfessionalProfile(props){ 
     console.log(props.location.state.obj)
@@ -12,10 +12,9 @@ export default function ProfessionalProfile(props){
     const { position } = props.location.state.obj.role
 
     console.log(props.location.state.obj.role)
-    // console.log(props.location.state.obj.company)
     
-    const history = useHistory()
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    // const history = useHistory()
+    // const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     // useEffect(() => {
     //     if(props.location.state.isAuth !== 'undefined') {
