@@ -6,3 +6,11 @@ export const GetProfessionalInfo = async (professionalId) => {
   );
   return professionalInfo;
 };
+
+export const GetProfessionalAvailability = async (professionalId) => {
+  const professionalAvail = await axios.get(
+    `http://localhost:5000/professionals/${professionalId}/availability`
+  );
+
+  return professionalAvail.data;
+};
