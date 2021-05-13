@@ -52,7 +52,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.get('/:id/availablility', async (req, res) => {
+router.get('/:id/availability', async (req, res) => {
   try {
     const pro_id = req.params.id;
     let availablility;
