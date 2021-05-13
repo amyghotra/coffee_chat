@@ -119,82 +119,79 @@ function ProEditSched() {
     } catch (err) {
       console.log(err);
     }
+  }
 
-    return (
-      <>
-        <NavBar />
-        <div id="sched_info">
-          <div id="pro_edit_sched_container">
-            <h2 id="edit_sched_title">Edit your availability</h2>
-            <div id="sched_form">
-              <form id="schedule_selection">
-                <div id="date_picker">
-                  <label>Date:</label>
-                  <DatePicker
-                    name="selectedDate"
-                    value={selectedDate}
-                    selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
-                  />
-                </div>
+  return (
+    <>
+      <NavBar />
+      <div id="sched_info">
+        <div id="pro_edit_sched_container">
+          <h2 id="edit_sched_title">Edit your availability</h2>
+          <div id="sched_form">
+            <form id="schedule_selection">
+              <div id="date_picker">
+                <label>Date:</label>
+                <DatePicker
+                  name="selectedDate"
+                  value={selectedDate}
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                />
+              </div>
 
-                <br />
-                <br />
+              <br />
+              <br />
 
-                <div
-                  style={{ width: '250px', height: '110px' }}
-                  id="time_picker"
-                >
-                  <label style={{ width: 'max-content' }}>
-                    Time (30 minute increment):
-                  </label>
-                  <TimePicker
-                    disableClock={true}
-                    onChange={onSetTime}
-                    value={time}
-                  />
-                </div>
+              <div style={{ width: '250px', height: '110px' }} id="time_picker">
+                <label style={{ width: 'max-content' }}>
+                  Time (30 minute increment):
+                </label>
+                <TimePicker
+                  disableClock={true}
+                  onChange={onSetTime}
+                  value={time}
+                />
+              </div>
 
-                <br />
-                <button
-                  onClick={newTimeAdded}
-                  id="submit_time_button"
-                  type="submit"
-                >
-                  submit
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div id="current_sched">
-            <h2 id="current_sched_title">Currently selected</h2>
-            <div id="current_sched_list">
-              {selectedTimes.map((item) => {
-                return (
-                  <div id="selected">
-                    <SelectedTimes
-                      pro_id={proId}
-                      date={item.date.substr(0, 10)}
-                      time={item.time.substr(0, 8)}
-                    />{' '}
-                    <button
-                      id="rmv_time"
-                      onClick={() =>
-                        deleteAvailability(item.date.substr(0, 10), item.time)
-                      }
-                    >
-                      delete
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
+              <br />
+              <button
+                onClick={newTimeAdded}
+                id="submit_time_button"
+                type="submit"
+              >
+                submit
+              </button>
+            </form>
           </div>
         </div>
-      </>
-    );
-  }
+
+        <div id="current_sched">
+          <h2 id="current_sched_title">Currently selected</h2>
+          <div id="current_sched_list">
+            {selectedTimes.map((item) => {
+              return (
+                <div id="selected">
+                  <SelectedTimes
+                    pro_id={proId}
+                    date={item.date.substr(0, 10)}
+                    time={item.time.substr(0, 8)}
+                  />{' '}
+                  <button
+                    id="rmv_time"
+                    onClick={() =>
+                      deleteAvailability(item.date.substr(0, 10), item.time)
+                    }
+                  >
+                    delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default ProEditSched;
