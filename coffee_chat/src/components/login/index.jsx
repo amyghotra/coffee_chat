@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Button, Form, FormGroup, Label, Input, } from 'reactstrap';
 import { useHistory } from 'react-router-dom'
+import UserContext from '../../contexts/users';
 
 const useStyle = makeStyles({
   submitButton: {
@@ -17,6 +18,8 @@ const useStyle = makeStyles({
 })
 
 const LoginForm = () => {
+  const { handleAuthenicate } = useContext(UserContext);
+
   const styleClasses = useStyle();
   const [isAuth, setIsAuth] = useState(false)
 
@@ -67,6 +70,8 @@ const LoginForm = () => {
 
       if (parseRes.length) {
         localStorage.setItem("token", token_value);
+        console.log('login', token_value)
+        handleAuthenicate(token_value);
         setIsAuth(true);
         handleSuccess(info.id)
         // toast.success("Logged in Successfully");
