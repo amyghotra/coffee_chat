@@ -8,6 +8,8 @@ import {
   Input, 
 } from "reactstrap";
 
+import './index.css'
+
 const SearchForm = ({ onSearch, onProfChange, onCompChange, compQuery, profQuery }) => {
 
   const handleCompChange = (e) => {
@@ -28,30 +30,32 @@ const SearchForm = ({ onSearch, onProfChange, onCompChange, compQuery, profQuery
 
   return (
     <>
-      <h3>Search Form</h3>
+      {/* <h3 style={{fontFamily:"'Raleway"}}>Search</h3> */}
       <Form>
         <FormGroup>
-          <Label for="company">Company</Label>
+          <Label className="input_label" for="company">Company</Label>
           <Input
             type="text"
             name="company"
             placeholder="Company Name"
             onChange={handleCompChange}
             value={compQuery}
+            className="input_field"
           />
         </FormGroup>
         <FormGroup>
-          <Label for="profession">Profession</Label>
+          <Label className="input_label" for="profession">Profession</Label>
           <Input
             type="text"
             name="profession"
             placeholder="Profession Name"
             onChange={handleProfChange}
             value={profQuery}
+            className="input_field"
           />
         </FormGroup>
         <FormGroup>
-          <Button onClick={handleSearch}>Search</Button>
+          <Button id="submit_search_button" onClick={handleSearch}>Search</Button>
         </FormGroup>
       </Form>
     </>

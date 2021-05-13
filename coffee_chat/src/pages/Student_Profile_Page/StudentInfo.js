@@ -28,20 +28,18 @@ function StudentInfo(props){
                     </Fade>
                 </div>
                 <div className="student-profile-top-container">
-                    <Fade left>
+                    {/* <Fade left> */}
                         <div>
-                            <p className="student-profile-top-item">{props.school} : {props.major}</p>
+                            <p style={{padding:"0%",marginRight:"20px"}} className="student-profile-top-item">{props.school} : {props.major}</p>
                         </div>
-
                         <div>
                             <a href={props.social}><p className="student-profile-top-item" id="linkedin">LinkedIn</p> </a>
                         </div>
-                        <div>
-                            {/* <Link to='/student_edit'><button className="student-profile-top-item" id="edit_profile_button" onClick={handleClick}>edit profile</button></Link> */}
 
+                        <div style={{marginLeft:"-40px", marginTop:"-28px"}}>
                             <button className="student-profile-top-item" id="edit_profile_button" onClick={handleClick}>edit profile</button> 
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
                 </div>
             </div>
         </div>

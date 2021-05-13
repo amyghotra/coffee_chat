@@ -30,7 +30,6 @@ class LandingInfo extends React.Component {
           <p className ="landing_coffee_chat" id="coffee_chat_landing">CoffeeChat</p>
           <div id="buttons">
             <Link to='./sign-in'><button id="login_button" onClick={this.handleLogin}>Login/Sign-up</button></Link>
-            {/* <button id ="sign_up">Sign Up</button> */}
           </div>
           <Fade right cascade>
           <div id="quote_subquote">

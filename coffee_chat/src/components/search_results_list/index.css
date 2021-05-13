@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;413;500;600&display=swap');
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+#results_section_title{
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+.searched_items{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Raleway', sans-serif;
+}

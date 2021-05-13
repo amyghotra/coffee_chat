@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { Container } from "@material-ui/core";
 
+import './index.css'
+
 import Fade from 'react-reveal/Fade';
 import NavBar from "../../components/navbar";
 import SearchResultList from "../../components/search_results_list";
@@ -40,7 +42,7 @@ const SchedulePage = () => {
   const content = useMemo(() => {
     if (isError === undefined || isError) {
       return (
-        <div>
+        <div  style={{fontFamily:"'Raleway"}}>
           No Results
         </div>
       );
@@ -59,8 +61,8 @@ const SchedulePage = () => {
 
       <NavBar />
       <Fade>
-        <Container>
-          <h1>Schedule Page</h1>
+        <Container style={{marginTop:"8vh"}}>
+          <h1 id="sched_page_title">Schedule Search</h1>
           <SearchForm 
             onSearch={handleSearch}
             onCompChange={handleCompChange}
