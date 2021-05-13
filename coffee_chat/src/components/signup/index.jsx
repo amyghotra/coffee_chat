@@ -14,7 +14,7 @@ const useStyle = makeStyles({
   },
 })
 
-const SignUpForm = ({setAuth}) => {
+const SignUpForm = () => {
   const styleClasses = useStyle();
 
   const history = useHistory()

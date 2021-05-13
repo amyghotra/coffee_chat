@@ -3,7 +3,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 // import ProfessionalProfile from '../pages/Professional_Profile/index'
 import Loading from './loading/index';
 
-export default function Dashboard(props) {
+export default function Dashboard() {
   const history = useHistory();
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -71,28 +71,10 @@ export default function Dashboard(props) {
     getInfo();
   }, [history]);
 
-  // useEffect(() => {
-  //     if(props.location.state.isAuth !== 'undefined') {
-  //         setIsAuthenticated(props.location.state.isAuth)
-  //         if(props.location.state.is_student) {
-  //             history.push({
-  //                 pathname:'/studentprofile',
-  //                 state:{ isAuth: true}
-  //             })
-  //         } else {
-  //             history.push({
-  //                 pathname:'/professionalprofile',
-  //                 state:{ isAuth: true}
-  //             })
-  //         }
-  //     } else {
-  //         // setIsAuthenticated(false)
-  //         history.push('/landing')
-  //     }
-  // }, [])
-
   if (!isAuthenticated) {
     <Redirect to="/landing" />;
+  } else if (isAuthenticated) {
+    <Redirect to="/professionalprofile" />;
   }
 
   return (
