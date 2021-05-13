@@ -58,12 +58,12 @@
 }
 
 #submit_time_button{
-    width:70px; 
+    width:100px; 
     height:30px; 
     border-radius:5px; 
-    background-color:#283044; 
+    background-color:black; 
     color: white; 
-    border:1px solid #283044;
+    border:1px solid black;
 }
 
 #submit_time_button:hover{
@@ -123,4 +123,31 @@
     background-color: #8b786d;
     border: 1px solid #8b786d;
     border-radius: 5px;
+}
+
+#rmv_time{
+    background-color: white;
+    color:black;
+    border: 1px solid white;
+    border-radius: 4px;
+    width: 100px;
+    margin-left: 30vw;
+    margin-top: -60px;
+}
+
+#rmv_time:hover{
+    background-color: black;
+    border: 1px solid black;
+    color:white;
+    transition:1s
+}
+
+#selected{
+    /* background-color: teal; */
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 30px;
+    height: 23vh;
+    border: 1px solid black;
+    border-radius: 7px;
 }

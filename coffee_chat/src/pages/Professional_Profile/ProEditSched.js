@@ -134,7 +134,7 @@ function ProEditSched(){
 
                             <br /><br />
 
-                            <div id="time_picker">
+                            <div  style={{width:"250px",height:"110px"}} id="time_picker">
                                 <label style={{width:"max-content"}}>Time (30 minute increment):</label>
                                 <TimePicker disableClock={true} onChange={onSetTime} value={time} />
                             </div>
@@ -150,7 +150,7 @@ function ProEditSched(){
                     <div id="current_sched_list"> 
                         {selectedTimes.map(item => 
                         {
-                            return <div><SelectedTimes pro_id={proId} date={item.date.substr(0,10)} time={item.time.substr(0,8)} /> <br /> <button onClick={() => deleteAvailability(item.date.substr(0,10), item.time)}>click me</button></div>}
+                            return <div id="selected"><SelectedTimes pro_id={proId} date={item.date.substr(0,10)} time={item.time.substr(0,8)} /> <button id="rmv_time" onClick={() => deleteAvailability(item.date.substr(0,10), item.time)}>delete</button></div>}
                         )}
 
                     </div>
