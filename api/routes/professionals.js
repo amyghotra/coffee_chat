@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pool = require('../db');
 
+// GetAllProfessionalInformationHandler
 router.get('/all', async (_, res) => {
   try {
     const results = {};
@@ -25,6 +26,7 @@ router.get('/all', async (_, res) => {
   }
 });
 
+// GetProfessionalInfomationHandler
 router.get('/:id', async (req, res) => {
   try {
     // const results = {};
@@ -47,6 +49,29 @@ router.get('/:id', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     return res.status(401).json('proid Server Error');
+  }
+});
+
+router.get('/:id/availablility', async (req, res) => {
+  try {
+    const pro_id = req.params.id;
+    let availablility;
+
+    const dbAvailability = await pool.query(
+      `
+        SELECT date, time FROM proavailability WHERE pro_id = $1
+      `,
+      [pro_id]
+    );
+
+    availablility = dbAvailability.rows;
+
+    return res.status(200).json({
+      results: availablility,
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(401).json('proid avail Server Error');
   }
 });
 
