@@ -77,6 +77,7 @@ const LoginForm = () => {
       }
     } catch (err) {
       console.log(err.message)
+      console.log(isAuth);
     }
   }
 

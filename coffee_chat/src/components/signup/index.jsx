@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {useHistory, Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Fade from 'react-reveal/Fade';
 
 const useStyle = makeStyles({
@@ -14,7 +14,7 @@ const useStyle = makeStyles({
   },
 })
 
-const SignUpForm = ({setAuth}) => {
+const SignUpForm = () => {
   const styleClasses = useStyle();
 
   const history = useHistory()
@@ -51,9 +51,9 @@ const SignUpForm = ({setAuth}) => {
     history.push('/dash')
   }
 
-  const handleAuthFailure = () => {
-    // 
-  }
+  // const handleAuthFailure = () => {
+  //   // 
+  // }
 
   async function handleLogin(event) {
     event.preventDefault();
@@ -89,6 +89,7 @@ const SignUpForm = ({setAuth}) => {
       }
     } catch (err) {
       console.log(err.message)
+      console.log(isAuthenticated)
     }
     // history.push("./landing")
   }

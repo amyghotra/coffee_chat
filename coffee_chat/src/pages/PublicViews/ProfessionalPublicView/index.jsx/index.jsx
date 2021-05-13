@@ -15,7 +15,7 @@ const ProfessionalPublicView = () => {
 		try {
 			const dbProfessionalInfo = await GetProfessionalInfo(selectedProfessional);
 			console.log('db', dbProfessionalInfo)
-			setProfessionalInfo(dbProfessionalInfo.data);
+			setProfessionalInfo(dbProfessionalInfo);
 		} catch (error) {
 		}
 		
@@ -28,12 +28,13 @@ const ProfessionalPublicView = () => {
 
 	return (
 	  <>
+			{console.log('profinfo', professionalInfo)}
 	    <NavBar />
 			{
 				professionalInfo ? 
 					<div id="pro_public_container">
 						<PublicProInfo professionalInfo={professionalInfo} />
-						<PublicProMeetingSelection />
+						<PublicProMeetingSelection professionalInfo={professionalInfo} />
 					</div> 
 					: 
 					<></>
