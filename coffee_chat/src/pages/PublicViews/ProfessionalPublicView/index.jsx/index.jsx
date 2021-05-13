@@ -33,7 +33,7 @@ const ProfessionalPublicView = () => {
 				professionalInfo ? 
 					<div id="pro_public_container">
 						<PublicProInfo professionalInfo={professionalInfo} />
-						<PublicProMeetingSelection />
+						<PublicProMeetingSelection professionalInfo={professionalInfo} />
 					</div> 
 					: 
 					<></>
