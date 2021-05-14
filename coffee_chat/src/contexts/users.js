@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState, useCallback } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { GetVertification } from '../services';
 
 const uType = {
