@@ -1,17 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import StudentInfo from './StudentInfo'
 import NewMeetings from './NewMeeting'
 import ScheduledMeetings from './ScheduledMeetings'
 import NavBar from '../../components/navbar/index'
-import {useHistory, location} from 'react-router-dom'
 
-export default function Student_Profile(props){
-    const history = useHistory()
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
-
+const Student_Profile = (props) => {
+	console.log('student pp',props);
     const { school, major } = props.location.state.obj.studentInfo
     const { name, email, social } = props.location.state.obj.userInfo
-    // console.log(props.location.state.obj.studentInfo)
+    console.log(props.location.state.obj.studentInfo)
     // console.log(props.location.state.obj.userInfo)
 
     // useEffect(() => {
@@ -38,3 +35,5 @@ export default function Student_Profile(props){
         </>
     )
 }
+
+export default Student_Profile;
