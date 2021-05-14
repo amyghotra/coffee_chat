@@ -21,6 +21,7 @@ const UserContext = createContext({
 });
 
 export const UserContextProvider = ({ children }) => {
+  console.log('UserContext Initialization');
   const [userType, setUserType] = useState(uType.GUEST);
   const [authorized, setAuthorized] = useState(false);
   const [selectedProfessional, setSelectedProfessional] = useState();
