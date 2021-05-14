@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const pool = require('../db');
+const authorized = require('../middleware/authorization');
 
 // GetAllProfessionalInformationHandler
 router.get('/all', async (_, res) => {
@@ -52,6 +53,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// GetAProfessionalsAvailbility
 router.get('/:id/availability', async (req, res) => {
   try {
     const pro_id = req.params.id;
@@ -72,6 +74,17 @@ router.get('/:id/availability', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     return res.status(401).json('proid avail Server Error');
+  }
+});
+
+// GetProfessionalInfo
+router.get('/', authorized, async (req, res) => {
+  try {
+    const userId = req.user;
+
+    return res.status(200).json({ userId });
+  } catch (error) {
+    console.log(error.message);
   }
 });
 
