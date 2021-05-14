@@ -10,13 +10,15 @@ const searchRouter = require('./search');
 const updateStudentInfo = require('./updateStudentInfo');
 const updateProInfo = require('./updateProInfo');
 const proSchedule = require('./proSchedule');
-const scheduleMeetings = require('./scheduleMeetings')
+const scheduleMeetings = require('./scheduleMeetings');
+const studentRouter = require('./students');
 
 // Connect routes
 router.use('/auth', jwtauthRouter);
 router.use('/dashboard', dashboardRouter);
 router.use('/companies', companyRouter);
 router.use('/professionals', professionalsRouter);
+router.use('/students', studentRouter);
 router.use('/search', searchRouter);
 router.use('/updateStudentInfo', updateStudentInfo);
 router.use('/updateProInfo', updateProInfo);

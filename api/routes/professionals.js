@@ -82,7 +82,18 @@ router.get('/', authorized, async (req, res) => {
   try {
     const userId = req.user;
 
-    return res.status(200).json({ userId });
+    const professionalInfo = await pool.query(
+      `
+        SELECT u.id userid, name, social, position, company FROM users u 
+        JOIN worksat w on u.id = w.pro_id 
+        JOIN companies c on w.company_id = c.id
+        WHERE 
+          u.id = (SELECT id FROM PROFESSIONALS WHERE id = $1); 
+      `,
+      [userId]
+    );
+
+    return res.status(200).json({ results: professionalInfo.rows[0] });
   } catch (error) {
     console.log(error.message);
   }
