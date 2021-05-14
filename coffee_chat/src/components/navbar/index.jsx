@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { makeStyles } from "@material-ui/core";
 import {
   Collapse,
@@ -15,6 +15,7 @@ import {
 } from 'reactstrap';
 import './nav.css'
 import logo from  '../../images/logo.png'
+import UserContext from '../../contexts/users';
 
 const useStyles = makeStyles({
   navbar: {
@@ -34,11 +35,45 @@ const useStyles = makeStyles({
 });
 
 const NavBar = () => {
+  const { userType, handleLogout } = useContext(UserContext);
+
   const classes = useStyles();
 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const renderStudentView = () => {
+    return (
+      <>
+        <NavLink style={{color:"white"}} className="nav_text" href="/schedule">Schedule</NavLink>
+        <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Student Profile</NavLink>
+        <NavItem>
+          <NavLink style={{color:"white"}} className="nav_text" href="/" onClick={handleLogout}>Logout</NavLink>
+        </NavItem>
+      </>
+    );
+  }
+
+  const renderProfessionalView = () => {
+    return (
+      <>
+        <NavLink style={{color:"white"}} className="nav_text" href="/professionalprofile">Professional Profile</NavLink>
+        <NavItem>
+          <NavLink style={{color:"white"}} className="nav_text" href="/" onClick={handleLogout}>Logout</NavLink>
+        </NavItem>
+      </>
+    );
+  }
+
+  const renderUserNavbar = () => {
+    if (userType === 'student') {
+      return renderStudentView();
+    }
+    else {
+      return renderProfessionalView();
+    }
+  }
 
   return (
     <div id="universal_navbar">
@@ -67,19 +102,9 @@ const NavBar = () => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-
-            {/* Schedule Link */}
-            <NavLink style={{color:"white"}} className="nav_text" href="/schedule">Schedule</NavLink>
-            <NavLink style={{color:"white"}} className="nav_text" href="/studentprofile">Student Profile</NavLink>
-            <NavLink style={{color:"white"}} className="nav_text" href="/professionalprofile">Professional Profile</NavLink>
-            {/* Edit profile */}
-            <NavLink style={{color:"white"}} className="nav_text" href="/student_edit">Student Edit</NavLink>
-            <NavLink style={{color:"white"}} className="nav_text" href="/pro-edit">Professional Edit</NavLink>
-
-            {/* TODO CONDITIONAL RENDER */}
-            <NavItem>
-                <NavLink style={{color:"white"}} className="nav_text" href="/">Logout</NavLink>
-            </NavItem>
+            {console.log('navbar', userType)}
+            {userType !== 'guest' ? renderUserNavbar() : <></>}
+           
           </Nav>
         </Collapse>
       </Navbar>

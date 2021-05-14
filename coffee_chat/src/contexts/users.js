@@ -25,37 +25,34 @@ export const UserContextProvider = ({ children }) => {
   const [authorized, setAuthorized] = useState(false);
   const [selectedProfessional, setSelectedProfessional] = useState();
 
-  useEffect(() => {
-    const handleRetrieveUserType = async (token) => {
-      try {
-        const userT = await GetVertification(token);
-        // console.log(userT);
-        if (userT.userType === 'student') {
-          setUserType(uType.STUDENT);
-          setAuthorized(true);
-        } else if (userT.userType === 'professional') {
-          setUserType(uType.PRO);
-          setAuthorized(true);
-        }
-      } catch (error) {
-        setUserType(uType.GUEST);
+  const handleAuthenicate = async (token) => {
+    try {
+      const userT = await GetVertification(token);
+      // console.log(userT);
+      if (userT.userType === 'student') {
+        setUserType(uType.STUDENT);
+        setAuthorized(true);
+      } else if (userT.userType === 'professional') {
+        setUserType(uType.PRO);
+        setAuthorized(true);
       }
-    };
-
-    handleRetrieveUserType(localStorage.token);
-  }, []);
+    } catch (error) {
+      setUserType(uType.GUEST);
+    }
+  };
 
   const handleSetProfessional = (professionalId) => {
     setSelectedProfessional(professionalId);
   };
 
-  const handleAuthenicate = () => {
-    setAuthorized(true);
-  };
-
   const handleLogout = () => {
     setAuthorized(false);
+    localStorage.clear();
   };
+
+  useEffect(() => {
+    handleAuthenicate(localStorage.token);
+  }, [handleAuthenicate]);
 
   return (
     <UserContext.Provider
