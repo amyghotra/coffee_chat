@@ -10,6 +10,7 @@ const searchRouter = require('./search');
 const updateStudentInfo = require('./updateStudentInfo');
 const updateProInfo = require('./updateProInfo');
 const proSchedule = require('./proSchedule');
+const scheduleMeetings = require('./scheduleMeetings')
 
 // Connect routes
 router.use('/auth', jwtauthRouter);
@@ -20,6 +21,7 @@ router.use('/search', searchRouter);
 router.use('/updateStudentInfo', updateStudentInfo);
 router.use('/updateProInfo', updateProInfo);
 router.use('/proSchedule', proSchedule);
+router.use('/scheduleMeetings', scheduleMeetings);
 
 // Testing purposes
 router.use('/echo', echoRouter);
