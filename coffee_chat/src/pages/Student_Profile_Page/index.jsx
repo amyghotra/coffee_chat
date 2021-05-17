@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import StudentInfo from './StudentInfo'
-import NewMeetings from './NewMeeting'
-// import ScheduledMeetings from './ScheduledMeetings'
-// import './scheduled.css'
 import './index.css'
 import NavBar from '../../components/navbar/index'
 import {useHistory, location} from 'react-router-dom'
@@ -100,9 +97,9 @@ export default function Student_Profile(props){
                     )
                 })}
                 </div>
-                <div id="scheduled_meets">
+                {/* <div id="scheduled_meets">
                     <NewMeetings />
-                </div>
+                </div> */}
             </div>
         </>
     )

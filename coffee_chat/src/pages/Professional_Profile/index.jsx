@@ -1,5 +1,4 @@
 import React,  { useState, useEffect } from 'react'
-import ProScheduledMeetings from './ProScheduledMeetings'
 import ProfessionalInfo from './ProInfo'
 import NavBar from '../../components/navbar/index'
 import {useHistory} from 'react-router-dom'
