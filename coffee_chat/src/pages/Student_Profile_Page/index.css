@@ -64,3 +64,17 @@
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
 }
+
+#cancel_meeting{
+    background-color:#ab998f;
+    color:white;
+    border:1px solid #ab998f;
+    border-radius:7px;
+    font-family: 'Raleway', sans-serif;
+    height: 35px;
+}
+
+#cancel_meeting:hover{
+    background-color: #8B786D;
+    transition: 1s;
+}

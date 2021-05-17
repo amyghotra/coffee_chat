@@ -90,8 +90,8 @@ export default function Student_Profile(props){
                             <p style={{color:"black"}}  className="prof_info" id="zoom">Zoom id: {item.zoomID}</p>
                             <p style={{color:"black"}}  className="prof_info" id="zoom">Zoom password: {item.zoomPass}</p>
 
-                            <div style={{marginLeft:"250px"}}>
-                                <button onClick={() => cancelMeeting(item.pro_id, item.student_id, item.meetingDate_DB_FORMAT, item.meetingTime)} style={{backgroundColor:"#ab998f", color:"white"}} id="cancel_meeting" value="submit">Cancel</button> 
+                            <div style={{marginLeft:"300px"}}>
+                                <button onClick={() => cancelMeeting(item.pro_id, item.student_id, item.meetingDate_DB_FORMAT, item.meetingTime)} id="cancel_meeting" value="submit">Cancel</button> 
                             </div> 
                         </div>
                     )
