@@ -21,7 +21,7 @@ export default function ProfessionalProfile(props){
     async function cancelMeeting(pro_id, student_id, meetingDate, meetingTime) {
         try {
             const body = { pro_id, student_id, meetingDate, meetingTime }
-            // console.log(body)
+            console.log(body)
             let object = '';
             let object_string = '';
             await fetch('http://localhost:5000/proMeetings/cancel', {
@@ -57,6 +57,7 @@ export default function ProfessionalProfile(props){
 
         setUpcomingMeetings(availObjs);
 
+        console.log(availObjs)
 
         } catch (err) {
             console.log(err)

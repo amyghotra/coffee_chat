@@ -21,7 +21,7 @@ router.get('/getScheduled', authorization, async(req,res) => {
                 [meetings.rows[0].student_id]
             )
             const body = {
-                pro_id: information.rows[0].id,
+                pro_id: meetings.rows[0].pro_id,
                 student_social:studentInfo.rows[0].social,
                 student_id: meetings.rows[i].student_id,
                 student_name: information.rows[0].name,
@@ -50,8 +50,8 @@ router.put('/cancel', async(req,res) => {
         const { pro_id, student_id, meetingDate, meetingTime } = req.body
         
         const removeMeeting = await pool.query(
-            "DELETE FROM meetings WHERE pro_id=$1 AND student_id=$2 AND date=$3 AND time=$4",
-            [pro_id, student_id, meetingDate, meetingTime]
+            "DELETE FROM meetings WHERE pro_id=$1 AND student_id=$2 AND date=$3",
+            [pro_id, student_id, meetingDate]
         )
 
         const addProAvail = await pool.query(
