@@ -12,7 +12,6 @@
     display: flex;
     flex-flow: column;
     margin-top: 30px;
-    /* background-color: red; */
 }
 
 .search_input_field {
@@ -31,7 +30,6 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    /* flex-wrap:wrap; */
     justify-content: center;
     align-items: center;
     color: black;
@@ -44,7 +42,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: rebeccapurple; */
     padding: 40px;
     height: 64vh;
     width: 75vw;
@@ -58,16 +55,7 @@
 }
 
 #search_button {
-    /* padding-bottom: 60px; */
-    /* font-family: 'Raleway', sans-serif; */
-    /* font-weight: 300; */
     color:white;
-    /* margin: 0 auto; */
-    /* padding-top: 0px;
-    padding-bottom: 60px;
-    padding-left: 10px;
-    padding-right: 10px; */
-    /* vertical-align: center; */
     height:40px;
     width: 80px;
     background-color: #283044;
