@@ -21,8 +21,8 @@ router.put('/post', async(req,res) => {
         // create new meeting
         console.log(req.body)
         const newMeeting = await pool.query(
-            "INSERT INTO meetings(student_id,pro_id,date,time) VALUES ($1,$2,$3,$4)",
-            [studentId,userid,selectedDate,selectedTime]
+            "INSERT INTO meetings(student_id,pro_id,date,time,zoomid,zoompass) VALUES ($1,$2,$3,$4,$5,$6)",
+            [studentId,userid,selectedDate,selectedTime,Math.floor(Math.random() * 99999999999),Math.floor(Math.random() * 99999999999)]
         )
 
         // remove date and time from proavailability

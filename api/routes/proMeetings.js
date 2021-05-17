@@ -30,8 +30,8 @@ router.get('/getScheduled', authorization, async(req,res) => {
                 meetingTime: meetings.rows[i].time.toString().substr(0,5),
                 meetingDate_DB_FORMAT: meetings.rows[i].date.toJSON().substr(0,10),
                 meetingDate: meetings.rows[i].date.toString().substr(0,15),
-                zoomID: Math.floor(Math.random() * 9999999999),
-                zoomPass: Math.floor(Math.random() * 9999999999)
+                zoomID: meetings.rows[i].zoomid,
+                zoomPass: meetings.rows[i].zoompass
             }
             // console.log(body)
             proInfo.push(body)
