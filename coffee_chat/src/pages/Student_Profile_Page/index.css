@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600&display=swap');
+
+#new_meets::-webkit-scrollbar {
+    width: 0em;
+    background-color: transparent;
+    height:0em;
+}
+
+#new_meets::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+    border-radius: 12px;
+    width: 0em;
+    height: 0em;
+}
+
+#new_meets::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    width: 0em;
+    height: 0em;
+    outline: 0px solid #555B6E;
+    border-radius: 12px;
+}
+
+.prof_info{
+    font-family: 'Raleway', sans-serif;
+    margin-top: 25px;
+    margin-left: 10px;
+    color:white;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 0px;
+    padding: 2%;
+}
+
+
+#new_meets{
+    display:flex;
+    flex-flow:row;
+    flex-wrap:wrap; 
+    height: 64vh; 
+    width: 75vw; 
+    margin-left: 300px;
+    background-color:#283044; 
+    padding-top: 30px;
+    border: 1px solid black;
+    align-items: center;
+    overflow:scroll;
+    border-radius: 10px;
+}
+
+#meetings_container{
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: 10px;
+    margin-top: 65px;
+}
+
+
+#upcoming_title{
+    color: white;
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    font-size: 25px;
+}
