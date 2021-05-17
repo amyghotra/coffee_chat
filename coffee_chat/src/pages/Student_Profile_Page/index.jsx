@@ -16,11 +16,7 @@ export default function Student_Profile(props){
     
     const [upcomingMeetings, setUpcomingMeetings] = useState([])
 
-    const [meetingInfo, setMeetingInfo] = useState([])
-
     let availObjs = [];
-
-    let arr = []
 
     async function cancelMeeting(pro_id, student_id, meetingDate, meetingTime) {
         try {
