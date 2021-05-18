@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import StudentInfo from './StudentInfo'
 import './index.css'
 import NavBar from '../../components/navbar/index'
+// <<<<<<< fix
 import { useHistory } from 'react-router-dom'
 import { GetStudentUserInfo } from '../../services/retrieveUserInfo';
 
@@ -15,6 +16,11 @@ const Student_Profile = (props) => {
     // const { school, major } = props.location.state.obj.studentInfo
     // const { name, email, social } = props.location.state.obj.userInfo
     const { name, school, major, email, social } = userInfo;
+// import {useHistory, location} from 'react-router-dom'
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+//     const { school, major } = props.location.state.obj.studentInfo
+//     const { name, email, social } = props.location.state.obj.userInfo
     
     const [upcomingMeetings, setUpcomingMeetings] = useState([])
 
@@ -67,6 +73,7 @@ const Student_Profile = (props) => {
         }
     }
 
+// <<<<<<< fix
     useEffect(async() => {
         getMeetings()
         const results = await GetStudentUserInfo(localStorage.token);
