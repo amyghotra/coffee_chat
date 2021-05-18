@@ -21,6 +21,7 @@ const UserContext = createContext({
 });
 
 export const UserContextProvider = ({ children }) => {
+  console.log('UserContext Initialization');
   const [userType, setUserType] = useState(uType.GUEST);
   const [authorized, setAuthorized] = useState(false);
   const [selectedProfessional, setSelectedProfessional] = useState();
@@ -28,7 +29,7 @@ export const UserContextProvider = ({ children }) => {
   const handleAuthenicate = async (token) => {
     try {
       const userT = await GetVertification(token);
-      // console.log(userT);
+      // console.log(userT)
       if (userT.userType === 'student') {
         setUserType(uType.STUDENT);
         setAuthorized(true);

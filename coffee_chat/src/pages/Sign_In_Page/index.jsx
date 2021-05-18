@@ -19,7 +19,7 @@ const SignInPage = () => {
 
   return (
     <>
-      <h1>{userType}</h1>
+      {/* <h1>{userType}</h1> */}
       {authorized ? redirectFor(userType) : <></>}
       <div>
         <Navbar />

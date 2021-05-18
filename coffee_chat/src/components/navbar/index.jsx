@@ -102,9 +102,8 @@ const NavBar = () => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            {console.log('navbar', userType)}
+            {/* {console.log('navbar', userType)} */}
             {userType !== 'guest' ? renderUserNavbar() : <></>}
-           
           </Nav>
         </Collapse>
       </Navbar>
