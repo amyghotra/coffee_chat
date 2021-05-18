@@ -2,14 +2,19 @@ import React,  { useState, useEffect } from 'react'
 import ProfessionalInfo from './ProInfo'
 import NavBar from '../../components/navbar/index'
 import {useHistory} from 'react-router-dom'
+import { GetProfessionalUserInfo } from '../../services/retrieveUserInfo'
 
-export default function ProfessionalProfile(props){ 
+
+export default function ProfessionalProfile(){ 
     const history = useHistory()
+
+    const [userInfo, setUserInfo] = useState({});
     // console.log(props.location.state.obj)
-    const { name, email, social } = props.location.state.obj.userInfo
-    const { experience } = props.location.state.obj.professionalInfo
-    const { company } = props.location.state.obj.company
-    const { position } = props.location.state.obj.role
+    // const { name, email, social } = props.location.state.obj.userInfo
+    // const { experience } = props.location.state.obj.professionalInfo
+    // const { company } = props.location.state.obj.company
+    // const { position } = props.location.state.obj.role
+    const { name, email, social, experience, company, position } = userInfo;
 
     // console.log(props.location.state.obj.role)
 
@@ -63,8 +68,10 @@ export default function ProfessionalProfile(props){
         }
     }
 
-    useEffect(() => {
+    useEffect(async() => {
         getMeetings()
+        const results = await GetProfessionalUserInfo(localStorage.token);
+        setUserInfo(results);
     },[])
 
     return(
