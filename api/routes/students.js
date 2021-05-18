@@ -1,12 +1,12 @@
-const express = require("express");
+const express = require('express');
 
-const pool = require("../../user_info/db");
+const pool = require('../../user_info/db');
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const allStudents = await pool.query("SELECT * FROM students;");
+    const allStudents = await pool.query('SELECT * FROM students;');
     // console.log(allStudents.rows);
     res.send({
       data: allStudents.rows,
@@ -15,7 +15,5 @@ router.get("/", async (req, res) => {
     console.error(err.message);
   }
 });
-
-router.post("/");
 
 module.exports = router;

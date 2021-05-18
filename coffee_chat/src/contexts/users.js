@@ -29,7 +29,7 @@ export const UserContextProvider = ({ children }) => {
   const handleAuthenicate = async (token) => {
     try {
       const userT = await GetVertification(token);
-      // console.log(userT);
+      // console.log(userT)
       if (userT.userType === 'student') {
         setUserType(uType.STUDENT);
         setAuthorized(true);

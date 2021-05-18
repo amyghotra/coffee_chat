@@ -11,6 +11,9 @@ const updateStudentInfo = require('./updateStudentInfo');
 const updateProInfo = require('./updateProInfo');
 const proSchedule = require('./proSchedule');
 const scheduleMeetings = require('./scheduleMeetings')
+const studentMeetings = require('./studentMeetings')
+const proMeetings = require('./proMeetings')
+
 
 // Connect routes
 router.use('/auth', jwtauthRouter);
@@ -22,6 +25,8 @@ router.use('/updateStudentInfo', updateStudentInfo);
 router.use('/updateProInfo', updateProInfo);
 router.use('/proSchedule', proSchedule);
 router.use('/scheduleMeetings', scheduleMeetings);
+router.use('/studentMeetings', studentMeetings);
+router.use('/proMeetings', proMeetings);
 
 // Testing purposes
 router.use('/echo', echoRouter);

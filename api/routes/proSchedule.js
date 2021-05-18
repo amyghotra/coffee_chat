@@ -50,6 +50,8 @@ router.get("/getItems", authorization, async(req,res) => {
 router.post("/post", async(req,res) => {
     const { proId, date, time } = req.body
 
+    console.log(req.body)
+
     const newAvailObject = await pool.query("INSERT INTO proavailability(pro_id,date,time) VALUES ($1,$2,$3) RETURNING *",[proId, date, time])
 
     res.json(newAvailObject.rows[0])

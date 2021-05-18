@@ -155,4 +155,53 @@ router.get('/verify', authorization, async (req, res) => {
   }
 });
 
+router.get('/info/student', authorization, async (req, res) => {
+  try {
+    const studentId = req.user;
+
+    const studentInfo = await pool.query(
+      `
+        SELECT name, social, school, major 
+        FROM users u
+        JOIN students s ON s.id = u.id
+        WHERE u.id = $1
+      `,
+      [studentId]
+    );
+
+    // console.log(studentInfo.rows[0]);
+    return res.status(200).json({
+      results: studentInfo.rows[0],
+    });
+  } catch (error) {
+    console.error(error.message, 'info/student');
+    res.status(500).json('server error gwt info/student');
+  }
+});
+
+router.get('/info/pro', authorization, async (req, res) => {
+  try {
+    const proId = req.user;
+
+    const professionalInfo = await pool.query(
+      `
+        SELECT name, social, position, company FROM users u
+        JOIN worksat w on u.id = w.pro_id
+        JOIN companies c on w.company_id = c.id
+        WHERE
+          u.id = (SELECT id FROM PROFESSIONALS WHERE id = $1);
+      `,
+      [proId]
+    );
+
+    // console.log(professionalInfo.rows[0]);
+    return res.status(200).json({
+      results: professionalInfo.rows[0],
+    });
+  } catch (error) {
+    console.error(error.message, 'info/pro');
+    res.status(500).json('server error gwt info/pro');
+  }
+});
+
 module.exports = router;
