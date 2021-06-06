@@ -7,6 +7,8 @@ function StudentInfo(props) {
   const history = useHistory();
 
   function handleClick() {
+    // console.log("localStorage")
+    // console.log(localStorage)
     history.push({
       pathname: '/student_edit',
       state: {
